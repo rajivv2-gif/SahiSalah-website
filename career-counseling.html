@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Counseling & Stream Compatibility Suite | Sahi Salah</title>
+    <meta name="description"
+        content="Confused about your career stream? Get scientific, data-driven career counseling from top mentors. Find your compatibility with STEM, Humanities, or Management.">
+    <meta name="keywords"
+        content="Career Counseling, Stream Selection, Psychometric Test, College Admissions Guidance, Sahi Salah">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sahisalah.in/career-counseling.html">
+    <meta property="og:title" content="Scientific Career Counseling & Mentorship | Sahi Salah">
+    <meta property="og:description"
+        content="Find your perfect academic stream and career fit using our advanced 12-factor suitability suite and expert mentor team.">
+    <meta property="og:image"
+        content="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=630&q=80">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link class="prefetch-tag" rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link class="prefetch-tag" rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .counseling-hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #0b1329 100%);
+            color: white;
+            padding: 120px 20px 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        /* Ambient Glowing Blobs */
+        .counseling-hero::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.2) 0%, transparent 70%);
+            pointer-events: none;
+            filter: blur(50px);
+        }
+
+        .counseling-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -10%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(234, 88, 12, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+            filter: blur(50px);
+        }
+
+        /* Grid Pattern Overlay */
+        .counseling-hero .grid-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 24px 24px;
+            pointer-events: none;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+            margin-top: 50px;
+        }
+
+        .feature-card {
+            background: var(--glass-bg);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            border-radius: 24px;
+            padding: 40px 35px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.01);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(37, 99, 235, 0.08);
+            border-color: rgba(96, 165, 250, 0.4);
+        }
+
+        .feature-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-light), var(--secondary));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .feature-card:hover::after {
+            opacity: 1;
+        }
+
+        .feature-icon {
+            width: 65px;
+            height: 65px;
+            border-radius: 20px;
+            background: rgba(37, 99, 235, 0.08);
+            color: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            margin-bottom: 25px;
+            box-shadow: inset 0 0 10px rgba(37, 99, 235, 0.05);
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover .feature-icon {
+            background: var(--primary-light);
+            color: white;
+            transform: scale(1.05) rotate(5deg);
+        }
+
+        /* Interactive Stream Selector Preview Widget */
+        .widget-wrapper {
+            background: white;
+            border: 1px solid #cbd5e1;
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.03);
+            margin: 50px auto;
+            max-width: 900px;
+        }
+
+        .widget-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 12px 24px;
+            border-radius: 30px;
+            background: #f1f5f9;
+            color: #475569;
+            font-weight: 700;
+            font-family: 'Outfit', sans-serif;
+            border: 1px solid #e2e8f0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            box-shadow: 0 10px 20px rgba(2, 6, 23, 0.15);
+        }
+
+        .tab-content-pane {
+            display: none;
+            animation: paneFadeIn 0.5s ease;
+        }
+
+        .tab-content-pane.active {
+            display: block;
+        }
+
+        @keyframes paneFadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Step Timeline */
+        .step-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 60px auto;
+            padding-left: 50px;
+        }
+
+        .step-timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 5px;
+            bottom: 5px;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--primary-light), var(--secondary));
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+            background: white;
+            padding: 25px;
+            border-radius: 16px;
+            border: 1px solid #cbd5e1;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.01);
+            transition: all 0.3s;
+        }
+
+        .timeline-item:hover {
+            border-color: var(--primary-light);
+            transform: translateX(5px);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -46px;
+            top: 25px;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: white;
+            border: 4px solid var(--primary-light);
+            z-index: 2;
+            transition: all 0.3s;
+        }
+
+        .timeline-item:hover::before {
+            background: var(--secondary);
+            border-color: var(--secondary);
+        }
+
+        .mentor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 35px;
+            margin-top: 50px;
+        }
+
+        .mentor-card {
+            background: white;
+            border-radius: 24px;
+            border: 1px solid #cbd5e1;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+            text-align: center;
+            padding: 40px 25px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .mentor-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(234, 88, 12, 0.4);
+            box-shadow: 0 20px 40px rgba(234, 88, 12, 0.08);
+        }
+
+        .mentor-avatar-container {
+            position: relative;
+            width: 110px;
+            height: 110px;
+            margin: 0 auto 20px auto;
+        }
+
+        .mentor-avatar {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #f8fafc;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .mentor-avatar-container::after {
+            content: '✓';
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: bold;
+            border: 2px solid white;
+        }
+
+        .mentor-tag {
+            background: #fff7ed;
+            color: var(--secondary);
+            font-size: 0.8rem;
+            font-weight: 800;
+            padding: 6px 14px;
+            border-radius: 30px;
+            display: inline-block;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+
+<body>
+
+    <sahi-header></sahi-header>
+
+    <!-- Counseling Hero -->
+    <header class="counseling-hero" id="counseling-hero">
+        <div class="grid-pattern"></div>
+        <div class="container" style="position: relative; z-index: 2;">
+            <span class="badge" style="background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255,255,255,0.1); color: #93c5fd; margin-bottom: 15px; font-weight: 800;">🔬 AI-POWERED APTITUDE MAPPING</span>
+            <h1 style="color: white; font-size: 3.5rem; max-width: 900px; margin: 0 auto 20px auto; line-height: 1.1; font-weight: 800;">
+                Scientific Career Counseling for the <span class="gradient-text">Digital Economy</span>
+            </h1>
+            <p style="color: #cbd5e1; font-size: 1.25rem; max-width: 700px; margin: 0 auto 35px auto; font-weight: 400; line-height: 1.6;">
+                Don't gamble with your streams. Map your cognitive capacities, psychological resilience, and raw career orientations to 15,000+ top matches.
+            </p>
+            <button onclick="openLeadForm()" class="btn-apply-hero btn-large" style="margin: 0 auto; animation: applyPulseGlow 2.5s infinite; justify-content: center;" id="btn-hero-eval">
+                Book a Free Evaluation Session <i class="fa-solid fa-calendar-check" style="color:#60a5fa;"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Core Features Grid -->
+    <section class="container" style="padding: 100px 20px;" id="counseling-features">
+        <div class="section-header">
+            <h2>Our Multi-Dimensional <span class="gradient-text">Mentorship Model</span></h2>
+            <p style="max-width: 600px; margin: 0 auto;">We combine digital psychometrics with structured human advising to guarantee bias-free pathways.</p>
+        </div>
+
+        <div class="features-grid">
+            <!-- Feature 1 -->
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-brain"></i></div>
+                <h3 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 12px; font-family:'Outfit';">12-Factor Suitability</h3>
+                <p class="text-muted" style="font-size:0.95rem; line-height: 1.6;">Cognitive, resilience, learning-style, and leadership mapping designed to find your natural vocational matches.</p>
+            </div>
+
+            <!-- Feature 2 -->
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-compass-drafting"></i></div>
+                <h3 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 12px; font-family:'Outfit';">Personalized Roadmap</h3>
+                <p class="text-muted" style="font-size:0.95rem; line-height: 1.6;">An end-to-end action plan listing target universities, expected ROI, budget parameters, and stay-back visa benefits.</p>
+            </div>
+
+            <!-- Feature 3 -->
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-user-tie"></i></div>
+                <h3 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 12px; font-family:'Outfit';">Verified Alumni Mentors</h3>
+                <p class="text-muted" style="font-size:0.95rem; line-height: 1.6;">Receive mentoring directly from alumni of IITs, IIMs, and prestigious global schools who know the real job markets.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Stream Preview Widget -->
+    <section style="background: linear-gradient(to bottom, #ffffff, #f8fafc); padding: 80px 20px; border-top: 1px solid #cbd5e1;" id="stream-preview-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Explore <span class="gradient-text">Stream Profiles</span></h2>
+                <p>Click the stream tabs below to see matched profiles, skills, and industry directions instantly.</p>
+            </div>
+
+            <div class="widget-wrapper">
+                <div class="widget-tabs">
+                    <button class="tab-btn active" onclick="switchStreamTab(this, 'stem-tab')"><i class="fa-solid fa-microchip"></i> STEM & Technology</button>
+                    <button class="tab-btn" onclick="switchStreamTab(this, 'mgmt-tab')"><i class="fa-solid fa-chart-line"></i> Management & Commerce</button>
+                    <button class="tab-btn" onclick="switchStreamTab(this, 'human-tab')"><i class="fa-solid fa-feather"></i> Liberal Arts & Humanities</button>
+                </div>
+
+                <!-- STEM Content -->
+                <div class="tab-content-pane active" id="stem-tab">
+                    <h3 style="font-family:'Outfit'; font-size:1.6rem; color:var(--primary); margin-bottom:15px;">STEM & Engineering Pathways</h3>
+                    <p class="text-muted" style="margin-bottom:20px; font-size:0.95rem; line-height:1.6;">For students with analytical inquiry, mathematical speed, and structural logic. This is highly suitable for tech hubs and R&D careers.</p>
+                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:15px; text-align:left; font-size:0.95rem;" class="grid-2-col">
+                        <div><i class="fa-solid fa-circle-check text-primary" style="margin-right:8px;"></i> <strong>Top Careers:</strong> AI Engineer, Bio-tech Specialist, Full-Stack Dev</div>
+                        <div><i class="fa-solid fa-circle-check text-primary" style="margin-right:8px;"></i> <strong>Key Skills:</strong> Algorithmic Logic, Statistics, R&D Rigor</div>
+                    </div>
+                </div>
+
+                <!-- MGMT Content -->
+                <div class="tab-content-pane" id="mgmt-tab">
+                    <h3 style="font-family:'Outfit'; font-size:1.6rem; color:var(--primary); margin-bottom:15px;">Management & Corporate Pathways</h3>
+                    <p class="text-muted" style="margin-bottom:20px; font-size:0.95rem; line-height:1.6;">For students showing communication leadership, dispute resolution, financial logic, and scaling operational visions.</p>
+                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:15px; text-align:left; font-size:0.95rem;" class="grid-2-col">
+                        <div><i class="fa-solid fa-circle-check text-primary" style="margin-right:8px;"></i> <strong>Top Careers:</strong> Product Manager, Finance Analyst, Startup Founder</div>
+                        <div><i class="fa-solid fa-circle-check text-primary" style="margin-right:8px;"></i> <strong>Key Skills:</strong> Negotiation, Risk Thresholds, Operations Grit</div>
+                    </div>
+                </div>
+
+                <!-- Humanities Content -->
+                <div class="tab-content-pane" id="human-tab">
+                    <h3 style="font-family:'Outfit'; font-size:1.6rem; color:var(--primary); margin-bottom:15px;">Humanities & Creative Pathways</h3>
+                    <p class="text-muted" style="margin-bottom:20px; font-size:0.95rem; line-height:1.6;">For students demonstrating critical thinking, creative divergence, structural writing curiosity, and ESG orientations.</p>
+                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:15px; text-align:left; font-size:0.95rem;" class="grid-2-col">
+                        <div><i class="fa-solid fa-circle-check text-primary" style="margin-right:8px;"></i> <strong>Top Careers:</strong> Public Policy Advisor, UX Researcher, Creative Director</div>
+                        <div><i class="fa-solid fa-circle-check text-primary" style="margin-right:8px;"></i> <strong>Key Skills:</strong> Sociocultural Analysis, Interdisciplinary Curiosity, Ethics</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Step Timeline -->
+    <section style="background: #f8fafc; padding: 100px 20px; border-top: 1px solid #cbd5e1; border-bottom: 1px solid #cbd5e1;" id="counseling-process">
+        <div class="container">
+            <div class="section-header">
+                <h2>The 4-Step <span class="gradient-text">Mentorship Journey</span></h2>
+                <p>Simple, structured, and completely transparent. No hidden pressure to enroll.</p>
+            </div>
+
+            <div class="step-timeline">
+                <div class="timeline-item">
+                    <span style="position: absolute; right: 20px; top: 20px; font-size: 2rem; font-weight:800; color: rgba(37,99,235,0.08); font-family:'Outfit';">01</span>
+                    <h3 style="font-family:'Outfit'; font-size:1.3rem; margin-bottom: 8px; color:var(--primary);">Diagnostics</h3>
+                    <p class="text-muted" style="font-size:0.95rem; line-height:1.6;">Complete our 10-minute online profile matcher to evaluate your baseline academics and budget constraints.</p>
+                </div>
+                <div class="timeline-item">
+                    <span style="position: absolute; right: 20px; top: 20px; font-size: 2rem; font-weight:800; color: rgba(37,99,235,0.08); font-family:'Outfit';">02</span>
+                    <h3 style="font-family:'Outfit'; font-size:1.3rem; margin-bottom: 8px; color:var(--primary);">Deep Diagnostics Suite</h3>
+                    <p class="text-muted" style="font-size:0.95rem; line-height:1.6;">Take one of our specialized orientation tests (STEM, Humanities, or Management) to test cognitive interests.</p>
+                </div>
+                <div class="timeline-item">
+                    <span style="position: absolute; right: 20px; top: 20px; font-size: 2rem; font-weight:800; color: rgba(37,99,235,0.08); font-family:'Outfit';">03</span>
+                    <h3 style="font-family:'Outfit'; font-size:1.3rem; margin-bottom: 8px; color:var(--primary);">One-on-One Session</h3>
+                    <p class="text-muted" style="font-size:0.95rem; line-height:1.6;">Meet with a verified alumni domain specialist to review university options, placement metrics, and scholarships.</p>
+                </div>
+                <div class="timeline-item">
+                    <span style="position: absolute; right: 20px; top: 20px; font-size: 2rem; font-weight:800; color: rgba(37,99,235,0.08); font-family:'Outfit';">04</span>
+                    <h3 style="font-family:'Outfit'; font-size:1.3rem; margin-bottom: 8px; color:var(--primary);">Roadmap Delivery</h3>
+                    <p class="text-muted" style="font-size:0.95rem; line-height:1.6;">Receive your detailed PDF Action Plan outlining exact timelines, loan eligibility details, and application milestones.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mentor Roster -->
+    <section class="container" style="padding: 100px 20px;" id="counseling-mentors">
+        <div class="section-header">
+            <h2>Meet Your <span class="gradient-text">Advisors</span></h2>
+            <p>Our mentors have been in your shoes and succeeded globally. No commission-driven agents.</p>
+        </div>
+
+        <div class="mentor-grid">
+            <!-- Mentor 1 -->
+            <div class="mentor-card">
+                <div class="mentor-avatar-container">
+                    <img src="https://i.pravatar.cc/150?img=68" alt="Dr. Rajiv Verma" class="mentor-avatar">
+                </div>
+                <span class="mentor-tag">Admissions Head</span>
+                <h3 style="font-size:1.3rem; font-family:'Outfit'; margin-bottom:5px; color:var(--primary);">Dr. Rajiv Verma</h3>
+                <p class="small-text" style="color: #64748b; margin-bottom: 15px; font-weight:600;">Ex-IIT Delhi &bull; 15+ Yrs Exp</p>
+                <p class="text-muted" style="font-size:0.95rem; line-height:1.5;">Specializes in engineering admissions, scientific research profiles, and DAAD fellowship pathways in Germany.</p>
+            </div>
+
+            <!-- Mentor 2 -->
+            <div class="mentor-card">
+                <div class="mentor-avatar-container">
+                    <img src="https://i.pravatar.cc/150?img=47" alt="Sneha Kapoor" class="mentor-avatar">
+                </div>
+                <span class="mentor-tag" style="background:#eff6ff; color:var(--primary-light);">Management Lead</span>
+                <h3 style="font-size:1.3rem; font-family:'Outfit'; margin-bottom:5px; color:var(--primary);">Sneha Kapoor</h3>
+                <p class="small-text" style="color: #64748b; margin-bottom: 15px; font-weight:600;">IIM Ahmedabad &bull; Ex-McKinsey</p>
+                <p class="text-muted" style="font-size:0.95rem; line-height:1.5;">Guides candidates in strategic profile building for regular and executive MBAs, interview prep, and salary negotiations.</p>
+            </div>
+
+            <!-- Mentor 3 -->
+            <div class="mentor-card">
+                <div class="mentor-avatar-container">
+                    <img src="https://i.pravatar.cc/150?img=33" alt="Vikram Malhotra" class="mentor-avatar">
+                </div>
+                <span class="mentor-tag" style="background:#f0fdf4; color:var(--accent);">Global Pathway Advisor</span>
+                <h3 style="font-size:1.3rem; font-family:'Outfit'; margin-bottom:5px; color:var(--primary);">Vikram Malhotra</h3>
+                <p class="small-text" style="color: #64748b; margin-bottom: 15px; font-weight:600;">TU Munich Alumnus &bull; Ex-Siemens</p>
+                <p class="text-muted" style="font-size:0.95rem; line-height:1.5;">Expert in European public university systems, stay-back job search strategies, and German blocked account compliance.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section style="background: linear-gradient(135deg, var(--primary-light) 0%, #1e40af 100%); color:white; padding: 80px 20px; text-align:center; position:relative;" id="counseling-cta">
+        <div class="container" style="position:relative; z-index:2;">
+            <h2 style="font-family:'Outfit'; font-size:2.5rem; margin-bottom: 15px; font-weight: 800;">Secure Your Dynamic Career Assessment</h2>
+            <p style="opacity:0.9; max-width:600px; margin: 0 auto 35px auto; font-size: 1.15rem; line-height:1.6;">Identify your natural vocational compatibility and get matches from over 15,000+ top universities instantly.</p>
+            <button onclick="openLeadForm()" class="btn-secondary btn-large" style="border:none; color: var(--primary-light); background: white; margin: 0 auto; box-shadow: 0 10px 25px rgba(0,0,0,0.15); font-weight: 800;" id="btn-cta-eval">Start Assessment Diagnostics</button>
+        </div>
+    </section>
+
+    <sahi-footer></sahi-footer>
+
+    <sahi-lead-modal></sahi-lead-modal>
+
+    <!-- Include Mascot & Lead Form Scripts -->
+    <script src="components.js"></script>
+    <script src="common.js"></script>
+
+    <script>
+        function switchStreamTab(button, tabId) {
+            // Remove active classes
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-content-pane').forEach(pane => pane.classList.remove('active'));
+
+            // Add active classes
+            button.classList.add('active');
+            document.getElementById(tabId).classList.add('active');
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knowledge Hub & Social Feeds | Sahi Salah</title>
+    <meta name="description" content="Access real-time admissions guides, scholarship tips, and student interviews. Read our Substack articles and watch latest updates.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link class="prefetch-tag" rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link class="prefetch-tag" rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- StudyIndia CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            corePlugins: {
+                preflight: false, // Prevent Tailwind from overriding style.css defaults
+            },
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#020617',
+                            primary: '#2563eb',
+                            accent: '#60a5fa',
+                            gold: '#f59e0b',
+                            surface: '#0f172a',
+                            card: '#1e293b',
+                            light: '#f8fafc'
+                        }
+                    },
+                    backgroundImage: {
+                        'hero-glow': 'radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.15) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(245, 158, 11, 0.1) 0%, transparent 30%)',
+                    },
+                    boxShadow: {
+                        'glass': '0 8px 32px 0 rgba(0, 0, 0, 0.37)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        .tailwind-section {
+            background-color: #020617;
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .tailwind-section h1, .tailwind-section h2, .tailwind-section h3, .tailwind-section h4 {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .bento-card-tw {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .bento-card-tw:hover {
+            transform: translateY(-4px);
+            background: rgba(15, 23, 42, 0.95);
+            border-color: rgba(96, 165, 250, 0.3);
+            box-shadow: 0 20px 45px -10px rgba(59, 130, 246, 0.25);
+        }
+
+        .blob-tw {
+            position: absolute;
+            filter: blur(100px);
+            z-index: 0;
+            opacity: 0.3;
+            animation: move-tw 12s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @keyframes move-tw {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(60px, -60px) scale(1.3); }
+        }
+
+        .tab-btn {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn.active {
+            color: #ffffff !important;
+            background-color: #2563eb !important;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+        }
+
+        /* Shimmer Loading Animation */
+        .shimmer {
+            background: linear-gradient(90deg, rgba(255,255,255,0.03) 25%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.03) 75%);
+            background-size: 200% 100%;
+            animation: loading-shimmer 1.5s infinite;
+        }
+
+        @keyframes loading-shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        .category-pill {
+            transition: all 0.2s ease;
+        }
+        .category-pill.active {
+            background-color: #60a5fa !important;
+            color: #020617 !important;
+            border-color: #60a5fa !important;
+        }
+
+        /* Custom Video Lightbox */
+        .video-modal {
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+    </style>
+</head>
+
+<body class="antialiased selection:bg-brand-accent selection:text-white bg-slate-950">
+
+    <!-- Header Component -->
+    <sahi-header></sahi-header>
+
+    <div class="tailwind-section pb-24 pt-16">
+        <!-- Ambient Glowing Background shapes -->
+        <div class="blob-tw w-[600px] h-[600px] rounded-full bg-brand-primary/10 top-[2%] left-[-10%]"></div>
+        <div class="blob-tw w-[500px] h-[500px] rounded-full bg-brand-gold/5 top-[40%] right-[-5%] animation-delay-2000"></div>
+
+        <!-- Hero Section -->
+        <section class="relative min-h-[35vh] flex items-center justify-center pt-20 pb-12 overflow-hidden bg-hero-glow">
+            <div class="max-w-7xl mx-auto px-6 relative z-10 text-center w-full">
+                <div class="inline-block" data-aos="fade-down">
+                    <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-brand-accent/30 bg-brand-accent/10 text-xs font-bold text-brand-accent uppercase tracking-wider mb-6 shadow-[0_0_20px_rgba(96,165,250,0.15)]">
+                        <i data-lucide="book-open" class="w-4 h-4"></i> Sahi Salah Knowledge Hub
+                    </span>
+                </div>
+                <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-4 leading-tight text-white" data-aos="fade-up" data-aos-delay="100">
+                    Blogs & <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent via-white to-brand-gold">Social Media Feeds</span>
+                </h1>
+                <p class="text-base md:text-lg text-slate-300 font-light max-w-2xl mx-auto leading-relaxed" data-aos="fade-up" data-aos-delay="200">
+                    Stay updated with real-time admissions announcements, direct scholarship guidelines, and visual mentorship briefs from our campus networks.
+                </p>
+            </div>
+        </section>
+
+        <!-- Media Hub Sub-Navigation Tabs -->
+        <div class="max-w-md mx-auto px-6 mb-12 relative z-20">
+            <div class="flex p-1.5 bg-slate-900/80 border border-white/10 rounded-2xl shadow-lg">
+                <button onclick="switchTab('blogs')" id="tab-blogs-btn" class="tab-btn active flex-1 py-3 text-sm font-bold rounded-xl border-none bg-transparent text-slate-400 cursor-pointer flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-feather-alt"></i> Substack Blog
+                </button>
+                <button onclick="switchTab('feeds')" id="tab-feeds-btn" class="tab-btn flex-1 py-3 text-sm font-bold rounded-xl border-none bg-transparent text-slate-400 cursor-pointer flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-photo-video"></i> Media Feeds
+                </button>
+            </div>
+        </div>
+
+        <!-- Portal Core Workspace -->
+        <main class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+
+            <!-- ================= BLOG TAB WORKSPACE ================= -->
+            <div id="workspace-blogs" class="space-y-8">
+                <!-- Search & Filters Toolbar -->
+                <div class="flex flex-col md:flex-row gap-4 items-center justify-between bg-slate-900/40 border border-white/5 p-6 rounded-3xl mb-8">
+                    <!-- Search Input -->
+                    <div class="relative w-full md:max-w-md">
+                        <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+                        <input type="text" id="blog-search" oninput="filterBlogs()" class="w-full pl-12 pr-4 py-3 bg-slate-950 border border-white/10 rounded-xl text-white outline-none focus:border-brand-primary transition-colors text-sm" placeholder="Search guides, exams, visas...">
+                    </div>
+                    <!-- Categories -->
+                    <div class="flex flex-wrap gap-2 w-full md:w-auto justify-start md:justify-end" id="category-pills-container">
+                        <!-- Dynamic Pills injected here -->
+                    </div>
+                </div>
+
+                <!-- Articles Grid -->
+                <div id="blogs-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Loading Shimmer skeletons initially -->
+                    <div class="shimmer-card bento-card-tw h-[420px] flex flex-col justify-between p-6">
+                        <div class="w-full h-48 shimmer rounded-xl mb-4"></div>
+                        <div class="h-6 w-3/4 shimmer rounded mb-2"></div>
+                        <div class="h-4 w-full shimmer rounded mb-2"></div>
+                        <div class="h-4 w-5/6 shimmer rounded mb-6"></div>
+                        <div class="h-10 w-32 shimmer rounded-lg"></div>
+                    </div>
+                    <div class="shimmer-card bento-card-tw h-[420px] flex flex-col justify-between p-6">
+                        <div class="w-full h-48 shimmer rounded-xl mb-4"></div>
+                        <div class="h-6 w-2/3 shimmer rounded mb-2"></div>
+                        <div class="h-4 w-full shimmer rounded mb-2"></div>
+                        <div class="h-4 w-5/6 shimmer rounded mb-6"></div>
+                        <div class="h-10 w-32 shimmer rounded-lg"></div>
+                    </div>
+                    <div class="shimmer-card bento-card-tw h-[420px] flex flex-col justify-between p-6">
+                        <div class="w-full h-48 shimmer rounded-xl mb-4"></div>
+                        <div class="h-6 w-3/4 shimmer rounded mb-2"></div>
+                        <div class="h-4 w-full shimmer rounded mb-2"></div>
+                        <div class="h-4 w-5/6 shimmer rounded mb-6"></div>
+                        <div class="h-10 w-32 shimmer rounded-lg"></div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- ================= MEDIA FEEDS TAB WORKSPACE ================= -->
+            <div id="workspace-feeds" class="hidden space-y-12">
+                <!-- YouTube Channels Stream Section -->
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 rounded-xl bg-red-600/10 text-red-500 border border-red-500/20 flex items-center justify-center">
+                            <i class="fa-brands fa-youtube text-lg"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-white leading-none">YouTube Video Briefs</h3>
+                            <p class="text-xs text-slate-400 mt-1">Direct admission analyses & campus tours from our channel</p>
+                        </div>
+                    </div>
+
+                    <!-- YouTube Video Grid -->
+                    <div id="youtube-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Shimmers for YouTube -->
+                        <div class="bento-card-tw h-64 shimmer p-4 rounded-2xl"></div>
+                        <div class="bento-card-tw h-64 shimmer p-4 rounded-2xl"></div>
+                        <div class="bento-card-tw h-64 shimmer p-4 rounded-2xl"></div>
+                    </div>
+                </div>
+
+                <!-- Instagram Grid Mock/Placeholder -->
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 rounded-xl bg-pink-600/10 text-pink-500 border border-pink-500/20 flex items-center justify-center">
+                            <i class="fa-brands fa-instagram text-lg"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-white leading-none">Social Timeline @SahiSalah</h3>
+                            <p class="text-xs text-slate-400 mt-1">Announcements, student test results, and scholarship timelines</p>
+                        </div>
+                    </div>
+
+                    <!-- Instagram Gallery grid -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                        <div class="bento-card-tw group aspect-square overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Instagram Post 1" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4 text-white text-sm font-bold">
+                                <span><i class="fa-regular fa-heart mr-1.5"></i> 142</span>
+                                <span><i class="fa-regular fa-comment mr-1.5"></i> 8</span>
+                            </div>
+                        </div>
+                        <div class="bento-card-tw group aspect-square overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Instagram Post 2" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4 text-white text-sm font-bold">
+                                <span><i class="fa-regular fa-heart mr-1.5"></i> 98</span>
+                                <span><i class="fa-regular fa-comment mr-1.5"></i> 5</span>
+                            </div>
+                        </div>
+                        <div class="bento-card-tw group aspect-square overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Instagram Post 3" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4 text-white text-sm font-bold">
+                                <span><i class="fa-regular fa-heart mr-1.5"></i> 204</span>
+                                <span><i class="fa-regular fa-comment mr-1.5"></i> 12</span>
+                            </div>
+                        </div>
+                        <div class="bento-card-tw group aspect-square overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Instagram Post 4" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4 text-white text-sm font-bold">
+                                <span><i class="fa-regular fa-heart mr-1.5"></i> 176</span>
+                                <span><i class="fa-regular fa-comment mr-1.5"></i> 15</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Embed Widget Instructions -->
+                    <div class="bg-slate-900/30 border border-white/5 rounded-3xl p-6 text-center max-w-xl mx-auto relative overflow-hidden">
+                        <div class="absolute -top-16 -right-16 w-32 h-32 bg-pink-500/10 rounded-full blur-2xl"></div>
+                        <h4 class="text-sm font-bold text-white mb-2">Want to display your live Instagram grid here?</h4>
+                        <p class="text-xs text-slate-400 max-w-md mx-auto leading-relaxed mb-4">
+                            You can easily hook up your live account by replacing this grid with a free widget from <strong>Curator.io</strong> or <strong>Elfsight</strong>. Just paste your generated code snippet into this page's file structure.
+                        </p>
+                        <a href="https://wa.me/918882289261?text=Hi%20Dr.%20Rajiv,%20I'd%20like%20to%20hook%20my%20Instagram%20widget%20to%20the%20website." target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-pink-400 hover:text-pink-300 transition-colors">
+                            <i class="fa-brands fa-whatsapp text-sm"></i> Request help setting up Instagram API <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- YouTube Lightbox Video Modal (Hidden by default) -->
+    <div id="video-lightbox" class="video-modal hidden fixed inset-0 bg-slate-950/90 backdrop-blur-md z-[99999] flex items-center justify-center p-4 opacity-0">
+        <div class="relative w-full max-w-4xl aspect-video bg-black rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+            <!-- Close button -->
+            <button onclick="closeVideoLightbox()" class="absolute top-4 right-4 bg-black/60 hover:bg-black/90 hover:scale-110 text-white border-none w-10 h-10 rounded-full flex items-center justify-center cursor-pointer transition-all z-50">
+                <i class="fa-solid fa-times text-lg"></i>
+            </button>
+            <iframe id="lightbox-iframe" class="w-full h-full border-none" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- Footer Component -->
+    <sahi-footer></sahi-footer>
+
+    <sahi-lead-modal></sahi-lead-modal>
+
+    <!-- Shared Core Scripts -->
+    <script src="components.js"></script>
+    <script src="common.js"></script>
+
+    <script>
+        // AOS Initialisation
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof AOS !== 'undefined') {
+                AOS.init({ duration: 800, once: true });
+            }
+        });
+
+        // ================= CONFIGURATION =================
+        // Replace with your actual Substack subdomain and YouTube Channel ID when ready!
+        const SUBSTACK_SUBDOMAIN = 'hechingerreport'; // E.g. 'sahisalah' or 'hechingerreport'
+        const YOUTUBE_CHANNEL_ID = 'UCW5YeuERMmlnqo4oq8KdUpg'; // Placeholder: Ted-Ed Channel
+        // =================================================
+
+        let allBlogs = [];
+        let activeCategory = 'All';
+
+        // 1. Navigation Tab Switching
+        function switchTab(tabId) {
+            const blogsWorkspace = document.getElementById('workspace-blogs');
+            const feedsWorkspace = document.getElementById('workspace-feeds');
+            const blogsBtn = document.getElementById('tab-blogs-btn');
+            const feedsBtn = document.getElementById('tab-feeds-btn');
+
+            if (tabId === 'blogs') {
+                blogsWorkspace.classList.remove('hidden');
+                feedsWorkspace.classList.add('hidden');
+                blogsBtn.classList.add('active');
+                feedsBtn.classList.remove('active');
+            } else {
+                blogsWorkspace.classList.add('hidden');
+                feedsWorkspace.classList.remove('hidden');
+                blogsBtn.classList.remove('active');
+                feedsBtn.classList.add('active');
+                loadFeeds(); // Load feeds when tab is active
+            }
+        }
+
+        // 2. Fetch & Parse Substack RSS Feed
+        function loadSubstackBlogs() {
+            // Using rss2json API proxy to bypass CORS restrictions
+            const rssUrl = `https://${SUBSTACK_SUBDOMAIN}.substack.com/feed`; 
+            const proxyUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
+
+            fetch(proxyUrl)
+                .then(res => res.json())
+                .then(data => {
+                    if (data.status === 'ok') {
+                        allBlogs = data.items.map(item => {
+                            // Extract category keywords or use default
+                            let categories = item.categories;
+                            if (!categories || categories.length === 0) {
+                                categories = guessCategories(item.title);
+                            }
+                            return {
+                                title: item.title,
+                                date: new Date(item.pubDate).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' }),
+                                summary: sanitizeDescription(item.description),
+                                link: item.link,
+                                author: item.author || 'Sahi Salah Editor',
+                                thumbnail: extractThumbnail(item),
+                                categories: categories
+                            };
+                        });
+                        
+                        renderCategoryPills();
+                        renderBlogs(allBlogs);
+                    } else {
+                        throw new Error('Failed to load feed');
+                    }
+                })
+                .catch(err => {
+                    console.error('Error fetching Substack feed:', err);
+                    showBlogError();
+                });
+        }
+
+        // Guess categories based on keyword mapping if not specified in RSS
+        function guessCategories(title) {
+            const t = title.toLowerCase();
+            if (t.includes('visa') || t.includes('permit') || t.includes('border')) return ['Visas'];
+            if (t.includes('scholarship') || t.includes('grant') || t.includes('funding') || t.includes('free')) return ['Scholarships'];
+            if (t.includes('admission') || t.includes('college') || t.includes('university') || t.includes('intake')) return ['Admissions'];
+            if (t.includes('exam') || t.includes('test') || t.includes('ielts') || t.includes('gre') || t.includes('sat')) return ['Test Prep'];
+            return ['Mentorship'];
+        }
+
+        // Clean up Substack HTML description snippets
+        function sanitizeDescription(desc) {
+            if (!desc) return '';
+            let clean = desc.replace(/<[^>]*>/g, ''); // strip HTML tags
+            clean = clean.replace(/&nbsp;/g, ' ').replace(/&#8217;/g, "'").replace(/&#8220;/g, '"').replace(/&#8221;/g, '"');
+            return clean.length > 150 ? clean.substring(0, 150).trim() + '...' : clean.trim();
+        }
+
+        // Extract thumbnail from RSS item content/description tags securely
+        function extractThumbnail(item) {
+            if (item.thumbnail && item.thumbnail.trim() !== '') return item.thumbnail;
+            if (item.description) {
+                const match = item.description.match(/<img[^>]+src="([^">]+)"/);
+                if (match) return match[1];
+            }
+            if (item.content) {
+                const match = item.content.match(/<img[^>]+src="([^">]+)"/);
+                if (match) return match[1];
+            }
+            // Dynamic fallback study banner
+            return 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80';
+        }
+
+        // Render category filters
+        function renderCategoryPills() {
+            const container = document.getElementById('category-pills-container');
+            const allCats = new Set(['All']);
+            allBlogs.forEach(blog => {
+                blog.categories.forEach(cat => allCats.add(cat));
+            });
+
+            container.innerHTML = '';
+            allCats.forEach(cat => {
+                const button = document.createElement('button');
+                button.className = `category-pill px-4 py-2 rounded-full border border-white/10 bg-white/5 text-slate-300 text-xs font-bold uppercase tracking-wider cursor-pointer hover:border-brand-accent transition ${cat === activeCategory ? 'active' : ''}`;
+                button.innerText = cat;
+                button.onclick = () => {
+                    activeCategory = cat;
+                    document.querySelectorAll('.category-pill').forEach(p => p.classList.remove('active'));
+                    button.classList.add('active');
+                    filterBlogs();
+                };
+                container.appendChild(button);
+            });
+        }
+
+        // Render dynamic blogs grid
+        function renderBlogs(articles) {
+            const grid = document.getElementById('blogs-grid');
+            if (articles.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full text-center py-16">
+                        <i class="fa-solid fa-box-open text-slate-600 text-5xl mb-4"></i>
+                        <h4 class="text-lg font-bold text-slate-400">No Articles Found</h4>
+                        <p class="text-sm text-slate-500 mt-1">Try resetting your search filters.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            grid.innerHTML = '';
+            articles.forEach(blog => {
+                const catBadge = blog.categories[0] || 'Mentorship';
+                const card = document.createElement('article');
+                card.className = 'bento-card-tw h-[420px] flex flex-col justify-between overflow-hidden shadow-lg';
+                card.innerHTML = `
+                    <div class="relative h-48 overflow-hidden group">
+                        <img src="${blog.thumbnail}" alt="${blog.title}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                        <span class="absolute top-4 left-4 bg-brand-primary text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-md border border-white/20">${catBadge}</span>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-2 text-slate-400 text-xs font-bold uppercase tracking-wider mb-2">
+                                <i class="fa-regular fa-calendar-alt"></i> <span>${blog.date}</span>
+                                <span class="mx-1">•</span>
+                                <i class="fa-regular fa-user"></i> <span>${blog.author.substring(0, 16)}</span>
+                            </div>
+                            <h4 class="text-base md:text-lg font-bold text-white mb-2 line-clamp-2 hover:text-brand-accent transition-colors">
+                                <a href="${blog.link}" target="_blank">${blog.title}</a>
+                            </h4>
+                            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">${blog.summary}</p>
+                        </div>
+                        <div class="mt-4">
+                            <a href="${blog.link}" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-brand-accent hover:text-brand-primary transition-colors">
+                                Read Full Article <i class="fa-solid fa-arrow-right-to-bracket text-[10px]"></i>
+                            </a>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Live Search & Tag Filtering
+        function filterBlogs() {
+            const query = document.getElementById('blog-search').value.toLowerCase().trim();
+            const filtered = allBlogs.filter(blog => {
+                const matchSearch = blog.title.toLowerCase().includes(query) || blog.summary.toLowerCase().includes(query);
+                const matchCategory = activeCategory === 'All' || blog.categories.includes(activeCategory);
+                return matchSearch && matchCategory;
+            });
+            renderBlogs(filtered);
+        }
+
+        // Show error placeholder if feed fails
+        function showBlogError() {
+            const grid = document.getElementById('blogs-grid');
+            grid.innerHTML = `
+                <div class="col-span-full text-center py-16 bg-slate-900/30 border border-white/5 rounded-3xl p-8">
+                    <i class="fa-solid fa-triangle-exclamation text-brand-gold text-5xl mb-4 animate-bounce"></i>
+                    <h4 class="text-lg font-bold text-white">Temporary Feed Offline</h4>
+                    <p class="text-sm text-slate-400 mt-2 max-w-md mx-auto leading-relaxed">
+                        We could not parse the RSS feed directly. This is typically due to standard browser CORS sandbox blocks. Please connect your custom subdomain in the code or use our recommended Make.com webhook.
+                    </p>
+                    <button onclick="loadSubstackBlogs()" class="mt-6 px-6 py-2.5 bg-brand-primary hover:bg-blue-600 text-white text-xs font-bold uppercase rounded-lg border-none cursor-pointer shadow-lg transition">
+                        Retry Connection <i class="fa-solid fa-rotate-right ml-1"></i>
+                    </button>
+                </div>
+            `;
+        }
+
+
+        // 3. YouTube RSS Feed Integration
+        let feedsLoaded = false;
+        function loadFeeds() {
+            if (feedsLoaded) return; // Prevent double fetching
+            
+            // Using a popular public education/university YouTube feed for live demo
+            const ytChannelId = YOUTUBE_CHANNEL_ID;
+            const ytRssUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${ytChannelId}`;
+            const proxyUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(ytRssUrl)}`;
+
+            fetch(proxyUrl)
+                .then(res => res.json())
+                .then(data => {
+                    const grid = document.getElementById('youtube-grid');
+                    if (data.status === 'ok' && data.items.length > 0) {
+                        grid.innerHTML = '';
+                        // Limit to latest 6 videos
+                        const videos = data.items.slice(0, 6);
+                        videos.forEach(video => {
+                            // Extract video ID from link (e.g., https://www.youtube.com/watch?v=XXXXXX)
+                            const videoId = video.link.match(/v=([^&]+)/)?.[1] || '';
+                            const thumbnail = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+                            
+                            const card = document.createElement('div');
+                            card.className = 'bento-card-tw overflow-hidden flex flex-col group';
+                            card.innerHTML = `
+                                <div class="relative h-44 overflow-hidden cursor-pointer" onclick="openVideoLightbox('${videoId}')">
+                                    <img src="${thumbnail}" alt="${video.title}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                                    <!-- Play Button Overlay -->
+                                    <div class="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/20 transition-all">
+                                        <div class="w-14 h-14 rounded-full bg-red-600 text-white flex items-center justify-center shadow-lg transform transition duration-300 group-hover:scale-110">
+                                            <i class="fa-solid fa-play text-xl ml-1"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="p-5 flex-grow flex flex-col justify-between">
+                                    <h4 class="text-sm font-bold text-white line-clamp-2 leading-snug hover:text-red-500 transition cursor-pointer" onclick="openVideoLightbox('${videoId}')">
+                                        ${video.title}
+                                    </h4>
+                                    <div class="flex justify-between items-center text-[10px] text-slate-400 mt-4 font-bold uppercase">
+                                        <span>Uploaded: ${new Date(video.pubDate).toLocaleDateString('en-IN', { day: 'numeric', month: 'short' })}</span>
+                                        <a href="${video.link}" target="_blank" class="text-slate-400 hover:text-white transition"><i class="fa-brands fa-youtube text-base"></i></a>
+                                    </div>
+                                </div>
+                            `;
+                            grid.appendChild(card);
+                        });
+                        feedsLoaded = true;
+                    } else {
+                        throw new Error('No items found');
+                    }
+                })
+                .catch(err => {
+                    console.error('Error fetching YouTube RSS:', err);
+                    showYouTubeError();
+                });
+        }
+
+        // Show YouTube Error placeholder
+        function showYouTubeError() {
+            const grid = document.getElementById('youtube-grid');
+            grid.innerHTML = `
+                <div class="col-span-full text-center py-12 bg-slate-900/20 border border-white/5 rounded-3xl p-6">
+                    <i class="fa-solid fa-circle-exclamation text-red-500 text-3xl mb-3"></i>
+                    <h4 class="text-sm font-bold text-white">YouTube Feed Temporarily Unavailable</h4>
+                    <p class="text-xs text-slate-400 mt-1 max-w-sm mx-auto leading-normal">
+                        Could not connect to YouTube RSS. You can view our videos directly on YouTube instead.
+                    </p>
+                    <a href="https://www.youtube.com" target="_blank" class="inline-block mt-4 px-4 py-2 bg-red-600 hover:bg-red-700 text-white text-[10px] font-bold uppercase rounded-lg border-none decoration-none shadow-md">
+                        Visit Sahi Salah Channel <i class="fa-solid fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+            `;
+        }
+
+        // Lightbox controls
+        function openVideoLightbox(videoId) {
+            const modal = document.getElementById('video-lightbox');
+            const iframe = document.getElementById('lightbox-iframe');
+            
+            iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+            modal.classList.remove('hidden');
+            // Trigger transition reflow
+            void modal.offsetWidth;
+            modal.classList.add('opacity-100');
+            document.body.style.overflow = 'hidden'; // Lock background scrolling
+        }
+
+        function closeVideoLightbox() {
+            const modal = document.getElementById('video-lightbox');
+            const iframe = document.getElementById('lightbox-iframe');
+            
+            modal.classList.remove('opacity-100');
+            document.body.style.overflow = 'auto'; // Restore background scrolling
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                iframe.src = ''; // Clear iframe contents to stop video
+            }, 300);
+        }
+
+        // Initial Load on script run
+        loadSubstackBlogs();
+    </script>
+</body>
+
+</html>

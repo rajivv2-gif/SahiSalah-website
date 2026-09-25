@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MBA, Upskilling &amp; Online Programs for Working Professionals | Sahi Salah</title>
+    <meta name="description"
+        content="Upskill without leaving your job. Estimate your post-graduation salary hike, investment payback period, and career acceleration index using our premium ROI calculator.">
+    <meta name="keywords"
+        content="Working Professionals, Executive MBA, Online MBA, Upskilling, Career ROI Calculator, Sahi Salah">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sahisalah.in/working-professionals.html">
+    <meta property="og:title" content="Upskilling ROI &amp; Salary Estimator | Sahi Salah">
+    <meta property="og:description"
+        content="Compare Executive MBA, Online Degrees, and calculate your salary hike and investment payback index.">
+    <meta property="og:image"
+        content="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=630&q=80">
+
+    <!-- JSON-LD Structured Data Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Working Professionals Career & Education Suite",
+      "description": "Calculate salary increment percentages, payback timelines, and compare online and executive degrees.",
+      "url": "https://sahisalah.in/working-professionals.html"
+    }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link class="prefetch-tag" rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link class="prefetch-tag" rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* ==========================================================================
+           PREMIUM HERO SECTION STYLING (Dark Mode Neon-Glassmorphism)
+           ========================================================================== */
+        .professionals-hero {
+            position: relative;
+            background: linear-gradient(135deg, #020617 0%, #0a1124 50%, #0f172a 100%);
+            padding: 100px 0 110px 0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .grid-pattern {
+            position: absolute;
+            inset: 0;
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .hero-bg-blobs {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .hero-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.22;
+            mix-blend-mode: screen;
+            animation: floatBlob 10s ease-in-out infinite alternate;
+        }
+
+        .hero-blob-1 {
+            width: 450px;
+            height: 450px;
+            background: var(--primary-light);
+            top: -120px;
+            right: -100px;
+        }
+
+        .hero-blob-2 {
+            width: 350px;
+            height: 350px;
+            background: var(--secondary);
+            bottom: -80px;
+            left: 5%;
+            animation-delay: -5s;
+        }
+
+        @keyframes floatBlob {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(30px, 30px) scale(1.12); }
+        }
+
+        .hero-split-container {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text-side {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hero-badge-premium {
+            background: rgba(37, 99, 235, 0.12) !important;
+            border: 1px solid rgba(37, 99, 235, 0.3) !important;
+            color: #93c5fd !important;
+            padding: 6px 16px !important;
+            border-radius: 50px !important;
+            font-size: 0.8rem !important;
+            font-weight: 700 !important;
+            letter-spacing: 1px;
+            display: inline-flex !important;
+            align-items: center;
+            gap: 8px;
+            width: fit-content;
+            margin-bottom: 24px !important;
+            font-family: 'Outfit', sans-serif;
+            text-transform: uppercase;
+        }
+
+        .hero-title-premium {
+            font-size: 3.8rem;
+            line-height: 1.15;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .gradient-text-orange-blue {
+            background: linear-gradient(135deg, #3b82f6 0%, #f97316 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-description-premium {
+            font-size: 1.2rem;
+            color: #cbd5e1;
+            line-height: 1.7;
+            margin-bottom: 40px;
+            font-weight: 400;
+            max-width: 620px;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn-apply-hero {
+            background: linear-gradient(135deg, var(--secondary) 0%, #f97316 100%) !important;
+            color: white !important;
+            border: none !important;
+            padding: 16px 36px !important;
+            border-radius: 14px !important;
+            font-weight: 700 !important;
+            font-size: 1.1rem !important;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex !important;
+            align-items: center;
+            gap: 12px;
+            font-family: 'Outfit', sans-serif;
+            box-shadow: 0 4px 20px rgba(234, 88, 12, 0.35);
+        }
+
+        .btn-apply-hero:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(234, 88, 12, 0.55);
+            background: linear-gradient(135deg, #f97316 0%, #ea580c 100%) !important;
+        }
+
+        .hero-widget-side {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Glass ROI Calculator Card */
+        .roi-glass-card {
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 28px;
+            padding: 32px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+            width: 100%;
+            max-width: 425px;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .roi-title {
+            font-size: 1.35rem;
+            font-family: 'Outfit', sans-serif;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .roi-label {
+            font-size: 0.85rem;
+            color: #cbd5e1;
+            font-weight: 700;
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .roi-select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            outline: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .roi-select option {
+            background: #0f172a;
+            color: white;
+        }
+
+        /* Glowing Range Slider */
+        .range-slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 4px;
+            outline: none;
+            margin: 10px 0 20px 0;
+        }
+
+        .range-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--primary-light);
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+            transition: transform 0.1s;
+        }
+
+        .range-slider::-webkit-slider-thumb:hover {
+            transform: scale(1.15);
+            background: var(--secondary);
+        }
+
+        .val-display {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: #60a5fa;
+        }
+
+        /* ROI outputs */
+        .roi-output-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 20px;
+            margin-top: 15px;
+            animation: paneFadeIn 0.4s ease forwards;
+        }
+
+        .roi-metrics-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .roi-metric-item {
+            text-align: left;
+        }
+
+        .roi-item-label {
+            font-size: 0.72rem;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+            font-weight: 700;
+        }
+
+        .roi-item-val {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: #ffffff;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .accel-bar-wrap {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 5px;
+        }
+
+        .accel-bar-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #22c55e, #10b981);
+            border-radius: 4px;
+            transition: width 0.8s ease;
+        }
+
+        /* Comparison Section */
+        .matrix-section {
+            background: #ffffff;
+            padding: 90px 20px;
+        }
+
+        .matrix-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
+            margin-top: 50px;
+        }
+
+        .matrix-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 24px;
+            padding: 35px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .matrix-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(37, 99, 235, 0.2);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.03);
+            background: #ffffff;
+        }
+
+        .matrix-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            border-radius: 24px 24px 0 0;
+            background: linear-gradient(90deg, var(--primary-light), var(--secondary));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .matrix-card:hover::before {
+            opacity: 1;
+        }
+
+        .matrix-badge {
+            background: #eff6ff;
+            color: var(--primary-light);
+            font-size: 0.75rem;
+            font-weight: 800;
+            padding: 4px 12px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .matrix-card:nth-child(even) .matrix-badge {
+            background: #fff7ed;
+            color: var(--secondary);
+        }
+
+        .matrix-feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 0 0;
+        }
+
+        .matrix-feature-list li {
+            font-size: 0.95rem;
+            color: #475569;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        @keyframes paneFadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 992px) {
+            .professionals-hero {
+                padding: 70px 0 80px 0;
+            }
+            .hero-split-container {
+                grid-template-columns: 1fr;
+                gap: 50px;
+                text-align: center;
+            }
+            .hero-badge-premium {
+                margin: 0 auto 20px auto !important;
+            }
+            .hero-description-premium {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .hero-cta-group {
+                justify-content: center;
+            }
+            .roi-glass-card {
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title-premium {
+                font-size: 2.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <sahi-header></sahi-header>
+
+    <!-- Professionals Hero Section -->
+    <header class="professionals-hero" id="professionals-hero">
+        <div class="grid-pattern"></div>
+        <div class="hero-bg-blobs">
+            <div class="hero-blob hero-blob-1"></div>
+            <div class="hero-blob hero-blob-2"></div>
+        </div>
+        <div class="container hero-split-container" style="position: relative; z-index: 2;">
+            <div class="hero-text-side">
+                <span class="badge hero-badge-premium"><i class="fa-solid fa-user-tie text-green animate-pulse"></i> Executive Career Upgrades</span>
+                <h1 class="hero-title-premium">
+                    High-ROI Degrees for <br><span class="gradient-text-orange-blue">Working Professionals</span>
+                </h1>
+                <p class="hero-description-premium">
+                    upskill without sacrificing your current salary. Evaluate UGC-approved online MBAs, premium executive degrees, and calculate your career trajectory returns.
+                </p>
+                <div class="hero-cta-group">
+                    <button onclick="scrollToROI()" class="btn-apply-hero btn-large glow-btn" id="btn-hero-roi">
+                        Calculate My ROI <i class="fa-solid fa-coins" style="color:#60a5fa;"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Interactive ROI Calculator Widget (Right Column) -->
+            <div class="hero-widget-side">
+                <div class="roi-glass-card" id="roi-widget">
+                    <div class="roi-title"><i class="fa-solid fa-percent text-primary-light"></i> Upskill ROI Matcher</div>
+                    
+                    <label class="roi-label">Current Annual CTC (in Lacs) <span id="valSalary" class="val-display">₹12L</span></label>
+                    <input type="range" id="salaryRange" class="range-slider" min="3" max="40" step="1" value="12" oninput="calculateROI()">
+
+                    <label class="roi-label">Upskilling Path Choice</label>
+                    <select id="programSelect" class="roi-select" onchange="calculateROI()">
+                        <option value="online">UGC Online MBA (India) - ₹2.5L Cost</option>
+                        <option value="exec">Executive MBA (B-School) - ₹18L Cost</option>
+                        <option value="global">Global Distance MS (Tech) - ₹6L Cost</option>
+                        <option value="pgdip">Executive PG Diploma - ₹3.5L Cost</option>
+                    </select>
+
+                    <div class="roi-output-box" id="roi-result">
+                        <div class="roi-metrics-grid">
+                            <div class="roi-metric-item">
+                                <div class="roi-item-label">Projected post CTC</div>
+                                <div class="roi-item-val" id="resCTC">₹16.20 L</div>
+                            </div>
+                            <div class="roi-metric-item">
+                                <div class="roi-item-label">Est. Payback Period</div>
+                                <div class="roi-item-val" id="resPayback">7.0 Months</div>
+                            </div>
+                        </div>
+
+                        <div style="border-top:1px solid rgba(255,255,255,0.06); padding-top:15px; text-align:left;">
+                            <div class="roi-item-label" style="display:flex; justify-content:space-between;">
+                                <span>Career Acceleration Index</span>
+                                <span id="resIndexText" style="color:#4ade80;">85/100</span>
+                            </div>
+                            <div class="accel-bar-wrap">
+                                <div class="accel-bar-fill" id="resIndexBar"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Comparison Matrix Section -->
+    <section class="matrix-section" id="roi-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Flexible Pathways to <span class="gradient-text">Unlock Career Hikes</span></h2>
+                <p>Choose the degree structure that matches your target budget, time availability, and career velocity goals.</p>
+            </div>
+
+            <div class="matrix-grid">
+                <!-- Program Option 1 -->
+                <div class="matrix-card">
+                    <span class="matrix-badge">UGC Online Degrees</span>
+                    <h3 style="font-family:'Outfit'; font-size:1.4rem; color:var(--primary); margin-bottom:12px;">UGC Online MBA</h3>
+                    <p class="text-muted" style="font-size:0.9rem; line-height:1.55;">100% remote asynchronous classes. Perfect for professionals wanting credentials on a budget.</p>
+                    <ul class="matrix-feature-list">
+                        <li><i class="fa-solid fa-circle-check text-primary" style="color:var(--primary-light);"></i> <strong>Fee Scale:</strong> ₹1.5L - ₹3.5L total</li>
+                        <li><i class="fa-solid fa-circle-check text-primary" style="color:var(--primary-light);"></i> <strong>Average Hike:</strong> 30% - 40%</li>
+                        <li><i class="fa-solid fa-circle-check text-primary" style="color:var(--primary-light);"></i> <strong>Flexibility:</strong> Learn on Weekends</li>
+                    </ul>
+                </div>
+
+                <!-- Program Option 2 -->
+                <div class="matrix-card">
+                    <span class="matrix-badge">Executive On-Campus</span>
+                    <h3 style="font-family:'Outfit'; font-size:1.4rem; color:var(--primary); margin-bottom:12px;">Executive MBA (EMBA)</h3>
+                    <p class="text-muted" style="font-size:0.9rem; line-height:1.55;">Cohort-based networking with weekend campus residencies. Designed for mid-to-senior leaders.</p>
+                    <ul class="matrix-feature-list">
+                        <li><i class="fa-solid fa-circle-check text-primary" style="color:var(--secondary);"></i> <strong>Fee Scale:</strong> ₹12L - ₹24L total</li>
+                        <li><i class="fa-solid fa-circle-check text-primary" style="color:var(--secondary);"></i> <strong>Average Hike:</strong> 50% - 80%</li>
+                        <li><i class="fa-solid fa-circle-check text-primary" style="color:var(--secondary);"></i> <strong>Immersive:</strong> Direct networking with cohort</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Professional Timeline / Study Life Balance Guidance -->
+    <section style="background:#f8fafc; padding:90px 20px; border-top:1px solid #cbd5e1; border-bottom:1px solid #cbd5e1;" id="professionals-guide">
+        <div class="container">
+            <div style="max-width:850px; margin:0 auto; display:flex; gap:25px; align-items:flex-start; background:white; border:1px solid #cbd5e1; border-radius:24px; padding:40px; box-shadow:0 10px 30px rgba(0,0,0,0.01);">
+                <i class="fa-solid fa-user-clock" style="font-size: 2.5rem; color: var(--secondary); flex-shrink:0;"></i>
+                <div>
+                    <h3 style="font-family:'Outfit'; font-size:1.35rem; color:var(--primary); margin-bottom:10px; font-weight:700;">Balancing 40+ Work Hours with Structured Study Calendars</h3>
+                    <p class="text-muted" style="font-size:0.95rem; line-height:1.65;">Upskilling requires dedicated time blocking. Sahi Salah helps you analyze programs with modular architectures, flexible exam schedules, and corporate sponsorship tracks. Our experts evaluate which credits can map to your past industry experiences to shorten degree timelines.</p>
+                    <button onclick="openLeadForm()" class="btn-primary" style="padding: 10px 20px; font-size:0.85rem; border-radius:8px; margin-top:20px;">Book Profile Evaluation Call</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <sahi-footer></sahi-footer>
+
+    <sahi-lead-modal></sahi-lead-modal>
+
+    <!-- Include Scripts -->
+    <script src="components.js"></script>
+    <script src="common.js"></script>
+
+    <script>
+        // Scroll helper
+        function scrollToROI() {
+            document.getElementById('roi-section').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // 2. Upskilling ROI Estimation Logic
+        const programROIMappings = {
+            online: { hike: 0.35, cost: 250000 },
+            exec: { hike: 0.65, cost: 1800000 },
+            global: { hike: 0.55, cost: 600000 },
+            pgdip: { hike: 0.40, cost: 350000 }
+        };
+
+        function calculateROI() {
+            const currentSalaryLacs = parseInt(document.getElementById('salaryRange').value);
+            const pathKey = document.getElementById('programSelect').value;
+            const pathData = programROIMappings[pathKey];
+
+            // Update UI Slider Value Display
+            document.getElementById('valSalary').innerText = '₹' + currentSalaryLacs + 'L';
+
+            // Computations
+            const currentSalaryINR = currentSalaryLacs * 100000;
+            const hikeAmount = currentSalaryINR * pathData.hike;
+            const projectedCTC = currentSalaryINR + hikeAmount;
+            const monthlyIncrement = hikeAmount / 12;
+            const paybackMonths = pathData.cost / monthlyIncrement;
+
+            // Acceleration Index (Higher hike, lower cost/payback gives better index)
+            // Cap index between 40 and 99
+            let accelIndex = Math.round(99 - (paybackMonths * 1.5) + (pathData.hike * 20));
+            if (accelIndex > 99) accelIndex = 99;
+            if (accelIndex < 40) accelIndex = 40;
+
+            // Trigger Animation on Result Pane
+            const resultBox = document.getElementById('roi-result');
+            resultBox.style.animation = 'none';
+            resultBox.offsetHeight; // trigger reflow
+            resultBox.style.animation = 'paneFadeIn 0.4s ease forwards';
+
+            // Inject Values
+            document.getElementById('resCTC').innerText = '₹' + (projectedCTC / 100000).toFixed(2) + ' L';
+            document.getElementById('resPayback').innerText = paybackMonths.toFixed(1) + ' Months';
+            document.getElementById('resIndexText').innerText = accelIndex + '/100';
+            document.getElementById('resIndexBar').style.width = accelIndex + '%';
+
+            // Set hidden lead form values
+            const quizScoreInput = document.getElementById('quizScore');
+            const quizBudgetInput = document.getElementById('quizBudget');
+            if (quizScoreInput) {
+                quizScoreInput.value = `Professional CTC: ₹${currentSalaryLacs}L, Target Path: ${pathKey}`;
+            }
+            if (quizBudgetInput) {
+                quizBudgetInput.value = `Est ROI: Projected CTC ₹${(projectedCTC / 100000).toFixed(2)}L, Acceleration ${accelIndex}/100`;
+            }
+        }
+
+        // Initialize ROI computation
+        calculateROI();
+    </script>
+</body>
+
+</html>

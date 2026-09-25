@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sahi Salah | Generate Your Free Custom Roadmap</title>
+    <meta name="description"
+        content="Stop guessing with your career. Get a dynamic AI-driven profile evaluation, find 100% placement colleges, and check your scholarship eligibility instantly.">
+    <meta name="keywords"
+        content="Study Abroad, Top Colleges in India, admissions, scholarships, btech, mbbs, mba, abroad consultants, higher education, career mentors">
+
+    <!-- Open Graph / WhatsApp / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sahisalah.in/roadmap.html">
+    <meta property="og:title" content="Sahi Salah | Generate Your Custom Roadmap">
+    <meta property="og:description"
+        content="Discover your exact college matches, expected ROI, and scholarship eligibility based on your specific profile.">
+    <meta property="og:image"
+        content="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=630&q=80">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link class="prefetch-tag" rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link class="prefetch-tag" rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        body { background: #f8fafc; }
+        .hero { min-height: calc(100vh - 100px); }
+    </style>
+</head>
+
+<body>
+
+    <sahi-header></sahi-header>
+
+    <!-- Search Hub Hero Section -->
+    <section class="hero search-hero" id="roadmap-generator" style="position: relative;">
+        <!-- Share Link Widget -->
+        <div style="position: absolute; top: 20px; right: 20px; z-index: 10;">
+            <button onclick="copyRoadmapLink()" style="padding: 10px 20px; border-radius: 30px; background: white; color: #1e293b; font-weight: 600; font-family: 'Outfit', sans-serif; border: 1px solid rgba(0,0,0,0.1); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 15px 20px -3px rgba(0,0,0,0.1)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 15px -3px rgba(0,0,0,0.1)';">
+                <i class="fa-solid fa-share-nodes text-primary" style="margin-right: 5px;"></i> Share Tool
+            </button>
+        </div>
+        <div class="hero-bg-elements">
+            <div id="particles-js"></div>
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+        </div>
+
+        <div class="hero-content text-center" style="max-width: 1000px; margin: 0 auto; width: 100%;">
+            <div class="badge mx-auto">🔥 Over 10,000+ Indian Students Guided</div>
+            <h1 style="font-size: 3.5rem; line-height: 1.2; margin-bottom: 20px; color: #1e293b;">Confused Between
+                <br><span id="typewriter" class="gradient-text typewriter-text">India & Abroad?</span><br> Let Data
+                Decide Your Future.
+            </h1>
+            <p class="hero-subtext mx-auto" style="max-width: 650px; margin: 0 auto 40px;">Stop trusting biased agents.
+                Find your true ROI-focused roadmap for higher education based on your family's real budget.</p>
+
+            <!-- The Search Widget -->
+            <div style="position: relative; width: 100%; max-width: 1000px; margin: 0 auto;">
+                <!-- Premium Floating Prompt -->
+                <div class="floating-pointer prompt-pointer">
+                    <!-- Gradient Speech Bubble -->
+                    <div style="position: relative; background: linear-gradient(135deg, #f43f5e, #f97316); padding: 8px 22px; border-radius: 30px; color: white; font-weight: 800; font-family: 'Outfit', sans-serif; font-size: 1.05rem; box-shadow: 0 10px 25px rgba(244, 63, 94, 0.4); border: 2px solid white; transform: rotate(6deg); margin-bottom: 5px; letter-spacing: 0.5px;">
+                        100% Free Tool! ✨
+                        <!-- Triangle pointer for bubble -->
+                        <div style="position: absolute; bottom: -8px; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 8px solid transparent; border-right: 8px solid transparent; border-top: 8px solid #f97316;"></div>
+                    </div>
+                    <!-- 3D Hand Image -->
+                    <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Backhand%20Index%20Pointing%20Down%20Light%20Skin%20Tone.png" alt="Point Down" style="width: 75px; margin-top: 8px; filter: drop-shadow(0 15px 15px rgba(0,0,0,0.25)); transform: rotate(-5deg);">
+                </div>
+
+                <div class="hero-search-widget extended-search"
+                style="padding: 15px 25px; border-radius: 25px; max-width: 1000px;">
+                <div class="search-inputs">
+                    <!-- Row 1 -->
+                    <div class="input-group" style="padding: 0;">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <select id="hero-stream">
+                            <option value="">What to study?</option>
+                            <option value="BTech">Engineering / B.Tech</option>
+                            <option value="MBA">MBA / Management</option>
+                            <option value="Medical">Medical / MBBS</option>
+                        </select>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="input-group" style="padding: 0;">
+                        <i class="fa-solid fa-ranking-star"></i>
+                        <select id="hero-score">
+                            <option value="">Current Score</option>
+                            <option value="90+">Above 90%</option>
+                            <option value="75-90">75% - 90%</option>
+                            <option value="60-75">60% - 75%</option>
+                            <option value="below-60">Below 60%</option>
+                        </select>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="input-group" style="padding: 0;">
+                        <i class="fa-solid fa-wallet"></i>
+                        <select id="hero-budget">
+                            <option value="">Family Budget</option>
+                            <option value="10L">Under ₹10 Lacs</option>
+                            <option value="20L">₹10L - ₹20 Lacs</option>
+                            <option value="40L">₹20L - ₹40 Lacs</option>
+                            <option value="40L+">₹40 Lacs+</option>
+                        </select>
+                    </div>
+
+                    <!-- Row 2 -->
+                    <div class="input-group" style="padding: 0;">
+                        <i class="fa-solid fa-rocket"></i>
+                        <select id="hero-goal">
+                            <option value="">Ultimate Goal?</option>
+                            <option value="job">Top MNC Placement</option>
+                            <option value="pr">Global PR / Settle Abroad</option>
+                            <option value="research">Research & PhD</option>
+                            <option value="business">Startup / Business</option>
+                        </select>
+                    </div>
+                    <div class="divider" style="opacity: 0;"></div>
+                    <div class="input-group" style="padding: 0;">
+                        <i class="fa-solid fa-earth-americas"></i>
+                        <select id="hero-location">
+                            <option value="">Target Location</option>
+                            <option value="india">India Only</option>
+                            <option value="abroad">Abroad Only</option>
+                            <option value="any">Open to Both</option>
+                        </select>
+                    </div>
+                    <div class="divider" style="opacity: 0;"></div>
+                    <div class="search-action" style="grid-column: span 1;">
+                        <button class="btn-search w-100"
+                            style="margin: 0; padding: 12px 20px; border-radius: 12px; font-size: 1rem;"
+                            onclick="openRoadmapForm()"><i class="fa-solid fa-bolt"></i> Generate Roadmap</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trust Stack -->
+            <div class="trust-stack justify-center mt-5" style="display: inline-flex; margin-top: 2rem;">
+                <div class="avatars">
+                    <img src="https://i.pravatar.cc/100?img=1" alt="Student">
+                    <img src="https://i.pravatar.cc/100?img=2" alt="Student">
+                    <img src="https://i.pravatar.cc/100?img=3" alt="Student">
+                    <img src="https://i.pravatar.cc/100?img=4" alt="Student">
+                    <div class="avatar-more">+4k</div>
+                </div>
+                <div class="trust-text text-left">
+                    <div class="stars">
+                        <i class="fa-solid fa-star text-yellow" style="color: #fbbf24;"></i>
+                        <i class="fa-solid fa-star text-yellow" style="color: #fbbf24;"></i>
+                        <i class="fa-solid fa-star text-yellow" style="color: #fbbf24;"></i>
+                        <i class="fa-solid fa-star text-yellow" style="color: #fbbf24;"></i>
+                        <i class="fa-solid fa-star text-yellow" style="color: #fbbf24;"></i>
+                    </div>
+                    <span>4.9/5 from Parents & Students</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <sahi-footer></sahi-footer>
+
+    <!-- Modals -->
+    <roadmap-lead-modal></roadmap-lead-modal>
+
+    <!-- Libraries: Particles -->
+    <script src="antigravity.js"></script>
+
+    <!-- Custom JS -->
+    <script src="components.js"></script>
+    <script src="script.js"></script>
+    <script src="common.js"></script>
+</body>
+
+</html>

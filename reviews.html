@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Reviews | Sahi Salah</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link class="prefetch-tag" rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link class="prefetch-tag" rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Firebase Compat -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+    <style>
+        .review-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .review-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #f1f5f9;
+            display: flex;
+            flex-direction: column;
+        }
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <sahi-header></sahi-header>
+
+    <section class="hero" style="padding-top: 60px; min-height: 40vh; justify-content: center;">
+        <div class="hero-bg-elements">
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+        </div>
+        <div class="container text-center" style="position: relative; z-index: 10;">
+            <div class="badge">⭐ Success Stories</div>
+            <h1>Student <span class="gradient-text">Experiences.</span></h1>
+            <p class="hero-subtext" style="margin: 0 auto 30px auto;">Hear directly from our students who have successfully navigated their career paths with Sahi Salah.</p>
+            <button onclick="openReviewModal()" class="btn-primary" style="font-size: 1.1rem; padding: 12px 28px;">
+                <i class="fa-solid fa-pen-to-square"></i> Write a Review
+            </button>
+        </div>
+    </section>
+
+    <section class="reviews-section" style="padding: 60px 0; background: #f8fafc; min-height: 50vh;">
+        <div class="container">
+            <!-- Loading State -->
+            <div id="reviewsLoading" class="waiting-state" style="padding: 40px; border-radius: 20px;">
+                <div class="waiting-icon"><i class="fa-solid fa-spinner fa-spin"></i></div>
+                <p>Loading reviews...</p>
+            </div>
+
+            <!-- Reviews Grids -->
+            <div id="studentReviewsContainer" style="display: none;">
+                <h3 style="margin-bottom: 20px; color: var(--primary);">Student Reviews</h3>
+                <div id="studentReviewsGrid" class="review-grid"></div>
+                <div id="studentLoadMoreContainer" style="text-align: center; margin-top: 30px; display: none;">
+                    <button onclick="loadMoreStudents()" class="btn-primary" style="padding: 10px 25px; border-radius: 30px; background: transparent; color: var(--primary); border: 2px solid var(--primary);">Load More <i class="fa-solid fa-angle-down"></i></button>
+                </div>
+            </div>
+
+            <div id="collegeReviewsContainer" style="display: none; margin-top: 50px;">
+                <h3 style="margin-bottom: 20px; color: var(--primary);">College & Institution Reviews</h3>
+                <div id="collegeReviewsGrid" class="review-grid"></div>
+                <div id="collegeLoadMoreContainer" style="text-align: center; margin-top: 30px; display: none;">
+                    <button onclick="loadMoreColleges()" class="btn-primary" style="padding: 10px 25px; border-radius: 30px; background: transparent; color: var(--primary); border: 2px solid var(--primary);">Load More <i class="fa-solid fa-angle-down"></i></button>
+                </div>
+            </div>
+
+            <!-- Admin Area (Hidden by Default) -->
+            <div id="adminPanel" class="admin-panel mt-5" style="display: none;">
+                <hr style="margin: 40px 0; border: 0; border-top: 1px solid #e2e8f0;">
+                <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 30px;">
+                    <div style="background: #fee2e2; color: #ef4444; padding: 10px; border-radius: 10px;">
+                        <i class="fa-solid fa-shield-halved fa-2x"></i>
+                    </div>
+                    <h2 style="margin: 0; font-family: 'Outfit', sans-serif;">Moderation Panel</h2>
+                </div>
+                <p style="color: var(--text-muted); margin-bottom: 20px;">Pending reviews waiting for your approval.</p>
+                <div id="pendingReviewsGrid" class="review-grid">
+                    <!-- Pending Reviews injected via JS -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Review Submission Modal -->
+    <div id="reviewModal" class="modal">
+        <div class="form-modal" style="max-width: 500px;">
+            <span class="close-modal" onclick="closeReviewModal()">&times;</span>
+            <div class="form-wrapper">
+                <h3 style="margin-bottom: 5px;"><span class="gradient-text">Share your experience</span></h3>
+                <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 0.9rem;">Your feedback helps future students.</p>
+                
+                <form id="submitReviewForm" onsubmit="submitReview(event)">
+                    <div class="form-group">
+                        <input type="text" id="reviewerName" placeholder="Full Name" required style="width: 100%; padding: 12px 15px; border-radius: 8px; border: 1px solid #cbd5e1; background: #f8fafc; font-family: inherit;">
+                    </div>
+                    <div class="form-group">
+                        <select id="reviewerType" required style="width: 100%; padding: 12px 15px; border-radius: 8px; border: 1px solid #cbd5e1; background: #f8fafc; font-family: inherit;">
+                            <option value="student">I am a Student / Parent</option>
+                            <option value="college">I represent a College / Institution</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="reviewerCourse" placeholder="e.g. B.Tech at VIT" required style="width: 100%; padding: 12px 15px; border-radius: 8px; border: 1px solid #cbd5e1; background: #f8fafc; font-family: inherit;">
+                    </div>
+                    <div class="form-group">
+                        <input type="url" id="reviewerImage" placeholder="Profile Image URL (Optional)" style="width: 100%; padding: 12px 15px; border-radius: 8px; border: 1px solid #cbd5e1; background: #f8fafc; font-family: inherit;">
+                    </div>
+                    <div class="form-group">
+                        <select id="reviewerRating" style="width: 100%; padding: 12px 15px; border-radius: 8px; border: 1px solid #cbd5e1; background: #f8fafc; font-family: inherit;">
+                            <option value="5">⭐⭐⭐⭐⭐ (5/5)</option>
+                            <option value="4">⭐⭐⭐⭐ (4/5)</option>
+                            <option value="3">⭐⭐⭐ (3/5)</option>
+                            <option value="2">⭐⭐ (2/5)</option>
+                            <option value="1">⭐ (1/5)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="reviewerText" required rows="4" placeholder="Your Review" style="width: 100%; padding: 12px 15px; border-radius: 8px; border: 1px solid #cbd5e1; background: #f8fafc; font-family: inherit; resize: vertical;"></textarea>
+                    </div>
+                    <button type="submit" id="submitReviewBtn" class="btn-primary w-100">Submit Review</button>
+                </form>
+
+                <div id="submitSuccess" style="display: none; text-align: center; padding: 20px 0;">
+                    <i class="fa-solid fa-circle-check" style="color: #10b981; font-size: 3rem; margin-bottom: 15px;"></i>
+                    <h4 style="font-size: 1.5rem; margin-bottom: 10px;">Thank You!</h4>
+                    <p style="color: var(--text-muted);">Your review has been submitted and is pending moderation.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <sahi-footer></sahi-footer>
+
+    <script src="components.js"></script>
+    <script>
+        // Modal Logic
+        function openReviewModal() {
+            document.getElementById('reviewModal').style.display = 'flex';
+            document.getElementById('submitReviewForm').reset();
+            document.getElementById('submitReviewForm').style.display = 'block';
+            document.getElementById('submitSuccess').style.display = 'none';
+        }
+
+        function closeReviewModal() {
+            document.getElementById('reviewModal').style.display = 'none';
+        }
+
+        // Close modal on outside click
+        window.onclick = function(event) {
+            const modal = document.getElementById('reviewModal');
+            if (event.target == modal) {
+                closeReviewModal();
+            }
+        }
+
+        // Firebase / Mock Logic
+        const isFirebaseConfigured = false; // Set to true and add config to use real Firebase
+        let db;
+        
+        let allStudentReviews = [];
+        let allCollegeReviews = [];
+        let studentReviewsToShow = 2;
+        let collegeReviewsToShow = 2;
+
+        const defaultReviews = [
+            { id: '1', name: 'Rohan Sharma', image: 'https://i.pravatar.cc/150?img=11', course: 'B.Tech CS, VIT', rating: 5, text: 'Sahi Salah completely changed my trajectory. Their psychometric test pointed me to CS and they helped me secure my admission seamlessly!', status: 'approved', type: 'student' },
+            { id: '2', name: 'Priya Patel', image: 'https://i.pravatar.cc/150?img=5', course: 'MBA, Amity University', rating: 5, text: 'The scholarship assistance is real. I got a 30% grant thanks to their expert counselling and application process.', status: 'approved', type: 'student' },
+            { id: '5', name: 'Kabir Singh', image: 'https://i.pravatar.cc/150?img=8', course: 'B.Arch, SPA', rating: 4, text: 'A great platform for unbiased advice on colleges. Very helpful team.', status: 'approved', type: 'student' },
+            { id: '3', name: 'Dr. K. Verma', image: '', course: 'Admissions Dean', rating: 5, text: 'We have partnered with Sahi Salah for 3 years. They consistently send us high-quality, pre-screened students who perfectly match our programs.', status: 'approved', type: 'college' },
+            { id: '6', name: 'Prof. A. Rao', image: '', course: 'Director, XYZ Institute', rating: 5, text: 'The quality of candidates they refer is top-notch and highly motivated.', status: 'approved', type: 'college' },
+            { id: '7', name: 'Anita Desai', image: '', course: 'Principal, ABC College', rating: 4, text: 'Reliable and transparent counselling. Always a pleasure working with them.', status: 'approved', type: 'college' },
+            { id: '4', name: 'Sneha Gupta', image: 'https://i.pravatar.cc/150?img=9', course: 'BBA, SRM', rating: 5, text: 'Excellent service. They are highly transparent and the roadmap they provided was spot on.', status: 'pending', type: 'student' }
+        ];
+
+        function getStoredReviews() {
+            let reviews = localStorage.getItem('sahi_salah_reviews');
+            if (!reviews) {
+                localStorage.setItem('sahi_salah_reviews', JSON.stringify(defaultReviews));
+                return defaultReviews;
+            }
+            return JSON.parse(reviews);
+        }
+
+        function saveStoredReviews(reviews) {
+            localStorage.setItem('sahi_salah_reviews', JSON.stringify(reviews));
+        }
+
+        async function loadReviews() {
+            const studentGrid = document.getElementById('studentReviewsGrid');
+            const collegeGrid = document.getElementById('collegeReviewsGrid');
+            const pendingGrid = document.getElementById('pendingReviewsGrid');
+            const loader = document.getElementById('reviewsLoading');
+            
+            let allReviews = [];
+
+            if (isFirebaseConfigured) {
+                // Initialize Firebase and fetch here
+            } else {
+                allReviews = getStoredReviews();
+            }
+
+            const approvedReviews = allReviews.filter(r => r.status === 'approved');
+            const pendingReviews = allReviews.filter(r => r.status === 'pending');
+
+            allStudentReviews = approvedReviews.filter(r => r.type === 'student' || !r.type);
+            allCollegeReviews = approvedReviews.filter(r => r.type === 'college');
+
+            renderStudentReviews();
+            renderCollegeReviews();
+
+            if (allStudentReviews.length === 0) {
+                studentGrid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: var(--text-muted);">No student reviews yet. Be the first to share your experience!</p>';
+                document.getElementById('studentReviewsContainer').style.display = 'block';
+            }
+            
+            if (allCollegeReviews.length === 0) {
+                collegeGrid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: var(--text-muted);">No college reviews yet.</p>';
+                document.getElementById('collegeReviewsContainer').style.display = 'block';
+            }
+
+            if (allStudentReviews.length > 0 || allCollegeReviews.length > 0) {
+                // Hide or show grids based on count
+            }
+
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('admin') === 'true') {
+                document.getElementById('adminPanel').style.display = 'block';
+                if (pendingReviews.length > 0) {
+                    pendingGrid.innerHTML = pendingReviews.map(r => createReviewCard(r, true)).join('');
+                } else {
+                    pendingGrid.innerHTML = '<p style="color: var(--text-muted); grid-column: 1 / -1; text-align: center;">No pending reviews.</p>';
+                }
+            } else {
+                document.getElementById('adminPanel').style.display = 'none';
+            }
+
+            loader.style.display = 'none';
+        }
+
+        function renderStudentReviews() {
+            const studentGrid = document.getElementById('studentReviewsGrid');
+            const visible = allStudentReviews.slice(0, studentReviewsToShow);
+            if (allStudentReviews.length > 0) {
+                studentGrid.innerHTML = visible.map(r => createReviewCard(r, false)).join('');
+                document.getElementById('studentReviewsContainer').style.display = 'block';
+                document.getElementById('studentLoadMoreContainer').style.display = studentReviewsToShow < allStudentReviews.length ? 'block' : 'none';
+            } else {
+                document.getElementById('studentReviewsContainer').style.display = 'none';
+            }
+        }
+
+        function renderCollegeReviews() {
+            const collegeGrid = document.getElementById('collegeReviewsGrid');
+            const visible = allCollegeReviews.slice(0, collegeReviewsToShow);
+            if (allCollegeReviews.length > 0) {
+                collegeGrid.innerHTML = visible.map(r => createReviewCard(r, false)).join('');
+                document.getElementById('collegeReviewsContainer').style.display = 'block';
+                document.getElementById('collegeLoadMoreContainer').style.display = collegeReviewsToShow < allCollegeReviews.length ? 'block' : 'none';
+            } else {
+                document.getElementById('collegeReviewsContainer').style.display = 'none';
+            }
+        }
+
+        function loadMoreStudents() {
+            studentReviewsToShow += 2;
+            renderStudentReviews();
+        }
+
+        function loadMoreColleges() {
+            collegeReviewsToShow += 2;
+            renderCollegeReviews();
+        }
+
+        function createReviewCard(review, isAdminCard) {
+            let stars = '';
+            for(let i=0; i<5; i++) {
+                if(i < review.rating) {
+                    stars += '<i class="fa-solid fa-star" style="color: #fbbf24;"></i>';
+                } else {
+                    stars += '<i class="fa-solid fa-star" style="color: #e2e8f0;"></i>';
+                }
+            }
+
+            let adminControls = '';
+            if (isAdminCard) {
+                adminControls = `
+                <div style="display: flex; gap: 10px; margin-top: auto; padding-top: 15px; border-top: 1px solid #e2e8f0;">
+                    <button onclick="updateReviewStatus('${review.id}', 'approved')" style="flex: 1; padding: 8px; border-radius: 6px; border: none; background: #10b981; color: white; cursor: pointer; font-weight: bold; transition: opacity 0.3s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">Approve</button>
+                    <button onclick="deleteReview('${review.id}')" style="flex: 1; padding: 8px; border-radius: 6px; border: none; background: #ef4444; color: white; cursor: pointer; font-weight: bold; transition: opacity 0.3s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">Delete</button>
+                </div>`;
+            } else {
+                adminControls = `<div style="margin-top: auto;"></div>`; // to push it to the bottom if needed
+            }
+
+            const imageHtml = review.image 
+                ? `<img src="${review.image}" alt="${review.name}" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid #e2e8f0; flex-shrink: 0;">`
+                : `<div style="width: 50px; height: 50px; border-radius: 50%; background: #e0f2fe; color: var(--primary-light); display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; flex-shrink: 0;">${review.name.charAt(0)}</div>`;
+
+            const typeBadge = review.type === 'college' ? `<span style="font-size: 0.7rem; background: var(--secondary); color: white; padding: 2px 6px; border-radius: 10px; margin-left: 5px; vertical-align: middle;">College</span>` : '';
+
+            return `
+            <div class="review-card">
+                <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
+                    ${imageHtml}
+                    <div>
+                        <h4 style="margin: 0; color: var(--primary);">${review.name} ${typeBadge}</h4>
+                        <p style="margin: 0; font-size: 0.85rem; color: var(--text-muted);">${review.course}</p>
+                    </div>
+                </div>
+                <div style="margin-bottom: 15px; font-size: 0.9rem;">
+                    ${stars}
+                </div>
+                <p style="color: var(--text-dark); font-size: 0.95rem; font-style: italic; line-height: 1.5; margin-bottom: 15px;">"${review.text}"</p>
+                ${adminControls}
+            </div>
+            `;
+        }
+
+        async function submitReview(e) {
+            e.preventDefault();
+            const btn = document.getElementById('submitReviewBtn');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Submitting...';
+            btn.disabled = true;
+
+            const name = document.getElementById('reviewerName').value.trim();
+            const type = document.getElementById('reviewerType').value;
+            const course = document.getElementById('reviewerCourse').value.trim();
+            const image = document.getElementById('reviewerImage').value.trim();
+            const rating = parseInt(document.getElementById('reviewerRating').value);
+            const text = document.getElementById('reviewerText').value.trim();
+
+            const newReview = {
+                id: Date.now().toString(),
+                name: name,
+                type: type,
+                course: course,
+                image: image,
+                rating: rating,
+                text: text,
+                status: 'pending'
+            };
+
+            // Mock network delay
+            await new Promise(r => setTimeout(r, 1000));
+
+            if (!isFirebaseConfigured) {
+                const currentReviews = getStoredReviews();
+                currentReviews.push(newReview);
+                saveStoredReviews(currentReviews);
+            }
+
+            document.getElementById('submitReviewForm').style.display = 'none';
+            document.getElementById('submitSuccess').style.display = 'block';
+            btn.innerHTML = originalText;
+            btn.disabled = false;
+            
+            loadReviews(); // Refresh admin view if needed
+        }
+
+        function updateReviewStatus(id, status) {
+            if (!confirm(`Are you sure you want to approve this review?`)) return;
+            if (!isFirebaseConfigured) {
+                const currentReviews = getStoredReviews();
+                const review = currentReviews.find(r => r.id === id);
+                if (review) {
+                    review.status = status;
+                    saveStoredReviews(currentReviews);
+                }
+            }
+            loadReviews();
+        }
+
+        function deleteReview(id) {
+            if (!confirm('Are you sure you want to delete this review permanently?')) return;
+            if (!isFirebaseConfigured) {
+                let currentReviews = getStoredReviews();
+                currentReviews = currentReviews.filter(r => r.id !== id);
+                saveStoredReviews(currentReviews);
+            }
+            loadReviews();
+        }
+
+        document.addEventListener('DOMContentLoaded', loadReviews);
+    </script>
+</body>
+</html>

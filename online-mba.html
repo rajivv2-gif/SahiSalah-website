@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UGC-Approved Online MBA for Professionals | Sahi Salah</title>
+    <meta name="description"
+        content="Earn your Online MBA from top UGC-DEB approved universities. Compare course fees, scheduling flexibility, and placement reports transparently.">
+    <meta name="keywords"
+        content="Online MBA, UGC Approved MBA, Executive MBA, Distance learning MBA, Online MBA placement, Sahi Salah">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sahisalah.in/online-mba.html">
+    <meta property="og:title" content="Compare Accredited Online MBA Programs | Sahi Salah">
+    <meta property="og:description"
+        content="Make a smart career transition. Find UGC-DEB certified programs that offer flexible exam schedules and direct career support.">
+    <meta property="og:image"
+        content="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=630&q=80">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link class="prefetch-tag" rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link class="prefetch-tag" rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .online-hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+            color: white;
+            padding: 120px 20px 80px;
+            text-align: center;
+            position: relative;
+        }
+
+        .online-hero .grid-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 24px 24px;
+            pointer-events: none;
+        }
+
+        .stats-row {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .stat-box {
+            background: white;
+            border: 1px solid #cbd5e1;
+            border-radius: 20px;
+            padding: 30px 25px;
+            min-width: 230px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.01);
+            transition: all 0.3s;
+        }
+
+        .stat-box:hover {
+            border-color: var(--primary-light);
+            box-shadow: 0 15px 30px rgba(37,99,235,0.05);
+        }
+
+        .stat-number {
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: var(--primary-light);
+            font-family: 'Outfit', sans-serif;
+            margin-bottom: 5px;
+        }
+
+        .comparison-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
+            margin: 50px 0;
+        }
+
+        .comp-card {
+            background: white;
+            border: 1px solid #cbd5e1;
+            border-radius: 24px;
+            padding: 40px 35px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.01);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .comp-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.04);
+            border-color: #cbd5e1;
+        }
+
+        .comp-card.featured {
+            border: 2px solid var(--secondary);
+            transform: scale(1.03);
+            box-shadow: 0 20px 40px rgba(234, 88, 12, 0.08);
+        }
+
+        .comp-card.featured:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 25px 45px rgba(234, 88, 12, 0.12);
+        }
+
+        .comp-card.featured::before {
+            content: '★ RECOMMENDED FOR PROFESSIONALS';
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--secondary);
+            color: white;
+            padding: 5px 16px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            border-radius: 20px;
+            letter-spacing: 0.8px;
+            white-space: nowrap;
+        }
+
+        .accreditation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            margin: 50px 0;
+        }
+
+        .acc-logo-box {
+            background: white;
+            border: 1px solid #cbd5e1;
+            border-radius: 16px;
+            padding: 25px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--primary);
+            font-family: 'Outfit', sans-serif;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.01);
+            transition: all 0.3s;
+        }
+
+        .acc-logo-box:hover {
+            border-color: var(--primary-light);
+            box-shadow: 0 10px 20px rgba(37,99,235,0.04);
+            color: var(--primary-light);
+        }
+
+        /* Interactive Sector Hike Selector Widget */
+        .hike-widget {
+            background: white;
+            border: 1px solid #cbd5e1;
+            border-radius: 24px;
+            padding: 40px;
+            max-width: 700px;
+            margin: 50px auto;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.02);
+        }
+
+        .hike-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .hike-tab {
+            padding: 10px 20px;
+            background: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            border-radius: 30px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+            color: #475569;
+        }
+
+        .hike-tab.active {
+            background: var(--primary-light);
+            color: white;
+            border-color: var(--primary-light);
+            box-shadow: 0 5px 15px rgba(37,99,235,0.2);
+        }
+
+        .hike-display-val {
+            font-size: 4rem;
+            font-weight: 800;
+            color: var(--accent);
+            font-family: 'Outfit', sans-serif;
+            margin: 15px 0;
+            animation: pulseText 1.5s infinite;
+        }
+
+        @keyframes pulseText {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+
+<body>
+
+    <sahi-header></sahi-header>
+
+    <!-- Hero -->
+    <header class="online-hero" id="online-hero">
+        <div class="grid-pattern"></div>
+        <div class="container" style="position: relative; z-index: 2;">
+            <span class="badge" style="background: rgba(99, 102, 241, 0.15); border: 1px solid rgba(99, 102, 241, 0.3); color: #c7d2fe; margin-bottom: 15px; font-weight:800;">💼 FLEXIBLE CAREER ACCELERATION</span>
+            <h1 style="color: white; font-size: 3.5rem; max-width: 900px; margin: 0 auto 20px auto; line-height: 1.1; font-weight: 800;">
+                UGC-DEB Approved <span class="gradient-text">Online MBA</span> Hub
+            </h1>
+            <p style="color: #cbd5e1; font-size: 1.25rem; max-width: 700px; margin: 0 auto 35px auto; line-height: 1.6;">
+                Compare fees, LMS configurations, and career advancement reports transparently across accredited domestic and international business programs.
+            </p>
+            <button onclick="openLeadForm()" class="btn-apply-hero btn-large" style="margin: 0 auto; justify-content: center;" id="btn-hero-online">
+                Compare Online MBAs Now <i class="fa-solid fa-list-check" style="color:#60a5fa;"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Stats row -->
+    <section class="container" style="padding: 80px 20px;" id="online-stats">
+        <div class="stats-row">
+            <div class="stat-box">
+                <div class="stat-number">UGC-DEB</div>
+                <div class="small-text" style="font-weight:600; color:#475569;">100% Certified Portals</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">40% - 70%</div>
+                <div class="small-text" style="font-weight:600; color:#475569;">Average Career Hikes</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">₹1.5L - 4L</div>
+                <div class="small-text" style="font-weight:600; color:#475569;">Entire Course Tuition</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">98%</div>
+                <div class="small-text" style="font-weight:600; color:#475569;">Successful Completion Rate</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Cards -->
+    <section class="container" style="padding: 40px 20px;" id="online-comparison">
+        <div class="section-header">
+            <h2>Select Your <span class="gradient-text">Study Mode</span></h2>
+            <p>Ensure your chosen MBA aligns with your working hours, learning goals, and career constraints.</p>
+        </div>
+
+        <div class="comparison-cards">
+            <!-- Regular MBA -->
+            <div class="comp-card">
+                <h3 style="font-family:'Outfit'; font-size:1.4rem; margin-bottom:15px; color:var(--primary); font-weight:700;">Regular Full-Time</h3>
+                <p class="text-muted" style="font-size:0.95rem; margin-bottom:20px; line-height:1.5;">Best for freshers or those looking to pivot careers via immediate campus placement drives.</p>
+                <ul style="list-style:none; padding:0; margin:0 0 25px 0; font-size:0.95rem; line-height:2.2;">
+                    <li><i class="fa-solid fa-circle-check text-primary" style="margin-right:8px;"></i> Daily campus classes</li>
+                    <li><i class="fa-solid fa-circle-check text-primary" style="margin-right:8px;"></i> Structured batch networking</li>
+                    <li><i class="fa-solid fa-xmark" style="color:#ef4444; margin-right:8px; font-weight:bold;"></i> Leave current job salary</li>
+                    <li><i class="fa-solid fa-xmark" style="color:#ef4444; margin-right:8px; font-weight:bold;"></i> High cost (₹12L - ₹25L)</li>
+                </ul>
+            </div>
+
+            <!-- Online MBA -->
+            <div class="comp-card featured">
+                <h3 style="font-family:'Outfit'; font-size:1.4rem; margin-bottom:15px; color:var(--primary); font-weight:700;">Online Flex MBA</h3>
+                <p class="text-muted" style="font-size:0.95rem; margin-bottom:20px; line-height:1.5;">Ideal for working professionals who want credential enhancement without taking a career break.</p>
+                <ul style="list-style:none; padding:0; margin:0 0 25px 0; font-size:0.95rem; line-height:2.2;">
+                    <li><i class="fa-solid fa-circle-check text-primary" style="margin-right:8px;"></i> 100% online self-paced LMS</li>
+                    <li><i class="fa-solid fa-circle-check text-primary" style="margin-right:8px;"></i> Retain full salary while studying</li>
+                    <li><i class="fa-solid fa-circle-check text-primary" style="margin-right:8px;"></i> Low fees (₹1.5L - ₹3.5L)</li>
+                    <li><i class="fa-solid fa-circle-check text-primary" style="margin-right:8px;"></i> Flexible proctored exam slots</li>
+                </ul>
+            </div>
+
+            <!-- Executive MBA -->
+            <div class="comp-card">
+                <h3 style="font-family:'Outfit'; font-size:1.4rem; margin-bottom:15px; color:var(--primary); font-weight:700;">Executive MBA</h3>
+                <p class="text-muted" style="font-size:0.95rem; margin-bottom:20px; line-height:1.5;">Designed for senior managers (5+ yrs experience) looking for premium peer-to-peer networking.</p>
+                <ul style="list-style:none; padding:0; margin:0 0 25px 0; font-size:0.95rem; line-height:2.2;">
+                    <li><i class="fa-solid fa-circle-check text-primary" style="margin-right:8px;"></i> Weekend hybrid format</li>
+                    <li><i class="fa-solid fa-circle-check text-primary" style="margin-right:8px;"></i> Case-study focused pedagogy</li>
+                    <li><i class="fa-solid fa-circle-check text-primary" style="margin-right:8px;"></i> Direct corporate endorsements</li>
+                    <li><i class="fa-solid fa-xmark" style="color:#ef4444; margin-right:8px; font-weight:bold;"></i> High expense (₹6L - ₹15L)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sector Hikes Widget -->
+    <section class="container" style="padding: 60px 20px;" id="hike-calculator">
+        <div class="section-header">
+            <h2>Expected <span class="gradient-text">Salary Transitions</span></h2>
+            <p>Select your sector below to see the average career hikes achieved by online MBA graduates.</p>
+        </div>
+
+        <div class="hike-widget">
+            <div class="hike-tabs">
+                <button class="hike-tab active" onclick="switchHikeSector(this, '55%', 'Product Manager, Operations Lead')">Product & Tech</button>
+                <button class="hike-tab" onclick="switchHikeSector(this, '48%', 'Financial Analyst, Portfolio Specialist')">Banking & Finance</button>
+                <button class="hike-tab" onclick="switchHikeSector(this, '62%', 'Digital Marketing Head, Brand Manager')">Marketing & Sales</button>
+                <button class="hike-tab" onclick="switchHikeSector(this, '42%', 'HR Coordinator, Talent Acquisition Head')">Consulting & HR</button>
+            </div>
+            <p class="text-muted" style="font-size: 0.95rem;">Average Post-Graduation Hike</p>
+            <div class="hike-display-val" id="hike-display-percentage">55%</div>
+            <p class="text-muted" id="hike-display-role" style="font-weight:600; font-size:1.1rem; color:var(--primary);">Matched Roles: Product Manager, Operations Lead</p>
+        </div>
+    </section>
+
+    <!-- Credential Verification -->
+    <section style="background: #f8fafc; padding: 100px 20px; border-top: 1px solid #cbd5e1; border-bottom: 1px solid #cbd5e1;" id="online-accreditation">
+        <div class="container">
+            <div class="section-header">
+                <h2>Accreditations <span class="gradient-text">That Matter</span></h2>
+                <p>Never enroll in unapproved courses. We only list programs approved by top regulatory bodies.</p>
+            </div>
+
+            <div class="accreditation-grid">
+                <div class="acc-logo-box"><i class="fa-solid fa-building-columns text-primary" style="margin-right:12px; font-size:1.2rem;"></i> UGC-DEB Approved</div>
+                <div class="acc-logo-box"><i class="fa-solid fa-shield-halved text-primary" style="margin-right:12px; font-size:1.2rem;"></i> AICTE Compliant</div>
+                <div class="acc-logo-box"><i class="fa-solid fa-chart-line text-primary" style="margin-right:12px; font-size:1.2rem;"></i> NAAC A+ Grade</div>
+                <div class="acc-logo-box"><i class="fa-solid fa-globe text-primary" style="margin-right:12px; font-size:1.2rem;"></i> WES Recognized</div>
+            </div>
+
+            <div style="background: #fff7ed; border: 1px dashed var(--secondary); padding: 30px; border-radius: 20px; text-align: left; max-width: 850px; margin: 0 auto; display:flex; gap:20px; align-items:center;">
+                <i class="fa-solid fa-triangle-exclamation" style="font-size:2.5rem; color:var(--secondary);"></i>
+                <div>
+                    <h4 style="font-family:'Outfit'; color:#c2410c; margin-bottom:8px; font-size:1.2rem; font-weight:700;">Beware of Unrecognized Portal Degrees</h4>
+                    <p class="small-text" style="color:#9a3412; font-size:0.95rem; line-height:1.5;">Multiple unauthorized agents sell distance degrees from unrecognized institutions. Sahi Salah verifies the official enrollment links directly on the university's main portal to ensure your credentials are valid globally for job applications and WES assessment evaluations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section style="background: linear-gradient(135deg, var(--secondary) 0%, #c2410c 100%); color:white; padding: 80px 20px; text-align:center;" id="online-cta">
+        <div class="container">
+            <h2 style="font-family:'Outfit'; font-size:2.5rem; margin-bottom: 15px; font-weight:800;">Unlock Your Online MBA Fee Waiver</h2>
+            <p style="opacity:0.9; max-width:600px; margin: 0 auto 35px auto; font-size: 1.15rem; line-height:1.6;">Check your eligibility for standard corporate discounts or academic scholarships (up to 30%).</p>
+            <button onclick="openLeadForm()" class="btn-primary btn-large" style="background:#0f172a; color:white; border:none; margin:0 auto; display:flex; font-weight:800;" id="btn-cta-online">Get Fee Structure Details <i class="fa-solid fa-arrow-right ml-2" style="color:#60a5fa;"></i></button>
+        </div>
+    </section>
+
+    <sahi-footer></sahi-footer>
+
+    <sahi-lead-modal></sahi-lead-modal>
+
+    <!-- Include Mascot & Lead Form Scripts -->
+    <script src="components.js"></script>
+    <script src="common.js"></script>
+
+    <script>
+        function switchHikeSector(button, percentage, matchedRoles) {
+            document.querySelectorAll('.hike-tab').forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            document.getElementById('hike-display-percentage').innerText = percentage;
+            document.getElementById('hike-display-role').innerText = 'Matched Roles: ' + matchedRoles;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post-Admission Student Support & Visa Assistance | Sahi Salah</title>
+    <meta name="description"
+        content="Get end-to-end student support from Sahi Salah. Get education loans, visa document checks, mock visa interviews, and campus accommodation help.">
+    <meta name="keywords"
+        content="student support services, education loan assistance, mock visa interview, student housing helper, pre-departure briefing, Sahi Salah">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sahisalah.in/student-support.html">
+    <meta property="og:title" content="Transparent Student Support & Visa Help | Sahi Salah">
+    <meta property="og:description"
+        content="We stay with you past your admission letter. Access verified student loan networks, visa services, and local housing links.">
+    <meta property="og:image"
+        content="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=630&q=80">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link class="prefetch-tag" rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link class="prefetch-tag" rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .support-hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #0d1427 100%);
+            color: white;
+            padding: 120px 20px 80px;
+            text-align: center;
+            position: relative;
+        }
+
+        .support-hero .grid-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+            background-size: 24px 24px;
+            pointer-events: none;
+        }
+
+        .services-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+            margin: 50px 0;
+        }
+
+        .service-card {
+            background: white;
+            border: 1px solid #cbd5e1;
+            border-radius: 24px;
+            padding: 40px 35px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.01);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(37, 99, 235, 0.06);
+            border-color: rgba(37, 99, 235, 0.2);
+        }
+
+        .service-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-light), var(--accent));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .service-card:hover::after {
+            opacity: 1;
+        }
+
+        .service-card h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.35rem;
+            margin-bottom: 12px;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .service-card p {
+            font-size: 0.95rem;
+            color: #475569;
+            line-height: 1.6;
+        }
+
+        .support-icon {
+            width: 55px;
+            height: 55px;
+            border-radius: 16px;
+            background: rgba(37, 99, 235, 0.08);
+            color: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            transition: all 0.3s;
+        }
+
+        .service-card:hover .support-icon {
+            background: var(--primary-light);
+            color: white;
+            transform: scale(1.05) rotate(5deg);
+        }
+    </style>
+</head>
+
+<body>
+
+    <sahi-header></sahi-header>
+
+    <!-- Hero -->
+    <header class="support-hero" id="support-hero">
+        <div class="grid-pattern"></div>
+        <div class="container" style="position: relative; z-index: 2;">
+            <span class="badge" style="background: rgba(99, 102, 241, 0.15); border: 1px solid rgba(99, 102, 241, 0.3); color: #c7d2fe; margin-bottom: 15px; font-weight:800;">🛡️ COMPREHENSIVE ARRIVAL ASSURANCE</span>
+            <h1 style="color: white; font-size: 3.5rem; max-width: 900px; margin: 0 auto 20px auto; line-height: 1.1; font-weight: 800;">
+                We Don't Stop at the <span class="gradient-text">Admission Offer</span>
+            </h1>
+            <p style="color: #cbd5e1; font-size: 1.25rem; max-width: 700px; margin: 0 auto 35px auto; line-height: 1.6;">
+                From non-collateral loan applications to visa documentation checks and verified senior student contacts on campus, we guide you all the way.
+            </p>
+            <button onclick="openLeadForm()" class="btn-apply-hero btn-large" style="margin: 0 auto; justify-content: center;" id="btn-hero-support">
+                Check My Support Eligibility <i class="fa-solid fa-shield-heart" style="color:#60a5fa;"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Support Services -->
+    <main class="container" style="padding: 100px 20px;">
+        <div class="section-header">
+            <h2>Post-Admission <span class="gradient-text">Support Suite</span></h2>
+            <p>Our complete check list handles every detail so you can focus entirely on your academics.</p>
+        </div>
+
+        <div class="services-layout">
+            <!-- Card 1 -->
+            <div class="service-card" id="loan-support">
+                <div class="support-icon" style="background: rgba(22, 163, 74, 0.08); color: var(--accent);"><i class="fa-solid fa-wallet"></i></div>
+                <h3>Loan Processing</h3>
+                <p>We work directly with public and private partner banks to submit and clear non-collateral education loans. We guarantee zero hidden middleman processing charges.</p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="service-card" id="visa-support">
+                <div class="support-icon"><i class="fa-solid fa-passport"></i></div>
+                <h3>Visa File Preparation</h3>
+                <p>Complete visa document checking. Our mentors conduct mock interviews and prepare your financial statements to align with high success rate compliance.</p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="service-card" id="accommodation-support">
+                <div class="support-icon" style="background: rgba(234, 88, 12, 0.08); color: var(--secondary);"><i class="fa-solid fa-house-chimney"></i></div>
+                <h3>Accommodation Help</h3>
+                <p>Don't fall for overseas housing scams. We connect you with senior Indian students on campus who help verify rentals, locate hostels, and check neighborhood safety.</p>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="service-card" id="forex-support">
+                <div class="support-icon" style="background: rgba(99, 102, 241, 0.08); color: #4f46e5;"><i class="fa-solid fa-coins"></i></div>
+                <h3>Forex & Medical Cover</h3>
+                <p>Setup verified travel cards, international student health insurance policies, and blocked accounts (for Germany) without excessive exchange rate markups.</p>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="service-card" id="arrival-support">
+                <div class="support-icon" style="background: rgba(8, 145, 178, 0.08); color: #0891b2;"><i class="fa-solid fa-plane-arrival"></i></div>
+                <h3>Pre-Departure Briefings</h3>
+                <p>Participate in online sessions mapping airport arrival routes, baggage rules, public transport passes, part-time work laws, and legal registrations.</p>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="service-card" id="community-support">
+                <div class="support-icon" style="background: rgba(236, 72, 153, 0.08); color: #db2777;"><i class="fa-solid fa-users"></i></div>
+                <h3>Student Communities</h3>
+                <p>Get added to local WhatsApp support groups for your target city. Meet fellow students before flying and coordinate shared flats or flights together.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Trust highlight -->
+    <section style="background: #f8fafc; padding: 100px 20px; border-top: 1px solid #cbd5e1; border-bottom: 1px solid #cbd5e1;" id="support-trust">
+        <div class="container">
+            <div style="max-width: 900px; margin: 0 auto; text-align: center;">
+                <h3 style="font-family:'Outfit'; font-size:2rem; margin-bottom:15px; color:var(--primary); font-weight:700;">A Community Built on <span class="gradient-text">Transparency</span></h3>
+                <p class="text-muted" style="font-size:1.05rem; margin-bottom:35px; line-height:1.7;">Our support does not cost thousands of extra rupees. We provide pre-departure coordination as a basic service because we believe every student deserves a safe transition into university life.</p>
+                <a href="https://wa.me/918882289261" target="_blank" class="btn-primary" style="background: #25D366; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.25); border-radius:30px; font-weight:800; padding:15px 30px;"><i class="fa-brands fa-whatsapp"></i> Speak to an Arrival Coordinator</a>
+            </div>
+        </div>
+    </section>
+
+    <sahi-footer></sahi-footer>
+
+    <sahi-lead-modal></sahi-lead-modal>
+
+    <!-- Include Mascot & Lead Form Scripts -->
+    <script src="components.js"></script>
+    <script src="common.js"></script>
+</body>
+
+</html>

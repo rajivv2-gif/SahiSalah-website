@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Highest ROI Colleges in India | Sahi Salah</title>
+    <meta name="description"
+        content="Explore the top colleges in India that offer the highest Return on Investment (ROI). Verified data, fees, and actual placements.">
+    <meta name="keywords"
+        content="Highest ROI Colleges, Top Indian Colleges, Btech India, MBA India, College reviews, true placements">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link class="prefetch-tag" rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link class="prefetch-tag" rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-gray-50">
+
+    <sahi-header></sahi-header>
+
+    <!-- Specific Category Hero -->
+    <section class="mega-hero" style="padding-bottom: 40px; padding-top: 80px;">
+        <div class="hero-bg-elements">
+            <div class="blob blob-1" style="width: 500px; height: 500px; opacity: 0.1; background: #22c55e;"></div>
+            <div class="blob blob-2" style="width: 400px; height: 400px; opacity: 0.15; background: #3b82f6;"></div>
+        </div>
+
+        <div class="container relative z-10 text-center">
+            <div class="badge" style="background: rgba(34, 197, 94, 0.1); color: #16a34a;">Collection #1</div>
+            <h1 class="display-title">Highest <span class="gradient-text"
+                    style="background: linear-gradient(135deg, #22c55e, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">ROI
+                    Colleges</span> In India</h1>
+            <p class="hero-subtext mx-auto" style="max-width: 800px;">
+                We have ranked the top institutions in India based on their true Return on Investment.
+                These colleges offer affordable tuition fees while ensuring exceptional average placement packages.
+                Explore the verified data below to make the smartest financial choice for your career.
+            </p>
+        </div>
+    </section>
+
+    <!-- Top Colleges Directory - Filtered for ROI -->
+    <section class="directory-section section-padding bg-white">
+        <div class="container">
+            <!-- Header for ranking table -->
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+                <h2 style="font-family: 'Outfit'; font-size: 2rem;">Top 10 Ranked by ROI</h2>
+                <div>
+                    <span class="badge" style="margin-bottom: 0;">Updated: May 2026</span>
+                </div>
+            </div>
+
+            <!-- Grid Results (Ranked) -->
+            <div class="college-grid" id="roiCollegeGrid">
+                <!-- Dynamically populated via JS -->
+            </div>
+
+        </div>
+    </section>
+
+    <sahi-lead-modal></sahi-lead-modal>
+    <sahi-footer></sahi-footer>
+
+    <!-- Libraries -->
+    <script src="components.js"></script>
+    <script src="colleges-data.js"></script>
+    <script src="common.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const grid = document.getElementById('roiCollegeGrid');
+
+            // Helper to parse fees/packages to numbers for sorting
+            const extractNumber = (str) => {
+                if (!str) return 0;
+                const match = str.match(/[\d.]+/);
+                return match ? parseFloat(match[0]) : 0;
+            };
+
+            // Calculate a simple ROI score for ranking: (Package / Fees)
+            // Let's create a custom list or sort existing data
+            const roiData = [...collegesData].map(college => {
+                let feeVal = extractNumber(college.fees);
+                let pkgVal = extractNumber(college.package);
+                // Assume default of 1 if 0 to prevent division by zero or Infinity if we don't have fee data
+                feeVal = feeVal === 0 ? 1 : feeVal;
+                let roiScore = pkgVal / feeVal;
+                return { ...college, roiScore, feeVal, pkgVal };
+            });
+
+            // Sort by ROI score descending
+            roiData.sort((a, b) => b.roiScore - a.roiScore);
+
+            // Take top 10
+            const top10ROI = roiData.slice(0, 10);
+
+            function renderColleges(data) {
+                grid.innerHTML = '';
+
+                data.forEach((college, index) => {
+                    const rank = index + 1;
+                    const cardHTML = `
+                        <div class="college-card reveal active" style="position: relative;">
+                            <!-- Rank Badge -->
+                            <div style="position: absolute; top: 15px; left: 15px; width: 45px; height: 45px; background: linear-gradient(135deg, #16a34a, #22c55e); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Outfit'; font-size: 1.2rem; font-weight: 800; z-index: 10; box-shadow: 0 4px 10px rgba(22, 163, 74, 0.4); border: 3px solid white;">
+                                #${rank}
+                            </div>
+                            
+                            <div class="college-cover">
+                                <img src="${college.cover}" alt="${college.name}">
+                                <div class="ranking-badge" style="background: rgba(0,0,0,0.7); backdrop-filter: blur(5px);"><i class="fa-solid fa-chart-line text-green" style="color: #4ade80;"></i> ${college.roiScore.toFixed(1)}x ROI</div>
+                                <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+                                <button class="play-btn" onclick="openVideoModal('${college.name}')" title="Watch College Story"><i class="fa-solid fa-play" style="margin-left:4px;"></i></button>
+                            </div>
+                            <div class="college-info">
+                                <div class="college-logo" style="background:${college.logoColor};">
+                                    <span>${college.acronym}</span>
+                                </div>
+                                <h3>${college.name}</h3>
+                                <p class="location"><i class="fa-solid fa-location-dot"></i> ${college.location}</p>
+                                
+                                <div class="college-metrics" style="background: #f0fdf4; border: 1px solid #bbf7d0;">
+                                    <div class="metric">
+                                        <span class="label">1st Year Fees</span>
+                                        <span class="value">₹${college.feeVal} L</span>
+                                    </div>
+                                    <div class="metric">
+                                        <span class="label">Avg Package</span>
+                                        <span class="value text-green">₹${college.pkgVal} L</span>
+                                    </div>
+                                    <div class="metric rating">
+                                        <span class="label">User Rating</span>
+                                        <span class="value"><i class="fa-solid fa-star"></i> ${college.rating}/5</span>
+                                    </div>
+                                </div>
+
+                                <div class="college-actions">
+                                    <button class="btn-primary w-100" onclick="openLeadForm()" style="background: #16a34a; box-shadow: 0 4px 15px rgba(22, 163, 74, 0.3); margin-top: 5px;">Apply Now <i class="fa-solid fa-arrow-right"></i></button>
+                                    <div style="display: flex; gap: 10px; width: 100%;">
+                                        <button class="btn-outline w-100" style="margin-top: 10px; padding: 10px;" onclick="openLeadForm()">Brochure</button>
+                                        <button class="btn-primary w-100" style="margin-top: 10px; padding: 10px;" onclick="openLeadForm()"><i class="fa-solid fa-bolt"></i> Mentor</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    grid.innerHTML += cardHTML;
+                });
+            }
+
+            // Initial render
+            renderColleges(top10ROI);
+        });
+    </script>
+</body>
+
+</html>

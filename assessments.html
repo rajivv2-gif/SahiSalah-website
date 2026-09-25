@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Specialized Assessment Suite | Sahi Salah</title>
+    <meta name="description" content="Discover your true academic and professional fit across 12 highly specialized orientation scales. Stop guessing, start measuring.">
+
+    <!-- Open Graph / WhatsApp / Facebook -->
+    <meta property="og:title" content="Specialized Assessment Suite | Sahi Salah">
+    <meta property="og:description" content="Stop guessing. Discover your true potential with our 12 specialized psychometric diagnostics.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link class="prefetch-tag" rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link class="prefetch-tag" rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- StudyIndia CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            corePlugins: {
+                preflight: false, // Prevent Tailwind from overriding style.css defaults too much
+            },
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#020617',
+                            primary: '#2563eb',
+                            accent: '#60a5fa',
+                            gold: '#f59e0b',
+                            surface: '#0f172a',
+                            card: '#1e293b',
+                            light: '#f8fafc'
+                        }
+                    },
+                    backgroundImage: {
+                        'hero-glow': 'radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.15) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(245, 158, 11, 0.1) 0%, transparent 30%)',
+                    },
+                    boxShadow: {
+                        'glass': '0 8px 32px 0 rgba(0, 0, 0, 0.37)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- html2pdf.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <style>
+        .tailwind-section {
+            background-color: #020617;
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .tailwind-section h1, .tailwind-section h2, .tailwind-section h3, .tailwind-section h4, .tailwind-section h5, .tailwind-section h6 {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .bento-card-tw {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .bento-card-tw:hover {
+            transform: translateY(-4px);
+            background: rgba(15, 23, 42, 0.95);
+            border-color: rgba(96, 165, 250, 0.3);
+            box-shadow: 0 20px 45px -10px rgba(59, 130, 246, 0.25);
+        }
+
+        .blob-tw {
+            position: absolute;
+            filter: blur(100px);
+            z-index: 0;
+            opacity: 0.3;
+            animation: move-tw 12s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @keyframes move-tw {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(60px, -60px) scale(1.3); }
+        }
+
+        .likert-btn-tw {
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            cursor: pointer;
+        }
+
+        .likert-btn-tw:hover {
+            transform: scale(1.03);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(96, 165, 250, 0.5);
+        }
+
+        .likert-btn-tw.selected {
+            background-color: #2563eb !important;
+            color: #ffffff !important;
+            border-color: #2563eb !important;
+            box-shadow: 0 0 15px rgba(37, 99, 235, 0.4);
+        }
+
+        .fade-in-tw {
+            animation: fadeInTw 0.4s ease-out forwards;
+        }
+
+        @keyframes fadeInTw {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Printable PDF layout overrides */
+        .pdf-output-style {
+            color: #0f172a !important;
+            background: #ffffff !important;
+            font-family: 'Inter', sans-serif !important;
+        }
+        .pdf-output-style h1, .pdf-output-style h2, .pdf-output-style h3, .pdf-output-style h4 {
+            font-family: 'Outfit', sans-serif !important;
+            color: #1e3a8a !important;
+        }
+    </style>
+</head>
+
+<body class="antialiased selection:bg-brand-accent selection:text-white bg-slate-950">
+
+    <!-- Sahi Salah Header web component -->
+    <sahi-header></sahi-header>
+
+    <div class="tailwind-section pb-24 pt-16">
+        <!-- Glowing Blobs -->
+        <div class="blob-tw w-[600px] h-[600px] rounded-full bg-brand-primary/20 top-[5%] left-[-15%]"></div>
+        <div class="blob-tw w-[500px] h-[500px] rounded-full bg-brand-gold/10 top-[35%] right-[-10%] animation-delay-2000"></div>
+
+        <!-- Page Hero -->
+        <section class="relative min-h-[45vh] flex items-center justify-center pt-20 pb-16 overflow-hidden bg-hero-glow">
+            <div class="max-w-7xl mx-auto px-6 relative z-10 text-center w-full">
+                <div class="inline-block" data-aos="fade-down">
+                    <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-brand-accent/30 bg-brand-accent/10 text-xs font-bold text-brand-accent uppercase tracking-wider mb-6 shadow-[0_0_20px_rgba(96,165,250,0.15)]">
+                        <i data-lucide="brain-circuit" class="w-4 h-4"></i> Scientific Profile Evaluation
+                    </span>
+                </div>
+                <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-6 leading-tight text-white" data-aos="fade-up" data-aos-delay="100">
+                    Specialized <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent via-white to-brand-gold">Assessment Suite</span>
+                </h1>
+                <p class="text-lg text-slate-300 font-light max-w-2xl mx-auto mb-4 leading-relaxed" data-aos="fade-up" data-aos-delay="200">
+                    12 highly specialized academic & professional diagnostics mapped to optimal higher education streams, career models, and starting salary potentials.
+                </p>
+            </div>
+        </section>
+
+        <!-- Dashboard Grid & Quiz Execution -->
+        <main id="portal" class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-extrabold text-white mb-2">Select an Assessment Scale</h2>
+                <p class="text-slate-400 text-sm md:text-base font-medium max-w-xl mx-auto">Get your verified suitability score, custom visual charts, recommended careers list, and pre-signed advisory certificate instantly.</p>
+            </div>
+
+            <!-- Bento grid for 12 tests -->
+            <div id="tests-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20" data-aos="fade-up" data-aos-delay="100">
+                <!-- Dynamically injected bento cards -->
+            </div>
+
+            <!-- Quiz Screen -->
+            <section id="quiz-container" class="hidden max-w-3xl mx-auto bg-brand-surface border border-white/10 rounded-[2.5rem] p-8 md:p-12 shadow-glass relative scroll-mt-28">
+                <!-- Progress Indicator -->
+                <div class="mb-8">
+                    <div class="flex justify-between text-xs font-bold text-slate-400 uppercase mb-3">
+                        <span id="quiz-progress-text">Question 1 of 5</span>
+                        <span id="quiz-progress-percentage">0%</span>
+                    </div>
+                    <div class="w-full bg-white/10 rounded-full h-1.5 overflow-hidden">
+                        <div id="quiz-progress-bar" class="bg-brand-primary h-full rounded-full transition-all duration-300" style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <!-- Active Question Box -->
+                <div id="quiz-box" class="fade-in-tw">
+                    <div id="quiz-tag" class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-primary/10 border border-brand-primary/30 text-brand-accent text-xs font-bold uppercase tracking-wider mb-6">
+                        <!-- Loaded Dimension Category -->
+                    </div>
+                    <h3 id="quiz-question-text" class="text-xl md:text-2xl font-bold text-white mb-10 leading-snug">
+                        Question loading...
+                    </h3>
+
+                    <!-- Likert 5 Scales options -->
+                    <div class="space-y-4">
+                        <button onclick="selectLikert(5)" class="likert-btn-tw w-full text-left px-6 py-4 rounded-2xl font-semibold flex items-center justify-between text-base">
+                            <span>Strongly Agree</span>
+                            <span class="text-xs px-2.5 py-1 rounded bg-brand-primary/20 text-brand-accent font-bold">5</span>
+                        </button>
+                        <button onclick="selectLikert(4)" class="likert-btn-tw w-full text-left px-6 py-4 rounded-2xl font-semibold flex items-center justify-between text-base">
+                            <span>Agree</span>
+                            <span class="text-xs px-2.5 py-1 rounded bg-brand-primary/20 text-brand-accent font-bold">4</span>
+                        </button>
+                        <button onclick="selectLikert(3)" class="likert-btn-tw w-full text-left px-6 py-4 rounded-2xl font-semibold flex items-center justify-between text-base">
+                            <span>Neutral</span>
+                            <span class="text-xs px-2.5 py-1 rounded bg-brand-primary/20 text-brand-accent font-bold">3</span>
+                        </button>
+                        <button onclick="selectLikert(2)" class="likert-btn-tw w-full text-left px-6 py-4 rounded-2xl font-semibold flex items-center justify-between text-base">
+                            <span>Disagree</span>
+                            <span class="text-xs px-2.5 py-1 rounded bg-brand-primary/20 text-brand-accent font-bold">2</span>
+                        </button>
+                        <button onclick="selectLikert(1)" class="likert-btn-tw w-full text-left px-6 py-4 rounded-2xl font-semibold flex items-center justify-between text-base">
+                            <span>Strongly Disagree</span>
+                            <span class="text-xs px-2.5 py-1 rounded bg-brand-primary/20 text-brand-accent font-bold">1</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Lead Capture Section -->
+            <section id="lead-container" class="hidden max-w-lg mx-auto bg-brand-surface border border-white/10 rounded-[2.5rem] p-8 md:p-10 shadow-glass scroll-mt-28">
+                <div class="text-center mb-8">
+                    <div class="w-16 h-16 bg-brand-primary/15 text-brand-accent rounded-full flex items-center justify-center mx-auto mb-5 border border-brand-primary/30">
+                        <i data-lucide="lock" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-2">Secure Your Report</h3>
+                    <p class="text-slate-400 text-sm">Enter your details to generate your certified alignment score and unlocked pathway report.</p>
+                </div>
+
+                <form id="lead-form" onsubmit="handleLeadSubmit(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Full Name</label>
+                        <input type="text" id="lead-name" required class="w-full px-5 py-3.5 bg-slate-950 border border-white/10 rounded-xl text-white outline-none focus:border-brand-primary transition-colors text-sm" style="background:#020617; border: 1px solid rgba(255,255,255,0.1);" placeholder="Rajiv Verma">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Email Address</label>
+                        <input type="email" id="lead-email" required class="w-full px-5 py-3.5 bg-slate-950 border border-white/10 rounded-xl text-white outline-none focus:border-brand-primary transition-colors text-sm" style="background:#020617; border: 1px solid rgba(255,255,255,0.1);" placeholder="you@example.com">
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Phone Number</label>
+                            <input type="tel" id="lead-phone" required class="w-full px-5 py-3.5 bg-slate-950 border border-white/10 rounded-xl text-white outline-none focus:border-brand-primary transition-colors text-sm" style="background:#020617; border: 1px solid rgba(255,255,255,0.1);" placeholder="WhatsApp Number">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">City</label>
+                            <input type="text" id="lead-city" required class="w-full px-5 py-3.5 bg-slate-950 border border-white/10 rounded-xl text-white outline-none focus:border-brand-primary transition-colors text-sm" style="background:#020617; border: 1px solid rgba(255,255,255,0.1);" placeholder="Meerut">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Education Level</label>
+                        <select id="lead-edu" required class="w-full px-5 py-3.5 bg-slate-950 border border-white/10 rounded-xl text-slate-300 outline-none focus:border-brand-primary transition-colors text-sm" style="background:#020617; border: 1px solid rgba(255,255,255,0.1);">
+                            <option value="">Select your standard...</option>
+                            <option value="High School (10th/12th)">High School (10th/12th)</option>
+                            <option value="Undergraduate Student">Undergraduate Student</option>
+                            <option value="Graduate / Masters">Graduate / Masters</option>
+                            <option value="Working Professional">Working Professional</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="w-full bg-brand-primary hover:bg-blue-600 text-white font-extrabold text-sm py-4 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2 mt-6 border-none cursor-pointer">
+                         Generate My Certified Report <i data-lucide="sparkles" class="w-4 h-4"></i>
+                    </button>
+                </form>
+            </section>
+
+            <!-- Results Dashboard -->
+            <section id="results-container" class="hidden max-w-5xl mx-auto scroll-mt-28">
+                <div id="pdf-report" class="bg-brand-surface border border-white/10 rounded-[2.5rem] p-8 md:p-12 shadow-glass relative mb-8 overflow-hidden">
+                    <div class="absolute -top-32 -right-32 w-64 h-64 bg-brand-primary/10 rounded-full blur-3xl"></div>
+                    
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-white/10 pb-8 mb-8 gap-4">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-brand-primary flex items-center justify-center shadow-md text-white">
+                                <i class="fa-solid fa-graduation-cap text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-white leading-none">Sahi Salah Career Mentor</h3>
+                                <p class="text-brand-gold text-xs font-semibold uppercase tracking-wider mt-1.5">Verified Profile Suitability Report</p>
+                            </div>
+                        </div>
+                        <div class="px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-right">
+                            <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest leading-none">Verified Candidate</p>
+                            <h4 id="res-student-name" class="text-sm font-bold text-white mt-1">Student</h4>
+                        </div>
+                    </div>
+
+                    <!-- Highlight Banner -->
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-8">
+                        <div class="lg:col-span-4 text-center lg:border-r lg:border-white/10 lg:pr-8 py-6 bg-white/5 rounded-3xl border border-white/5 lg:bg-transparent lg:border-none">
+                            <h4 id="res-test-title" class="text-lg font-bold text-brand-gold uppercase tracking-wider mb-2">STEM Orientation</h4>
+                            <div class="text-6xl font-black text-white my-3 drop-shadow-md">
+                                <span id="res-percentage">0</span><span class="text-2xl font-medium text-slate-400">%</span>
+                            </div>
+                            <p class="text-xs text-slate-400 font-semibold tracking-wider uppercase">Alignment Competency Score</p>
+                        </div>
+                        <div class="lg:col-span-8">
+                            <h4 class="text-lg font-bold text-white mb-2">Profile Alignment Overview</h4>
+                            <p id="res-profile-desc" class="text-slate-300 text-sm leading-relaxed mb-4">
+                                Description goes here...
+                            </p>
+                            <div class="flex flex-wrap gap-2" id="res-competencies-tags">
+                                <!-- Dynamic tags -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Visual Chart & Sub-dimensions -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                        <!-- Custom SVG Chart Card -->
+                        <div class="bg-slate-900/50 border border-white/5 rounded-3xl p-6 flex flex-col items-center justify-center">
+                            <h4 class="text-xs font-extrabold text-slate-400 uppercase tracking-widest mb-6">Competency Breakdown Chart</h4>
+                            <div id="svg-chart-box" class="w-full flex items-center justify-center">
+                                <!-- Programmatically injected responsive SVG graph -->
+                            </div>
+                        </div>
+
+                        <!-- Strengths Card -->
+                        <div class="bg-slate-900/50 border border-white/5 rounded-3xl p-6">
+                            <h4 class="text-xs font-extrabold text-slate-400 uppercase tracking-widest mb-6">Identified Key Strengths</h4>
+                            <ul id="res-strengths-list" class="space-y-4 text-sm text-slate-300 leading-relaxed font-medium">
+                                <!-- Dynamic List -->
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Career Mappings Section -->
+                    <div class="mb-10">
+                        <h4 class="text-xs font-extrabold text-slate-400 uppercase tracking-widest mb-6 text-center md:text-left">Recommended Career Pathways</h4>
+                        <div id="res-careers-grid" class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                            <!-- Dynamic Cards -->
+                        </div>
+                    </div>
+
+                    <!-- Expert Credentials Section (For report validation) -->
+                    <div class="border-t border-white/10 pt-8 mt-8 flex flex-col md:flex-row gap-6 items-start">
+                        <div class="flex items-start gap-4">
+                            <div class="w-14 h-14 rounded-full border border-white/10 overflow-hidden shrink-0 bg-white/5">
+                                <img src="./dr_rajiv_verma.png" alt="Dr. Rajiv Verma" class="w-full h-full object-cover">
+                            </div>
+                            <div class="text-left">
+                                <h5 class="text-sm font-bold text-white">Dr. Rajiv Verma</h5>
+                                <p class="text-[10px] text-brand-gold font-bold uppercase tracking-wider leading-none mt-1">Director of Academics & Career Mentorship</p>
+                                <p class="text-slate-400 text-[11px] leading-relaxed mt-2">Ph.D. in Education Systems & Learning Analytics. 14+ years designing psychometric evaluation frameworks and student mentorship portfolios in India.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PDF Downloader & whatsapp CTA links -->
+                <div class="flex flex-col md:flex-row gap-4 justify-center">
+                    <button onclick="retakeActiveTest()" class="px-8 py-4 rounded-xl border border-white/20 text-white font-bold hover:bg-white/5 transition-all text-sm bg-transparent cursor-pointer">
+                        <i class="fa-solid fa-rotate-right mr-2"></i> Retake Test
+                    </button>
+                    <button onclick="downloadPDFReport()" class="bg-brand-primary hover:bg-blue-600 text-white px-8 py-4 rounded-xl font-extrabold shadow-lg transition-all text-sm flex items-center justify-center gap-2 border-none cursor-pointer">
+                        <i class="fa-solid fa-file-pdf text-lg"></i> Download Certified Report
+                    </button>
+                    <a id="wa-cta-link" href="#" target="_blank" class="bg-[#25D366] hover:bg-[#20bd5a] text-white px-8 py-4 rounded-xl font-extrabold shadow-lg transition-all text-sm flex items-center justify-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-lg"></i> Request Expert Consultation
+                    </a>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Sahi Salah Footer component -->
+    <sahi-footer></sahi-footer>
+
+    <sahi-lead-modal></sahi-lead-modal>
+
+    <!-- Custom JS for Study India Modals -->
+    <script src="components.js"></script>
+    <script src="common.js"></script>
+
+    <!-- Assessment Metadata and Core Scripts -->
+    <script>
+        // AOS initialization
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof AOS !== 'undefined') {
+                AOS.init({ duration: 800, once: true });
+            }
+        });
+
+        // 1. Core 12-Assessment Configuration Data
+        const testMetadata = {
+            humanities: {
+                id: "humanities",
+                title: "Humanities Orientation Test",
+                category: "Academic Orientation",
+                icon: "book-open",
+                color: "#10B981", // Emerald
+                desc: "Maps analytical inquiry in sociocultural developments, literary criticism, global histories, and human behaviors.",
+                competencies: ["Historical Context", "Sociocultural Analysis", "Literary Critique"],
+                questions: [
+                    "I am deeply interested in analyzing historical events and their impact on modern society.",
+                    "I find immense satisfaction in reading, writing, and analyzing complex literature.",
+                    "I frequently ponder philosophical questions about human nature, ethics, and morality.",
+                    "I enjoy learning about different cultures, languages, and social structures.",
+                    "I believe understanding human behavior is more important than modeling mathematical equations."
+                ],
+                strengths: [
+                    "Strong capacity for contextual logical analysis and empathetic understanding of historical paradigms.",
+                    "Highly developed skill in writing, reading interpretation, and conceptual argumentation.",
+                    "Advanced awareness of philosophical structures, cultural diversity, and social institutions."
+                ],
+                careers: [
+                    { title: "Public Policy Consultant", match: 96, key: "Sociological Strategy" },
+                    { title: "Diplomatic Envoy", match: 92, key: "Foreign Relations" },
+                    { title: "Cultural Anthropologist", match: 88, key: "Ethnographic Research" }
+                ],
+                chartType: "radar"
+            },
+            stem: {
+                id: "stem",
+                title: "STEM Orientation Test",
+                category: "Academic Orientation",
+                icon: "cpu",
+                color: "#3B82F6", // Blue
+                desc: "Evaluates quantitative analysis speed, logic formulation, technology curiosity, and empirical focus.",
+                competencies: ["Mathematical Aptitude", "Algorithmic Logic", "Experimental Rigor"],
+                questions: [
+                    "I naturally search for mathematical patterns or logical rules in everyday situations.",
+                    "I am highly fascinated by coding, robotics, or engineering systems.",
+                    "I love designing scientific experiments or building physical structures.",
+                    "I enjoy solving complex logic puzzles or mathematical riddles.",
+                    "I prefer concrete data and empirical evidence over speculative theories."
+                ],
+                strengths: [
+                    "Advanced scientific deduction, spatial mapping, and algorithmic reasoning capabilities.",
+                    "Obsessive curiosity in computing architecture, physics, and automated systems engineering.",
+                    "Exceptional precision in database logic, mathematical modeling, and systematic experimentation."
+                ],
+                careers: [
+                    { title: "Robotics Systems Engineer", match: 98, key: "Mechatronics & Control" },
+                    { title: "AI Research Scientist", match: 95, key: "Neural Network Architecture" },
+                    { title: "Quantitative Analyst", match: 91, key: "Financial Algorithms" }
+                ],
+                chartType: "bars"
+            },
+            entrepreneurship: {
+                id: "entrepreneurship",
+                title: "Entrepreneurship Aptitude",
+                category: "Professional Drive",
+                icon: "rocket",
+                color: "#F59E0B", // Gold
+                desc: "Measures commercial vision, strategic risk thresholds, operational grit, and opportunity identification.",
+                competencies: ["Opportunity Mapping", "Risk Tolerance", "Execution Velocity"],
+                questions: [
+                    "I actively look for unsolved business opportunities in my daily life.",
+                    "I feel energized rather than stressed when coordinating projects or launching new ideas.",
+                    "I am highly comfortable making major decisions with incomplete or uncertain information.",
+                    "I bounce back quickly and stay motivated when my plans fail or face heavy setbacks.",
+                    "I would rather build a high-growth startup from scratch than secure a stable corporate job."
+                ],
+                strengths: [
+                    "Commercial vision with highly active problem-identification systems in real-world contexts.",
+                    "Transformative tolerance to chaos, ambiguity, high-stakes decisions, and strategic risk-taking.",
+                    "Persistent mental grit and rapid rebound rate when hitting business bottlenecks or venture setbacks."
+                ],
+                careers: [
+                    { title: "Venture Builder", match: 96, key: "Strategic Incubator" },
+                    { title: "Fintech Co-founder", match: 93, key: "Product Innovation" },
+                    { title: "Growth Capital Analyst", match: 89, key: "Market Disruption" }
+                ],
+                chartType: "radar"
+            },
+            research: {
+                id: "research",
+                title: "Research Potential Index",
+                category: "Cognitive Profile",
+                icon: "search",
+                color: "#6366F1", // Indigo
+                desc: "Assesses academic stamina, bibliographic methodology, thesis formulation, and logical endurance.",
+                competencies: ["Inquiry Rigor", "Academic Stamina", "Methodology Integrity"],
+                questions: [
+                    "I enjoy spending hours deep-diving into academic papers, libraries, or search databases.",
+                    "I constantly ask 'why' and challenge established assumptions in my courses.",
+                    "I am willing to spend months working on a single complex problem without immediate results.",
+                    "I pay obsessive attention to citation accuracy, data integrity, and research methodologies.",
+                    "I find writing extensive research papers or theses to be deeply rewarding."
+                ],
+                strengths: [
+                    "Strong logical stamina capable of executing deep conceptual investigations over massive timelines.",
+                    "Innate curiosity that consistently isolates gaps in existing academic theories and hypotheses.",
+                    "Pristine attention to citation parameters, literature review methodology, and data validation."
+                ],
+                careers: [
+                    { title: "R&D Lab Scientist", match: 97, key: "Clinical Formulation" },
+                    { title: "Think Tank Research Director", match: 94, key: "Macroeconomic Analysis" },
+                    { title: "University Professor", match: 92, key: "Academic Thesis Oversight" }
+                ],
+                chartType: "lines"
+            },
+            leadership: {
+                id: "leadership",
+                title: "Communication & Leadership Scale",
+                category: "Applied Skill",
+                icon: "users",
+                color: "#F97316", // Orange
+                desc: "Quantifies public rhetoric, negotiating stamina, dispute arbitration, and directive charisma.",
+                competencies: ["Rhetoric Capacity", "Arbitration Capability", "Directive Charisma"],
+                questions: [
+                    "I feel highly confident speaking or presenting in front of very large audiences.",
+                    "I naturally step in to lead and coordinate teams when a group faces chaos.",
+                    "I excel at resolving conflicts, finding compromises, and building consensus among peers.",
+                    "I can easily articulate complex arguments and persuade others to adopt my view.",
+                    "I am deeply conscious of body language, tone, and empathy during intense negotiations."
+                ],
+                strengths: [
+                    "Highly persuasive, charismatic orator capable of tailoring complex arguments to diverse crowds.",
+                    "Empathetic crisis coordinator who assumes responsibility and outlines structured plans under pressure.",
+                    "Expert micro-negotiator, conscious of body dynamics, active-listening parameters, and compromise maps."
+                ],
+                careers: [
+                    { title: "Management Consultant", match: 95, key: "Corporate Advisory" },
+                    { title: "Public Relations VP", match: 91, key: "Stakeholder Rhetoric" },
+                    { title: "Sales Partnerships Director", match: 89, key: "Enterprise Negotiation" }
+                ],
+                chartType: "radar"
+            },
+            creative_analytical: {
+                id: "creative_analytical",
+                title: "Creative vs Analytical Profile",
+                category: "Cognitive Profile",
+                icon: "palette",
+                color: "#EC4899", // Pink
+                desc: "Determines whether cognitive process leans to creative divergence or logical convergence.",
+                competencies: ["Divergent Thinking", "Visual Representation", "Unorthodox Ideation"],
+                questions: [
+                    "I prefer open-ended design problems where there is no single 'correct' answer.",
+                    "I rely heavily on intuitive gut feelings and visual layouts rather than raw metrics.",
+                    "I express my ideas best through art, storytelling, music, or visual branding.",
+                    "I easily get bored by repetitive spreadsheets or highly structured rulebooks.",
+                    "I enjoy brainstorming wild, unorthodox concepts that challenge mainstream conventions."
+                ],
+                strengths: [
+                    "Highly creative divergent processor who thrives in visual thinking and artistic expression.",
+                    "Relies on strong aesthetic intuition, semantic storytelling, and complex structural analogies.",
+                    "Natural innovator who actively disrupts mainstream rules in favor of bold design systems."
+                ],
+                careers: [
+                    { title: "UI/UX Creative Director", match: 96, key: "Design & Interaction" },
+                    { title: "Brand Strategy Lead", match: 92, key: "Concept Narrative" },
+                    { title: "Content Innovation Architect", match: 88, key: "Visual Media Creation" }
+                ],
+                chartType: "balance"
+            },
+            learning_style: {
+                id: "learning_style",
+                title: "Learning Style Mapping",
+                category: "Applied Skill",
+                icon: "compass",
+                color: "#06B6D4", // Cyan
+                desc: "Maps primary sensory data acquisition pathways across Visual, Auditory, Kinesthetic, and Logical channels.",
+                competencies: ["Visual Synthesis", "Kinesthetic Retention", "Auditory Comprehension"],
+                questions: [
+                    "I learn best when I can study complex diagrams, infographics, or video charts.",
+                    "I prefer listening to lectures, podcasts, or group debates over reading textbooks.",
+                    "I acquire skills much faster by building, writing, or trying things physically.",
+                    "I need to outline subjects into logical hierarchies, bullet points, or index systems.",
+                    "I explain complex concepts to others by drawing analogies or structural frameworks."
+                ],
+                strengths: [
+                    "High visual synthesis capabilities, translating ideas into complex schemas and spatial shapes.",
+                    "Outstanding kinesthetic retention, thriving on tactile construction and physical code interaction.",
+                    "Analytical logical learning patterns, requiring index directories and logical hierarchies."
+                ],
+                careers: [
+                    { title: "Instructional Systems Designer", match: 94, key: "Educational Frameworks" },
+                    { title: "Educational Tech Lead", match: 91, key: "Curriculum Algorithms" },
+                    { title: "Simulation Expert / Trainer", match: 87, key: "Scenario Architecture" }
+                ],
+                chartType: "bars"
+            },
+            resilience: {
+                id: "resilience",
+                title: "Academic Resilience Scale",
+                category: "Psychological Profile",
+                icon: "shield",
+                color: "#EF4444", // Red
+                desc: "Measures cognitive self-regulation, mental grit in stress, discipline levels, and exam recovery rates.",
+                competencies: ["Stress Regulation", "Structured Focus", "Persistence Grit"],
+                questions: [
+                    "I maintain absolute focus and discipline even under extreme exam pressure or tight deadlines.",
+                    "I view bad academic grades as valuable learning feedback rather than personal failures.",
+                    "I can study diligently for long, consecutive hours without losing mental stamina.",
+                    "I rarely procrastinate on major assignments, starting them well ahead of schedule.",
+                    "I maintain highly consistent, structured daily study habits regardless of my mood."
+                ],
+                strengths: [
+                    "Elite mental resilience with low susceptibility to high-pressure environmental stress.",
+                    "Calculated approach to failure, viewing bad grades purely as developmental diagnostic metrics.",
+                    "Stamina for sustained focused efforts, rejecting immediate gratification in favor of strict daily habits."
+                ],
+                careers: [
+                    { title: "High-Pressure Surgeon", match: 96, key: "Surgical Crisis Execution" },
+                    { title: "Investment Banking Director", match: 93, key: "LBO Modeling Pressure" },
+                    { title: "Crisis Management Head", match: 90, key: "Public Disaster Policy" }
+                ],
+                chartType: "lines"
+            },
+            social_impact: {
+                id: "social_impact",
+                title: "Social Impact Orientation",
+                category: "Psychological Profile",
+                icon: "globe",
+                color: "#84CC16", // Lime
+                desc: "Gauges ethical commitment, green-economy affinity, civic dedication, and humanitarian empathy.",
+                competencies: ["Humanitarian Empathy", "Sustainability Focus", "Civic Dedication"],
+                questions: [
+                    "I would rather work for a company with a strong ethical/social mission than a high-paying polluter.",
+                    "I regularly participate in community service, environmental drives, or local volunteer work.",
+                    "I feel deeply concerned about global issues like climate change, poverty, and systemic inequality.",
+                    "I enjoy organizing projects that directly support underprivileged communities.",
+                    "I believe business success should be measured by social footprint, not just quarterly profit."
+                ],
+                strengths: [
+                    "Deep humanitarian empathy combined with a highly developed sense of global environmental ethics.",
+                    "Active history of volunteering, organizing community campaigns, and planning local aid drives.",
+                    "Strong focus on triple-bottom-line corporate governance (People, Planet, Profit)."
+                ],
+                careers: [
+                    { title: "Sustainability Executive", match: 95, key: "ESG Integration" },
+                    { title: "Social Enterprise Founder", match: 92, key: "Impact Venture Design" },
+                    { title: "Human Rights Lawyer", match: 89, key: "Public Advocacy Litigation" }
+                ],
+                chartType: "radar"
+            },
+            civil_services: {
+                id: "civil_services",
+                title: "Civil Services Compatibility",
+                category: "Professional Drive",
+                icon: "landmark",
+                color: "#F59E0B", // Amber
+                desc: "Evaluates administrative capability, bureaucratic stamina, public policy passion, and operational ethics.",
+                competencies: ["Bureaucratic Stamina", "Administrative Aptitude", "Ethical Impartiality"],
+                questions: [
+                    "I have a deep-seated desire to directly serve my nation and shape its public administration.",
+                    "I display exceptional patience and stamina when navigating complex bureaucratic processes.",
+                    "I am highly passionate about implementing public policies that improve regional infrastructure.",
+                    "I value structural authority, protocols, and large-scale public governance frameworks.",
+                    "I can make impartial, ethical, and rule-bound decisions even under heavy external influence."
+                ],
+                strengths: [
+                    "Strong national-service calling with a keen interest in policy dynamics and administrative structures.",
+                    "Pristine bureaucratic stamina, managing slow structural governance without operational fatigue.",
+                    "High ethical impartiality, capable of making balanced administrative rulings under external constraints."
+                ],
+                careers: [
+                    { title: "Civil Servant (IAS/IFS)", match: 98, key: "Public Governance Protocols" },
+                    { title: "Regional Urban Planner", match: 94, key: "Infrastructure Execution" },
+                    { title: "Public Policy Strategist", match: 91, key: "Regulatory Impact Analysis" }
+                ],
+                chartType: "lines"
+            },
+            liberal_arts: {
+                id: "liberal_arts",
+                title: "Liberal Arts Readiness",
+                category: "Academic Orientation",
+                icon: "feather",
+                color: "#F43F5E", // Rose
+                desc: "Maps multi-disciplinary curiosity, argumentative criticism, academic dialogue, and adaptability.",
+                competencies: ["Interdisciplinary Curiosity", "Dialectical Rhetoric", "Synthesis Adaptability"],
+                questions: [
+                    "I enjoy taking elective courses that combine vastly different fields (e.g. Physics and Philosophy).",
+                    "I love engaging in deep debates, reading critiques, and formulating complex arguments.",
+                    "I believe a university education should broaden the mind, not just train someone for a specific job.",
+                    "I am highly comfortable writing long, argumentative papers on complex socio-cultural topics.",
+                    "I prefer learning broad, adaptable problem-solving skills rather than highly narrow technical procedures."
+                ],
+                strengths: [
+                    "Keen interdisciplinary interest, connecting unrelated structural schemas seamlessly.",
+                    "Advanced critical dialectical ability, analyzing debates, theories, and sociocultural structures.",
+                    "Prioritizes broad cognitive agility over narrow procedural task execution."
+                ],
+                careers: [
+                    { title: "Think Tank Advisor", match: 95, key: "Interdisciplinary Analysis" },
+                    { title: "Cultural Curator", match: 91, key: "Exhibition Narrative Design" },
+                    { title: "Corporate Agility Strategist", match: 88, key: "Macro Systems Re-engineering" }
+                ],
+                chartType: "radar"
+            },
+            digital_economy: {
+                id: "digital_economy",
+                title: "Digital Economy Career Mapping",
+                category: "Professional Drive",
+                icon: "zap",
+                color: "#8B5CF6", // Violet
+                desc: "Analyzes AI adaptation speed, remote project governance agility, e-commerce affinity, and technical literacy.",
+                competencies: ["AI Prompt Literacy", "Decentralized Autonomy", "Creator Tech Synergy"],
+                questions: [
+                    "I am an early adopter of emerging digital tools, generative AI, and virtual platforms.",
+                    "I thrive in decentralized, remote, or freelance collaborative structures.",
+                    "I am highly interested in the dynamics of e-commerce, digital marketing, and the creator economy.",
+                    "I enjoy learning about blockchain, cloud computing, cybersecurity, or data flows.",
+                    "I adapt extremely quickly to changes in digital software, APIs, and online work channels."
+                ],
+                strengths: [
+                    "Outstanding adaptability to cloud environments, smart web apps, generative AI tools, and remote workflows.",
+                    "Thrives in freelance, asynchronous, decentralized structures with low supervisory friction.",
+                    "Strong affinity for algorithmic monetization paths, digital funnels, and network scale."
+                ],
+                careers: [
+                    { title: "Generative AI Prompt Architect", match: 98, key: "Language Engine Mapping" },
+                    { title: "Digital Growth Specialist", match: 94, key: "Funnel & Loop Optimization" },
+                    { title: "Web3 Product Manager", match: 91, key: "Decentralized Smart Contracts" }
+                ],
+                chartType: "bars"
+            }
+        };
+
+        // 2. State Variables
+        let activeTestId = null;
+        let activeQuestionIndex = 0;
+        let activeAnswers = [];
+        let leadData = null;
+
+        // 3. UI Injections & Dynamic Elements
+        const grid = document.getElementById("tests-grid");
+        const quizContainer = document.getElementById("quiz-container");
+        const leadContainer = document.getElementById("lead-container");
+        const resultsContainer = document.getElementById("results-container");
+
+        function initDashboard() {
+            grid.innerHTML = "";
+            Object.values(testMetadata).forEach(test => {
+                const card = document.createElement("div");
+                card.className = "bento-card-tw p-6 md:p-8 flex flex-col justify-between h-full group";
+                card.setAttribute("data-aos", "fade-up");
+
+                card.innerHTML = `
+                    <div>
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="w-12 h-12 rounded-2xl flex items-center justify-center transition-all duration-300 bg-white/5 border border-white/10 group-hover:scale-110" style="color: ${test.color}; border-color: ${test.color}25;">
+                                <i data-lucide="${test.icon}" class="w-6 h-6"></i>
+                            </div>
+                            <span class="text-[10px] uppercase tracking-widest font-bold px-2.5 py-1 rounded bg-white/5 border border-white/5 text-slate-400">
+                                ${test.category}
+                            </span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-gold transition-colors">${test.title}</h3>
+                        <p class="text-slate-400 text-xs md:text-sm leading-relaxed mb-6 font-medium">${test.desc}</p>
+                    </div>
+                    <div class="border-t border-white/5 pt-6 flex justify-between items-center" style="border-top: 1px solid rgba(255,255,255,0.05);">
+                        <span class="text-xs text-slate-500 font-semibold uppercase tracking-wider flex items-center gap-1.5">
+                            <i data-lucide="clock" class="w-4 h-4"></i> 5 Mins
+                        </span>
+                        <button onclick="launchTest('${test.id}')" class="px-5 py-2.5 rounded-xl text-xs font-bold text-white bg-brand-primary hover:bg-blue-600 transition-all duration-300 cursor-pointer border-none shadow-md">
+                            Take Test
+                        </button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+            lucide.createIcons();
+        }
+
+        // 4. Test Orchestration Logic
+        function launchTest(testId) {
+            activeTestId = testId;
+            activeQuestionIndex = 0;
+            activeAnswers = [];
+
+            // Reset containers
+            quizContainer.classList.add("hidden");
+            leadContainer.classList.add("hidden");
+            resultsContainer.classList.add("hidden");
+
+            // Open Quiz Screen
+            quizContainer.classList.remove("hidden");
+            renderActiveQuestion();
+
+            // Smooth Scroll
+            quizContainer.scrollIntoView({ behavior: "smooth" });
+        }
+
+        function renderActiveQuestion() {
+            const test = testMetadata[activeTestId];
+            const qText = test.questions[activeQuestionIndex];
+
+            // Setup Badge Category
+            document.getElementById("quiz-tag").innerHTML = `
+                <i data-lucide="${test.icon}" class="w-3.5 h-3.5" style="color: ${test.color}"></i>
+                <span>${test.category} | Dimension ${activeQuestionIndex + 1} of 5</span>
+            `;
+
+            // Setup Question text
+            document.getElementById("quiz-question-text").innerText = `"${qText}"`;
+
+            // Progress Indicators
+            const count = activeQuestionIndex + 1;
+            const percentage = Math.round((activeQuestionIndex / 5) * 100);
+            document.getElementById("quiz-progress-text").innerText = `Question ${count} of 5`;
+            document.getElementById("quiz-progress-percentage").innerText = `${percentage}%`;
+            document.getElementById("quiz-progress-bar").style.width = `${percentage}%`;
+
+            // Reset Likert classes
+            document.querySelectorAll(".likert-btn-tw").forEach(btn => btn.classList.remove("selected"));
+
+            lucide.createIcons();
+        }
+
+        function selectLikert(val) {
+            activeAnswers.push(val);
+
+            // Animate choice Selection
+            const btns = document.querySelectorAll(".likert-btn-tw");
+            btns.forEach(btn => {
+                const checkVal = parseInt(btn.querySelector("span:last-child").innerText);
+                if (checkVal === val) {
+                    btn.classList.add("selected");
+                }
+            });
+
+            // Advance delay
+            setTimeout(() => {
+                if (activeQuestionIndex < 4) {
+                    activeQuestionIndex++;
+                    const box = document.getElementById("quiz-box");
+                    box.classList.remove("fade-in-tw");
+                    void box.offsetWidth; // Reflow reset
+                    box.classList.add("fade-in-tw");
+                    renderActiveQuestion();
+                } else {
+                    // Update progress to 100
+                    document.getElementById("quiz-progress-percentage").innerText = "100%";
+                    document.getElementById("quiz-progress-bar").style.width = "100%";
+
+                    setTimeout(() => {
+                        // Check if lead capture is already done previously
+                        if (leadData) {
+                            renderReportDashboard();
+                        } else {
+                            quizContainer.classList.add("hidden");
+                            leadContainer.classList.remove("hidden");
+                            leadContainer.scrollIntoView({ behavior: "smooth" });
+                        }
+                    }, 400);
+                }
+            }, 300);
+        }
+
+        // 5. Lead Capture Submission
+        function handleLeadSubmit(e) {
+            e.preventDefault();
+
+            leadData = {
+                name: document.getElementById("lead-name").value,
+                email: document.getElementById("lead-email").value,
+                phone: document.getElementById("lead-phone").value,
+                city: document.getElementById("lead-city").value,
+                edu: document.getElementById("lead-edu").value
+            };
+
+            // Option to post lead data to Sahi Salah Google script sheets
+            const scriptURL = 'YOUR_GOOGLE_SCRIPT_URL_HERE';
+            if (scriptURL !== 'YOUR_GOOGLE_SCRIPT_URL_HERE') {
+                const fd = new FormData();
+                fd.append("name", leadData.name);
+                fd.append("email", leadData.email);
+                fd.append("phone", leadData.phone);
+                fd.append("city", leadData.city);
+                fd.append("education", leadData.edu);
+                fd.append("test_type", testMetadata[activeTestId].title);
+                fetch(scriptURL, { method: 'POST', body: fd }).catch(err => console.log(err));
+            }
+
+            leadContainer.classList.add("hidden");
+            renderReportDashboard();
+        }
+
+        // 6. Result Dashboard Logic & Customized SVG Charts
+        function renderReportDashboard() {
+            const test = testMetadata[activeTestId];
+            resultsContainer.classList.remove("hidden");
+            resultsContainer.scrollIntoView({ behavior: "smooth" });
+
+            // 1. Inject Metadata & Student details
+            document.getElementById("res-student-name").innerText = leadData.name;
+            document.getElementById("res-test-title").innerText = test.title;
+            document.getElementById("res-test-title").style.color = test.color;
+
+            // 2. Score Computation (Sum of 5 Likert answers, max score is 25)
+            const rawSum = activeAnswers.reduce((a, b) => a + b, 0);
+            const scorePercentage = Math.round((rawSum / 25) * 100);
+            document.getElementById("res-percentage").innerText = scorePercentage;
+
+            // 3. Overview Description
+            document.getElementById("res-profile-desc").innerText = `Based on your responses to the ${test.title}, your alignment rate stands at ${scorePercentage}%. This score indicates a highly active operational setup in key areas of this assessment. ${test.desc}`;
+
+            // 4. Competency tags
+            const tagsBox = document.getElementById("res-competencies-tags");
+            tagsBox.innerHTML = "";
+            test.competencies.forEach(comp => {
+                const span = document.createElement("span");
+                span.className = "text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-lg border text-slate-300 bg-white/5 border-white/10";
+                span.style.borderColor = test.color + "30";
+                span.innerText = comp;
+                tagsBox.appendChild(span);
+            });
+
+            // 5. Strengths Listing
+            const list = document.getElementById("res-strengths-list");
+            list.innerHTML = "";
+            test.strengths.forEach(str => {
+                const li = document.createElement("li");
+                li.className = "flex items-start gap-3 mb-2";
+                li.innerHTML = `
+                    <i class="fa-solid fa-circle-check shrink-0 mt-1" style="color: ${test.color}"></i>
+                    <span>${str}</span>
+                `;
+                list.appendChild(li);
+            });
+
+            // 6. Careers Mappings
+            const careersGrid = document.getElementById("res-careers-grid");
+            careersGrid.innerHTML = "";
+            test.careers.forEach(car => {
+                const box = document.createElement("div");
+                box.className = "p-5 rounded-2xl bg-white/5 border border-white/15 text-center flex flex-col justify-between";
+                box.style.borderTopColor = test.color;
+                box.style.borderTopWidth = "3px";
+                box.style.borderTopStyle = "solid";
+                box.innerHTML = `
+                    <div>
+                        <span class="text-[10px] font-bold uppercase tracking-wider text-brand-gold bg-brand-gold/10 px-2 py-0.5 rounded">${car.match}% Match</span>
+                        <h5 class="text-md font-bold text-white mt-3 mb-1">${car.title}</h5>
+                    </div>
+                    <span class="text-[11px] text-slate-400 font-bold uppercase tracking-widest mt-4 leading-none border-t border-white/5 pt-3" style="border-top: 1px solid rgba(255,255,255,0.05);">${car.key}</span>
+                `;
+                careersGrid.appendChild(box);
+            });
+
+            // 7. Inject Customized Responsive SVG Graph!
+            renderCustomSVGChart(test, activeAnswers);
+
+            // 8. CTAs Configuration (WhatsApp link & PDF configuration)
+            const waCTA = document.getElementById("wa-cta-link");
+            const prepText = `Hi Dr. Rajiv! I completed the ${encodeURIComponent(test.title)} on Sahi Salah, scoring ${scorePercentage}%. I'd like to request my full consultation analysis. My name is ${encodeURIComponent(leadData.name)}.`;
+            waCTA.href = `https://wa.me/918882289261?text=${prepText}`;
+        }
+
+        function renderCustomSVGChart(test, answers) {
+            const chartBox = document.getElementById("svg-chart-box");
+            chartBox.innerHTML = "";
+
+            const width = 320;
+            const height = 200;
+            const color = test.color;
+
+            let svgContent = "";
+
+            if (test.chartType === "bars") {
+                const val1 = answers[0] + answers[3]; // max 10
+                const val2 = answers[1] + answers[4]; // max 10
+                const val3 = answers[2] * 2;         // max 10
+
+                const dims = [
+                    { label: "Core Skills", val: val1 },
+                    { label: "Execution", val: val2 },
+                    { label: "Practicality", val: val3 }
+                ];
+
+                svgContent = `<svg width="100%" height="200" viewBox="0 0 ${width} ${height}">`;
+                dims.forEach((d, index) => {
+                    const barW = 40;
+                    const spacing = 75;
+                    const x = 50 + index * spacing;
+                    const maxBarHeight = 110;
+                    const barH = (d.val / 10) * maxBarHeight;
+                    const y = height - 40 - barH;
+
+                    svgContent += `
+                        <line x1="30" y1="${height - 40}" x2="${width - 30}" y2="${height - 40}" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+                        <line x1="30" y1="${height - 40 - maxBarHeight}" x2="${width - 30}" y2="${height - 40 - maxBarHeight}" stroke="rgba(255,255,255,0.05)" stroke-width="1" stroke-dasharray="3,3" />
+                        
+                        <rect x="${x}" y="${y}" width="${barW}" height="${barH}" rx="8" fill="${color}" fill-opacity="0.8" stroke="${color}" stroke-width="1.5" />
+                        <text x="${x + barW / 2}" y="${y - 8}" fill="#ffffff" font-family="Outfit" font-size="11" font-weight="bold" text-anchor="middle">${d.val * 10}%</text>
+                        <text x="${x + barW / 2}" y="${height - 18}" fill="rgba(255,255,255,0.5)" font-family="Inter" font-size="10" font-weight="bold" text-anchor="middle">${d.label}</text>
+                    `;
+                });
+                svgContent += `</svg>`;
+            } 
+            else if (test.chartType === "radar") {
+                const score1 = answers[0] + answers[1]; // max 10
+                const score2 = answers[2] + answers[3]; // max 10
+                const score3 = answers[4] * 2;         // max 10
+
+                const cx = width / 2;
+                const cy = height / 2 + 10;
+                const maxRadius = 65;
+
+                const angle1 = -Math.PI / 2;
+                const angle2 = angle1 + (2 * Math.PI) / 3;
+                const angle3 = angle2 + (2 * Math.PI) / 3;
+
+                const x1 = cx + maxRadius * Math.cos(angle1);
+                const y1 = cy + maxRadius * Math.sin(angle1);
+                const x2 = cx + maxRadius * Math.cos(angle2);
+                const y2 = cy + maxRadius * Math.sin(angle2);
+                const x3 = cx + maxRadius * Math.cos(angle3);
+                const y3 = cy + maxRadius * Math.sin(angle3);
+
+                const cx1 = cx + (score1 / 10) * maxRadius * Math.cos(angle1);
+                const cy1 = cy + (score1 / 10) * maxRadius * Math.sin(angle1);
+                const cx2 = cx + (score2 / 10) * maxRadius * Math.cos(angle2);
+                const cy2 = cy + (score2 / 10) * maxRadius * Math.sin(angle2);
+                const cx3 = cx + (score3 / 10) * maxRadius * Math.cos(angle3);
+                const cy3 = cy + (score3 / 10) * maxRadius * Math.sin(angle3);
+
+                svgContent = `
+                    <svg width="100%" height="200" viewBox="0 0 ${width} ${height}">
+                        <polygon points="${x1},${y1} ${x2},${y2} ${x3},${y3}" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1.5" />
+                        <line x1="${cx}" y1="${cy}" x2="${x1}" y2="${y1}" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="2,2" />
+                        <line x1="${cx}" y1="${cy}" x2="${x2}" y2="${y2}" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="2,2" />
+                        <line x1="${cx}" y1="${cy}" x2="${x3}" y2="${y3}" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="2,2" />
+
+                        <polygon points="${cx1},${cy1} ${cx2},${cy2} ${cx3},${cy3}" fill="${color}" fill-opacity="0.25" stroke="${color}" stroke-width="2.5" stroke-linejoin="round" />
+                        
+                        <circle cx="${cx1}" cy="${cy1}" r="4" fill="${color}" stroke="#ffffff" stroke-width="1.5" />
+                        <circle cx="${cx2}" cy="${cy2}" r="4" fill="${color}" stroke="#ffffff" stroke-width="1.5" />
+                        <circle cx="${cx3}" cy="${cy3}" r="4" fill="${color}" stroke="#ffffff" stroke-width="1.5" />
+
+                        <text x="${x1}" y="${y1 - 8}" fill="rgba(255,255,255,0.6)" font-family="Outfit" font-size="10" font-weight="bold" text-anchor="middle">${test.competencies[0]}</text>
+                        <text x="${x2 - 12}" y="${y2 + 12}" fill="rgba(255,255,255,0.6)" font-family="Outfit" font-size="10" font-weight="bold" text-anchor="end">${test.competencies[1]}</text>
+                        <text x="${x3 + 12}" y="${y3 + 12}" fill="rgba(255,255,255,0.6)" font-family="Outfit" font-size="10" font-weight="bold" text-anchor="start">${test.competencies[2]}</text>
+                    </svg>
+                `;
+            }
+            else if (test.chartType === "lines") {
+                const scorePercentage = Math.round((answers.reduce((a, b) => a + b, 0) / 25) * 100);
+                const r = 50;
+                const cx = width / 2;
+                const cy = height / 2;
+                const strokeWidth = 10;
+                const circumference = 2 * Math.PI * r;
+                const strokeDashoffset = circumference - (scorePercentage / 100) * circumference;
+
+                svgContent = `
+                    <svg width="100%" height="200" viewBox="0 0 ${width} ${height}">
+                        <circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="${strokeWidth}" />
+                        
+                        <circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${color}" stroke-width="${strokeWidth}"
+                                stroke-dasharray="${circumference}" stroke-dashoffset="${strokeDashoffset}" stroke-linecap="round"
+                                transform="rotate(-90 ${cx} ${cy})" />
+                        
+                        <text x="${cx}" y="${cy + 6}" fill="#ffffff" font-family="Outfit" font-size="18" font-weight="extrabold" text-anchor="middle">${scorePercentage}%</text>
+                        <text x="${cx}" y="${cy + 75}" fill="rgba(255,255,255,0.5)" font-family="Inter" font-size="9" font-weight="bold" text-anchor="middle">Compatibility Index</text>
+                    </svg>
+                `;
+            }
+            else if (test.chartType === "balance") {
+                const creativeSum = answers.reduce((a, b) => a + b, 0); // max 25
+                const balanceVal = Math.round((creativeSum / 25) * 100);
+
+                svgContent = `
+                    <svg width="100%" height="200" viewBox="0 0 ${width} ${height}">
+                        <line x1="40" y1="${height / 2}" x2="${width - 40}" y2="${height / 2}" stroke="rgba(255,255,255,0.1)" stroke-width="6" stroke-linecap="round" />
+                        <line x1="40" y1="${height / 2}" x2="${40 + (balanceVal / 100) * (width - 80)}" y2="${height / 2}" stroke="${color}" stroke-width="6" stroke-linecap="round" />
+                        
+                        <text x="40" y="${height / 2 - 20}" fill="${balanceVal < 50 ? color : 'rgba(255,255,255,0.4)'}" font-family="Outfit" font-size="11" font-weight="extrabold" text-anchor="start">Convergent Analytical</text>
+                        <text x="${width - 40}" y="${height / 2 - 20}" fill="${balanceVal >= 50 ? color : 'rgba(255,255,255,0.4)'}" font-family="Outfit" font-size="11" font-weight="extrabold" text-anchor="end">Divergent Creative</text>
+                        
+                        <circle cx="${40 + (balanceVal / 100) * (width - 80)}" cy="${height / 2}" r="12" fill="${color}" stroke="#ffffff" stroke-width="2.5" />
+                        <text x="${40 + (balanceVal / 100) * (width - 80)}" y="${height / 2 + 28}" fill="#ffffff" font-family="Outfit" font-size="10" font-weight="bold" text-anchor="middle">${balanceVal}% Creative</text>
+                    </svg>
+                `;
+            }
+
+            chartBox.innerHTML = svgContent;
+        }
+
+        // 7. Retake Active Test
+        function retakeActiveTest() {
+            resultsContainer.classList.add("hidden");
+            launchTest(activeTestId);
+        }
+
+        // 8. PDF Export Compiling Logic using html2pdf
+        function downloadPDFReport() {
+            const test = testMetadata[activeTestId];
+            const rawSum = activeAnswers.reduce((a, b) => a + b, 0);
+            const scorePercentage = Math.round((rawSum / 25) * 100);
+
+            const element = document.createElement("div");
+            element.className = "pdf-output-style p-12 space-y-8";
+            element.style.width = "750px";
+
+            const svgChartHtml = document.getElementById("svg-chart-box").innerHTML;
+
+            let careersHtml = "";
+            test.careers.forEach(car => {
+                careersHtml += `
+                    <div style="flex: 1; padding: 15px; border: 1.5px solid #cbd5e1; border-radius: 12px; text-align: center; background: #f8fafc; margin: 0 5px;">
+                        <span style="font-size: 10px; font-weight: bold; color: #2563eb; text-transform: uppercase; background: #eff6ff; padding: 2px 8px; border-radius: 4px;">${car.match}% Match</span>
+                        <h4 style="font-size: 13px; font-weight: bold; color: #0f172a; margin: 10px 0 5px 0;">${car.title}</h4>
+                        <p style="font-size: 10px; color: #64748b; font-weight: bold; text-transform: uppercase; margin: 0;">${car.key}</p>
+                    </div>
+                `;
+            });
+
+            let strengthsHtml = "";
+            test.strengths.forEach(str => {
+                strengthsHtml += `
+                    <li style="margin-bottom: 8px; font-size: 12px; color: #334155; list-style-type: square; margin-left: 20px;">
+                        ${str}
+                    </li>
+                `;
+            });
+
+            element.innerHTML = `
+                <div style="border-bottom: 2px solid #2563eb; padding-bottom: 20px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+                    <div>
+                        <h1 style="font-size: 26px; font-weight: 800; color: #1e3a8a; margin: 0;">Sahi Salah Career Mentorship</h1>
+                        <p style="font-size: 11px; font-weight: bold; color: #f59e0b; text-transform: uppercase; margin: 4px 0 0 0;">Official Psychometric Orientation Report</p>
+                    </div>
+                    <div style="text-align: right;">
+                        <span style="font-size: 10px; font-weight: bold; color: #64748b; text-transform: uppercase;">Candidate:</span>
+                        <h3 style="font-size: 16px; font-weight: bold; color: #0f172a; margin: 2px 0 0 0;">${leadData.name}</h3>
+                    </div>
+                </div>
+
+                <div style="background: #f1f5f9; padding: 25px; border-radius: 16px; display: flex; align-items: center; margin-bottom: 30px;">
+                    <div style="flex: 1; text-align: center; border-right: 1.5px solid #cbd5e1; padding-right: 20px; margin-right: 25px;">
+                        <h3 style="font-size: 13px; font-weight: 800; color: #64748b; text-transform: uppercase; margin: 0;">${test.title}</h3>
+                        <div style="font-size: 54px; font-weight: 900; color: #2563eb; margin: 10px 0;">${scorePercentage}%</div>
+                        <span style="font-size: 9px; font-weight: bold; color: #64748b; text-transform: uppercase;">Alignment Index</span>
+                    </div>
+                    <div style="flex: 2;">
+                        <h3 style="font-size: 15px; font-weight: bold; color: #1e3a8a; margin-top: 0; margin-bottom: 8px;">Competency Overview</h3>
+                        <p style="font-size: 11px; color: #475569; line-height: 1.6; margin: 0;">
+                            ${document.getElementById("res-profile-desc").innerText}
+                        </p>
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 20px; margin-bottom: 30px;">
+                    <div style="flex: 1; padding: 20px; border: 1.5px solid #e2e8f0; border-radius: 16px; display: flex; flex-direction: column; align-items: center; background: #ffffff;">
+                        <h3 style="font-size: 11px; font-weight: bold; color: #64748b; text-transform: uppercase; margin-bottom: 15px;">Competency Graph</h3>
+                        <div style="width: 100%; display: flex; justify-content: center; transform: scale(0.95); filter: invert(0.9) hue-rotate(180deg);">${svgChartHtml}</div>
+                    </div>
+                    <div style="flex: 1; padding: 20px; border: 1.5px solid #e2e8f0; border-radius: 16px; background: #ffffff;">
+                        <h3 style="font-size: 11px; font-weight: bold; color: #64748b; text-transform: uppercase; margin-bottom: 15px;">Identified Key Strengths</h3>
+                        <ul style="padding: 0; margin: 0;">${strengthsHtml}</ul>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 30px;">
+                    <h3 style="font-size: 11px; font-weight: bold; color: #64748b; text-transform: uppercase; margin-bottom: 15px;">Recommended Career Pathways</h3>
+                    <div style="display: flex; gap: 10px;">${careersHtml}</div>
+                </div>
+
+                <div style="border-top: 1.5px solid #cbd5e1; padding-top: 20px; display: flex; gap: 30px; margin-top: 40px;">
+                    <div style="flex: 1; display: flex; gap: 10px; align-items: flex-start;">
+                        <div style="width: 40px; height: 40px; border-radius: 50%; overflow: hidden; background: #e2e8f0;"><img src="./dr_rajiv_verma.png" style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div>
+                            <h4 style="font-size: 11px; font-weight: bold; color: #0f172a; margin: 0;">Dr. Rajiv Verma</h4>
+                            <p style="font-size: 8px; color: #64748b; font-weight: bold; text-transform: uppercase; margin: 2px 0 0 0;">Director of Academics & Career Mentorship</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            const opt = {
+                margin: 0.5,
+                filename: `SahiSalah_${test.title.replace(/\s+/g, "_")}_${leadData.name.replace(/\s+/g, "_")}.pdf`,
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2, useCORS: true, letterRendering: true },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+
+            html2pdf().from(element).set(opt).save();
+        }
+
+        // 9. Query Routing Hook Parser (e.g. ?test=stem)
+        function checkQueryRouting() {
+            const params = new URLSearchParams(window.location.search);
+            const testId = params.get("test");
+            if (testId && testMetadata[testId]) {
+                setTimeout(() => {
+                    launchTest(testId);
+                }, 300);
+            }
+        }
+
+        // Initialize dashboard loading
+        initDashboard();
+        window.addEventListener("load", checkQueryRouting);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>100% Placement Guarantee Colleges | Sahi Salah</title>
+    <meta name="description" content="Discover institutions offering exceptional placement records and 100% placement assistance.">
+    <meta name="keywords" content="Placement Guarantee, Top Placements, Indian Colleges, High Salary Package">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link class="prefetch-tag" rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link class="prefetch-tag" rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-gray-50">
+
+    <sahi-header></sahi-header>
+
+    <section class="mega-hero" style="padding-bottom: 40px; padding-top: 80px;">
+        <div class="hero-bg-elements">
+            <div class="blob blob-1" style="width: 500px; height: 500px; opacity: 0.1; background: #eab308;"></div>
+            <div class="blob blob-2" style="width: 400px; height: 400px; opacity: 0.15; background: #f59e0b;"></div>
+        </div>
+
+        <div class="container relative z-10 text-center">
+            <div class="badge" style="background: rgba(234, 179, 8, 0.1); color: #ca8a04;">Collection #4</div>
+            <h1 class="display-title">100% Placement <span class="gradient-text" style="background: linear-gradient(135deg, #eab308, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Guarantee</span></h1>
+            <p class="hero-subtext mx-auto" style="max-width: 800px;">
+                Secure your future. These elite institutions boast verified 100% placement records or robust placement guarantees, 
+                partnering with Fortune 500 companies to ensure you step out of college directly into a high-paying career.
+            </p>
+        </div>
+    </section>
+
+    <section class="directory-section section-padding bg-white">
+        <div class="container">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+                <h2 style="font-family: 'Outfit'; font-size: 2rem;">Ranked by Highest Average Package</h2>
+                <div>
+                    <span class="badge" style="margin-bottom: 0;">Updated: May 2026</span>
+                </div>
+            </div>
+
+            <div class="college-grid" id="placementCollegeGrid">
+            </div>
+        </div>
+    </section>
+
+    <sahi-lead-modal></sahi-lead-modal>
+    <sahi-footer></sahi-footer>
+
+    <script src="components.js"></script>
+    <script src="colleges-data.js"></script>
+    <script src="common.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const grid = document.getElementById('placementCollegeGrid');
+
+            const extractNumber = (str) => {
+                if(!str) return 0;
+                const match = str.match(/[\d.]+/);
+                return match ? parseFloat(match[0]) : 0;
+            };
+
+            // Sort purely by package
+            let placementData = [...collegesData].sort((a, b) => extractNumber(b.package) - extractNumber(a.package));
+            placementData = placementData.slice(0, 10);
+
+            function renderColleges(data) {
+                grid.innerHTML = '';
+                data.forEach((college, index) => {
+                    const rank = index + 1;
+                    const cardHTML = `
+                        <div class="college-card reveal active" style="position: relative;">
+                            <div style="position: absolute; top: 15px; left: 15px; width: 45px; height: 45px; background: linear-gradient(135deg, #ca8a04, #d97706); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Outfit'; font-size: 1.2rem; font-weight: 800; z-index: 10; box-shadow: 0 4px 10px rgba(202, 138, 4, 0.4); border: 3px solid white;">
+                                #${rank}
+                            </div>
+                            
+                            <div class="college-cover">
+                                <img src="${college.cover}" alt="${college.name}">
+                                <div class="ranking-badge" style="background: rgba(0,0,0,0.7); backdrop-filter: blur(5px);"><i class="fa-solid fa-briefcase" style="color: #fde047;"></i> Top Placements</div>
+                                <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+                                <button class="play-btn" onclick="openVideoModal('${college.name}')" title="Watch College Story"><i class="fa-solid fa-play" style="margin-left:4px;"></i></button>
+                            </div>
+                            <div class="college-info">
+                                <div class="college-logo" style="background:${college.logoColor};">
+                                    <span>${college.acronym}</span>
+                                </div>
+                                <h3>${college.name}</h3>
+                                <p class="location"><i class="fa-solid fa-location-dot"></i> ${college.location}</p>
+                                
+                                <div class="college-metrics" style="background: #fefce8; border: 1px solid #fef08a;">
+                                    <div class="metric">
+                                        <span class="label">1st Year Fees</span>
+                                        <span class="value">${college.fees}</span>
+                                    </div>
+                                    <div class="metric">
+                                        <span class="label">Avg Package</span>
+                                        <span class="value" style="color: #ca8a04; font-weight: 800; font-size: 1.1rem;">${college.package}</span>
+                                    </div>
+                                    <div class="metric rating">
+                                        <span class="label">User Rating</span>
+                                        <span class="value"><i class="fa-solid fa-star"></i> ${college.rating}/5</span>
+                                    </div>
+                                </div>
+
+                                <div class="college-actions">
+                                    <button class="btn-primary w-100" onclick="openLeadForm()" style="background: #16a34a; box-shadow: 0 4px 15px rgba(22, 163, 74, 0.3); margin-top: 5px;">Apply Now <i class="fa-solid fa-arrow-right"></i></button>
+                                    <div style="display: flex; gap: 10px; width: 100%;">
+                                        <button class="btn-outline w-100" style="margin-top: 10px; padding: 10px;" onclick="openLeadForm()">Brochure</button>
+                                        <button class="btn-primary w-100" style="margin-top: 10px; padding: 10px;" onclick="openLeadForm()"><i class="fa-solid fa-bolt"></i> Mentor</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    grid.innerHTML += cardHTML;
+                });
+            }
+            renderColleges(placementData);
+        });
+    </script>
+</body>
+</html>

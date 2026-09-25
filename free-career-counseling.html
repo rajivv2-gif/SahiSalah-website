@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Career Counseling Session & Aptitude Matcher | Sahi Salah</title>
+    <meta name="description"
+        content="Confused about college stream selection? Take our 60-second free career suitability quiz and map your academic orientations to STEM, Commerce, or Arts instantly.">
+    <meta name="keywords"
+        content="Free Career Counseling, Stream Selection, Aptitude Quiz, Student Guidance, Career Advice India">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sahisalah.in/free-career-counseling.html">
+    <meta property="og:title" content="Instant Career Aptitude Matcher & Counseling | Sahi Salah">
+    <meta property="og:description"
+        content="Map your cognitive preferences and unlock free counseling sessions with verified alumni mentors.">
+    <meta property="og:image"
+        content="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=630&q=80">
+
+    <!-- JSON-LD Structured Data Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Free Student Career Counseling & Assessment",
+      "description": "Scientific stream selection assessment and 1-on-1 career mapping consultation with certified mentors.",
+      "provider": {
+        "@type": "Organization",
+        "name": "Sahi Salah",
+        "url": "https://sahisalah.in"
+      },
+      "areaServed": "IN",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR"
+      }
+    }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link class="prefetch-tag" rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link class="prefetch-tag" rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* ==========================================================================
+           PREMIUM HERO SECTION STYLING (Dark Mode Neon-Glassmorphism)
+           ========================================================================== */
+        .counseling-hero {
+            position: relative;
+            background: linear-gradient(135deg, #020617 0%, #080f21 50%, #0f172a 100%);
+            padding: 100px 0 110px 0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .grid-pattern {
+            position: absolute;
+            inset: 0;
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .hero-bg-blobs {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .hero-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.22;
+            mix-blend-mode: screen;
+            animation: floatBlob 10s ease-in-out infinite alternate;
+        }
+
+        .hero-blob-1 {
+            width: 450px;
+            height: 450px;
+            background: var(--primary-light);
+            top: -120px;
+            right: -100px;
+        }
+
+        .hero-blob-2 {
+            width: 350px;
+            height: 350px;
+            background: var(--secondary);
+            bottom: -80px;
+            left: 5%;
+            animation-delay: -5s;
+        }
+
+        @keyframes floatBlob {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(30px, 30px) scale(1.12); }
+        }
+
+        .hero-split-container {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text-side {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hero-badge-premium {
+            background: rgba(37, 99, 235, 0.12) !important;
+            border: 1px solid rgba(37, 99, 235, 0.3) !important;
+            color: #93c5fd !important;
+            padding: 6px 16px !important;
+            border-radius: 50px !important;
+            font-size: 0.8rem !important;
+            font-weight: 700 !important;
+            letter-spacing: 1px;
+            display: inline-flex !important;
+            align-items: center;
+            gap: 8px;
+            width: fit-content;
+            margin-bottom: 24px !important;
+            font-family: 'Outfit', sans-serif;
+            text-transform: uppercase;
+        }
+
+        .hero-title-premium {
+            font-size: 3.8rem;
+            line-height: 1.15;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .gradient-text-orange-blue {
+            background: linear-gradient(135deg, #3b82f6 0%, #f97316 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-description-premium {
+            font-size: 1.2rem;
+            color: #cbd5e1;
+            line-height: 1.7;
+            margin-bottom: 40px;
+            font-weight: 400;
+            max-width: 620px;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn-apply-hero {
+            background: linear-gradient(135deg, var(--secondary) 0%, #f97316 100%) !important;
+            color: white !important;
+            border: none !important;
+            padding: 16px 36px !important;
+            border-radius: 14px !important;
+            font-weight: 700 !important;
+            font-size: 1.1rem !important;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex !important;
+            align-items: center;
+            gap: 12px;
+            font-family: 'Outfit', sans-serif;
+            box-shadow: 0 4px 20px rgba(234, 88, 12, 0.35);
+        }
+
+        .btn-apply-hero:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(234, 88, 12, 0.55);
+            background: linear-gradient(135deg, #f97316 0%, #ea580c 100%) !important;
+        }
+
+        .hero-widget-side {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Interactive Quiz Card */
+        .quiz-glass-card {
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 28px;
+            padding: 32px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+            width: 100%;
+            max-width: 425px;
+            color: white;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .quiz-glass-card h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.35rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #ffffff;
+        }
+
+        .quiz-progress-bar {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            margin-bottom: 25px;
+            overflow: hidden;
+        }
+
+        .quiz-progress-fill {
+            height: 100%;
+            width: 25%;
+            background: linear-gradient(90deg, var(--primary-light), var(--secondary));
+            transition: width 0.3s ease;
+        }
+
+        .quiz-question-container {
+            min-height: 180px;
+        }
+
+        .quiz-question-title {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #f1f5f9;
+            margin-bottom: 18px;
+            line-height: 1.4;
+        }
+
+        .quiz-options-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .quiz-opt-btn {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 12px 16px;
+            border-radius: 12px;
+            color: #cbd5e1;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .quiz-opt-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            transform: translateX(4px);
+        }
+
+        .quiz-results-pane {
+            text-align: center;
+            display: none;
+        }
+
+        .compatibility-score-row {
+            margin-bottom: 18px;
+            text-align: left;
+        }
+
+        .compatibility-label {
+            font-size: 0.85rem;
+            color: #cbd5e1;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px;
+        }
+
+        .compatibility-bar-wrap {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .compatibility-bar-fill {
+            height: 100%;
+            width: 0%;
+            border-radius: 5px;
+            transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* 4-Step Timeline */
+        .timeline-section {
+            background: #ffffff;
+            padding: 90px 20px;
+        }
+
+        .c-timeline {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+            position: relative;
+        }
+
+        .timeline-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .timeline-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.03);
+            border-color: rgba(37, 99, 235, 0.2);
+        }
+
+        .timeline-num {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.25rem;
+            margin: 0 auto 20px auto;
+            box-shadow: 0 5px 15px rgba(2, 6, 23, 0.15);
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .timeline-card:nth-child(even) .timeline-num {
+            background: var(--secondary);
+        }
+
+        @media (max-width: 992px) {
+            .counseling-hero {
+                padding: 70px 0 80px 0;
+            }
+            .hero-split-container {
+                grid-template-columns: 1fr;
+                gap: 50px;
+                text-align: center;
+            }
+            .hero-badge-premium {
+                margin: 0 auto 20px auto !important;
+            }
+            .hero-description-premium {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .hero-cta-group {
+                justify-content: center;
+            }
+            .quiz-glass-card {
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title-premium {
+                font-size: 2.8rem;
+            }
+            .hero-description-premium {
+                font-size: 1.05rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <sahi-header></sahi-header>
+
+    <!-- Counseling Hero Section -->
+    <header class="counseling-hero" id="counseling-hero">
+        <div class="grid-pattern"></div>
+        <div class="hero-bg-blobs">
+            <div class="hero-blob hero-blob-1"></div>
+            <div class="hero-blob hero-blob-2"></div>
+        </div>
+        <div class="container hero-split-container" style="position: relative; z-index: 2;">
+            <div class="hero-text-side">
+                <span class="badge hero-badge-premium"><i class="fa-solid fa-sparkles text-green animate-pulse"></i> Zero-Cost Aptitude Matcher</span>
+                <h1 class="hero-title-premium">
+                    Find Your Ideal Academic <br><span class="gradient-text-orange-blue">Stream Profile Free</span>
+                </h1>
+                <p class="hero-description-premium">
+                    Confused between Engineering, Commerce, Management, or Creative streams? Take our 60-second compatibility checker to map your core aptitude profile instantly.
+                </p>
+                <div class="hero-cta-group">
+                    <button onclick="scrollToQuiz()" class="btn-apply-hero btn-large glow-btn" id="btn-hero-scroll">
+                        Start Aptitude Matcher <i class="fa-solid fa-arrow-down" style="color:#60a5fa;"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Interactive Quiz Card Widget -->
+            <div class="hero-widget-side" id="quiz-block">
+                <div class="quiz-glass-card">
+                    <h3 id="quiz-title-txt"><i class="fa-solid fa-circle-question text-primary-light"></i> Profile Matcher</h3>
+                    
+                    <!-- Progress Bar -->
+                    <div class="quiz-progress-bar" id="quiz-progress-wrap">
+                        <div class="quiz-progress-fill" id="quiz-progress-bar"></div>
+                    </div>
+
+                    <!-- Question Container -->
+                    <div class="quiz-question-container" id="quiz-q-box">
+                        <div class="quiz-question-title" id="quiz-question-text">Question 1: How do you prefer to solve complex logical problems?</div>
+                        <div class="quiz-options-list" id="quiz-options-box">
+                            <!-- Injected by script -->
+                        </div>
+                    </div>
+
+                    <!-- Results Container -->
+                    <div class="quiz-results-pane" id="quiz-res-box">
+                        <i class="fa-solid fa-circle-check text-green" style="font-size:3rem; margin-bottom:15px;"></i>
+                        <h4 style="font-family:'Outfit'; font-size:1.4rem; margin-bottom:20px;">Compatibility Report</h4>
+                        
+                        <div class="compatibility-score-row">
+                            <div class="compatibility-label"><span>STEM & Tech Compatibility</span><span id="score-stem">0%</span></div>
+                            <div class="compatibility-bar-wrap"><div class="compatibility-bar-fill" id="bar-stem" style="background:#2563eb;"></div></div>
+                        </div>
+
+                        <div class="compatibility-score-row">
+                            <div class="compatibility-label"><span>Commerce & Management</span><span id="score-commerce">0%</span></div>
+                            <div class="compatibility-bar-wrap"><div class="compatibility-bar-fill" id="bar-commerce" style="background:#ea580c;"></div></div>
+                        </div>
+
+                        <div class="compatibility-score-row">
+                            <div class="compatibility-label"><span>Humanities & Liberal Arts</span><span id="score-arts">0%</span></div>
+                            <div class="compatibility-bar-wrap"><div class="compatibility-bar-fill" id="bar-arts" style="background:#16a34a;"></div></div>
+                        </div>
+
+                        <button onclick="openLeadForm()" class="btn-primary w-100" style="padding:14px; border-radius:10px; margin-top:20px; font-weight:700;">Book Free Call & Get PDF <i class="fa-solid fa-phone"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Consultation Step Timeline -->
+    <section class="timeline-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>No-Obligation <span class="gradient-text">Free Session Roadmap</span></h2>
+                <p>Learn how Sahi Salah mentors decode your compatibility matches in 4 simple stages.</p>
+            </div>
+
+            <div class="c-timeline">
+                <!-- Step 1 -->
+                <div class="timeline-card">
+                    <div class="timeline-num">1</div>
+                    <h3 style="font-family:'Outfit'; font-size:1.25rem; color:var(--primary); margin-bottom:10px;">Rapid Aptitude</h3>
+                    <p class="text-muted" style="font-size:0.9rem; line-height:1.5;">Take the 60-second interactive compatibility quiz to map basic preferences.</p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="timeline-card">
+                    <div class="timeline-num">2</div>
+                    <h3 style="font-family:'Outfit'; font-size:1.25rem; color:var(--primary); margin-bottom:10px;">Free 1-on-1 Call</h3>
+                    <p class="text-muted" style="font-size:0.9rem; line-height:1.5;">Schedule a 30-minute diagnostic session with an IIT/IIM verified alumni mentor.</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="timeline-card">
+                    <div class="timeline-num">3</div>
+                    <h3 style="font-family:'Outfit'; font-size:1.25rem; color:var(--primary); margin-bottom:10px;">Academics & Budget</h3>
+                    <p class="text-muted" style="font-size:0.9rem; line-height:1.5;">Map profile limits, family budgets, and scholarship eligibility indices.</p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="timeline-card">
+                    <div class="timeline-num">4</div>
+                    <h3 style="font-family:'Outfit'; font-size:1.25rem; color:var(--primary); margin-bottom:10px;">PDF Action Plan</h3>
+                    <p class="text-muted" style="font-size:0.9rem; line-height:1.5;">Receive a custom pathway document detailing targets, ROI scales, and visa pathways.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Verified Mentors Showcase -->
+    <section class="container" style="padding: 0 20px 90px 20px;" id="advisors-panel">
+        <div class="section-header">
+            <h2>Expert <span class="gradient-text">Mentors & Counselors</span></h2>
+            <p>Direct counseling from professionals, not commission-focused agents.</p>
+        </div>
+
+        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:35px; margin-top:50px;">
+            <!-- Mentor 1 -->
+            <div style="background:white; border:1px solid #cbd5e1; border-radius:24px; padding:35px; text-align:center; transition:all 0.3s;" class="mentor-card">
+                <div style="position:relative; width:100px; height:100px; margin:0 auto 15px auto;">
+                    <img src="https://i.pravatar.cc/150?img=68" alt="Dr. Rajiv Verma" style="width:100%; height:100%; border-radius:50%; object-fit:cover; border:3px solid #f1f5f9;">
+                </div>
+                <span style="font-size:0.75rem; background:#eff6ff; color:var(--primary-light); font-weight:800; padding:4px 10px; border-radius:20px; text-transform:uppercase;">Admissions Dean</span>
+                <h3 style="font-family:'Outfit'; font-size:1.3rem; color:var(--primary); margin-top:10px; margin-bottom:5px;">Dr. Rajiv Verma</h3>
+                <p class="text-muted" style="font-size:0.85rem; font-weight:600; margin-bottom:15px;">Ex-IIT Delhi &bull; 15+ Years Experience</p>
+                <p class="text-muted" style="font-size:0.9rem; line-height:1.5;">Specializes in engineering streams, academic profiles evaluation, and scholarships for study abroad programs.</p>
+            </div>
+
+            <!-- Mentor 2 -->
+            <div style="background:white; border:1px solid #cbd5e1; border-radius:24px; padding:35px; text-align:center; transition:all 0.3s;" class="mentor-card">
+                <div style="position:relative; width:100px; height:100px; margin:0 auto 15px auto;">
+                    <img src="https://i.pravatar.cc/150?img=47" alt="Sneha Kapoor" style="width:100%; height:100%; border-radius:50%; object-fit:cover; border:3px solid #f1f5f9;">
+                </div>
+                <span style="font-size:0.75rem; background:#fff7ed; color:var(--secondary); font-weight:800; padding:4px 10px; border-radius:20px; text-transform:uppercase;">Careers Lead</span>
+                <h3 style="font-family:'Outfit'; font-size:1.3rem; color:var(--primary); margin-top:10px; margin-bottom:5px;">Sneha Kapoor</h3>
+                <p class="text-muted" style="font-size:0.85rem; font-weight:600; margin-bottom:15px;">IIM Ahmedabad Alumna &bull; Ex-McKinsey</p>
+                <p class="text-muted" style="font-size:0.9rem; line-height:1.5;">Provides targeted coaching for corporate management profiles, online program evaluations, and salary ROI metrics.</p>
+            </div>
+        </div>
+    </section>
+
+    <sahi-footer></sahi-footer>
+
+    <sahi-lead-modal></sahi-lead-modal>
+
+    <!-- Scripts -->
+    <script src="components.js"></script>
+    <script src="common.js"></script>
+
+    <script>
+        // Smooth scroll to quiz block
+        function scrollToQuiz() {
+            document.getElementById('quiz-block').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Quiz State & Questions
+        const quizQuestions = [
+            {
+                q: "1. How do you prefer to solve complex logical problems?",
+                options: [
+                    { t: "Writing algorithmic steps or logical systems", s: { stem: 30, commerce: 0, arts: 0 } },
+                    { t: "Reviewing commercial feasibility and payback rates", s: { stem: 0, commerce: 30, arts: 0 } },
+                    { t: "Analyzing community impact or textual narratives", s: { stem: 0, commerce: 0, arts: 30 } }
+                ]
+            },
+            {
+                q: "2. Which academic environment excites you most?",
+                options: [
+                    { t: "Tech labs, programming codebases, and hardware design", s: { stem: 30, commerce: 0, arts: 0 } },
+                    { t: "Stock market charts, product business plans, and finance stats", s: { stem: 0, commerce: 30, arts: 0 } },
+                    { t: "Design blueprints, sociology research papers, and writing journals", s: { stem: 0, commerce: 0, arts: 30 } }
+                ]
+            },
+            {
+                q: "3. What is your ideal workspace layout?",
+                options: [
+                    { t: "Tech firm startups, software development centers, or data facilities", s: { stem: 30, commerce: 0, arts: 0 } },
+                    { t: "Investment firm boards, retail marketing spaces, or consulting hubs", s: { stem: 0, commerce: 30, arts: 0 } },
+                    { t: "Public advocacy teams, media houses, or editorial offices", s: { stem: 0, commerce: 0, arts: 30 } }
+                ]
+            },
+            {
+                q: "4. In a group assignment, what role feels most natural?",
+                options: [
+                    { t: "The data analyst, technical coder, or engineer", s: { stem: 30, commerce: 0, arts: 0 } },
+                    { t: "The product manager, pitching lead, or budget planner", s: { stem: 0, commerce: 30, arts: 0 } },
+                    { t: "The content researcher, visual layout designer, or copywriter", s: { stem: 0, commerce: 0, arts: 30 } }
+                ]
+            }
+        ];
+
+        let currentQIndex = 0;
+        let finalScores = { stem: 10, commerce: 10, arts: 10 }; // Baseline
+
+        function displayQuestion() {
+            if (currentQIndex >= quizQuestions.length) {
+                showResults();
+                return;
+            }
+
+            const activeQ = quizQuestions[currentQIndex];
+            document.getElementById('quiz-question-text').innerText = activeQ.q;
+            
+            // Render options
+            const optBox = document.getElementById('quiz-options-box');
+            optBox.innerHTML = '';
+            
+            activeQ.options.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = 'quiz-opt-btn';
+                btn.innerText = opt.t;
+                btn.onclick = () => selectOption(opt.s);
+                optBox.appendChild(btn);
+            });
+
+            // Update Progress Bar
+            const progressPct = ((currentQIndex + 1) / quizQuestions.length) * 100;
+            document.getElementById('quiz-progress-bar').style.width = progressPct + '%';
+        }
+
+        function selectOption(scores) {
+            // Add scores
+            finalScores.stem += scores.stem;
+            finalScores.commerce += scores.commerce;
+            finalScores.arts += scores.arts;
+
+            currentQIndex++;
+            displayQuestion();
+        }
+
+        function showResults() {
+            // Hide progress and Q boxes
+            document.getElementById('quiz-progress-wrap').style.display = 'none';
+            document.getElementById('quiz-q-box').style.display = 'none';
+            document.getElementById('quiz-title-txt').innerHTML = `<i class="fa-solid fa-chart-simple text-primary-light"></i> Compatibility Results`;
+
+            // Display Results Pane
+            const resPane = document.getElementById('quiz-res-box');
+            resPane.style.display = 'block';
+
+            // Calculate total and percentages
+            const total = finalScores.stem + finalScores.commerce + finalScores.arts;
+            const stemPct = Math.round((finalScores.stem / total) * 100);
+            const commPct = Math.round((finalScores.commerce / total) * 100);
+            const artsPct = Math.round((finalScores.arts / total) * 100);
+
+            // Animate progress fills and scores
+            setTimeout(() => {
+                document.getElementById('score-stem').innerText = stemPct + '%';
+                document.getElementById('bar-stem').style.width = stemPct + '%';
+
+                document.getElementById('score-commerce').innerText = commPct + '%';
+                document.getElementById('bar-commerce').style.width = commPct + '%';
+
+                document.getElementById('score-arts').innerText = artsPct + '%';
+                document.getElementById('bar-arts').style.width = artsPct + '%';
+
+                // Set quiz values into Lead Form hidden inputs if user schedules session
+                const quizScoreInput = document.getElementById('quizScore');
+                const quizBudgetInput = document.getElementById('quizBudget');
+                if (quizScoreInput) {
+                    quizScoreInput.value = `STEM: ${stemPct}%, Commerce: ${commPct}%, Humanities: ${artsPct}%`;
+                }
+                if (quizBudgetInput) {
+                    quizBudgetInput.value = `Free Diagnostics Assessment`;
+                }
+            }, 300);
+        }
+
+        // Initialize quiz
+        displayQuestion();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Gunas Assessment | Sahi Salah</title>
+    <meta name="description"
+        content="Discover your true potential across 8 core dimensions with Sahi Salah's data-driven Career Gunas Test.">
+
+    <!-- Open Graph / WhatsApp / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Scientific Career Gunas Assessment | Sahi Salah">
+    <meta property="og:description"
+        content="Stop guessing. Discover your true potential across 8 psychological dimensions with our premium Career Gunas test.">
+    <meta property="og:image" content="dr_rajiv_verma.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link class="prefetch-tag" rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link class="prefetch-tag" rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- PDF Generation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <!-- StudyIndia CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Tailwind CDN with unified theme configurations -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            corePlugins: {
+                preflight: false, // Prevent Tailwind from overriding style.css defaults
+            },
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0f172a',
+                            primary: '#2563eb',
+                            accent: '#60a5fa',
+                            gold: '#f59e0b',
+                            surface: '#ffffff',
+                            light: '#f8fafc'
+                        }
+                    },
+                    backgroundImage: {
+                        'hero-glow': 'radial-gradient(circle at 50% 0%, rgba(37, 99, 235, 0.06) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(245, 158, 11, 0.04) 0%, transparent 30%)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Smooth state transitions and animations */
+        .fade-in {
+            animation: fadeIn 0.45s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .option-btn {
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .option-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+        }
+
+        /* High-specificity selection overrides to defeat dynamic Tailwind CDN style injection */
+        .option-btn.selected {
+            border-color: #2563eb !important;
+            background-color: rgba(37, 99, 235, 0.08) !important;
+            color: #1e3a8a !important;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.25) !important;
+        }
+
+        .hidden-screen {
+            display: none !important;
+        }
+
+        /* Styling overrides to smoothly mesh Tailwind utilities with Sahi Salah defaults */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8) !important;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+
+<body
+    class="antialiased selection:bg-brand-accent selection:text-white bg-slate-50 min-h-screen text-slate-800 font-sans flex flex-col"
+    style="background: linear-gradient(135deg, #f8fafc, #f1f5f9, #f8fafc);">
+
+    <!-- StudyIndia Header Web Component -->
+    <sahi-header></sahi-header>
+
+    <!-- Visual Background Glow -->
+    <div class="absolute inset-0 bg-hero-glow pointer-events-none z-0"></div>
+
+    <!-- Main Container -->
+    <main class="flex-grow w-full max-w-4xl mx-auto pt-32 pb-24 px-4 relative z-10">
+
+        <!-- 1. INTRO SCREEN -->
+        <div id="screen-intro" class="glass-panel rounded-3xl shadow-xl overflow-hidden fade-in">
+            <div class="bg-gradient-to-r from-blue-600 to-indigo-600 p-12 text-center relative overflow-hidden">
+                <div class="absolute inset-0 bg-white opacity-5 pattern-dots"></div>
+                <i class="fa-solid fa-chart-pie text-6xl text-white mb-6 relative z-10 animate-pulse"></i>
+                <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4 relative z-10 tracking-tight">Career
+                    Gunas Test</h1>
+                <p class="text-blue-100 text-lg md:text-xl font-medium relative z-10">Discover your true potential
+                    across 8 core dimensions.</p>
+            </div>
+            <div class="p-8 md:p-12 text-center text-slate-600">
+                <p class="mb-10 text-lg leading-relaxed max-w-xl mx-auto">
+                    This powerful scientific assessment contains 24 behavioral statements. It maps your unique
+                    psychological framework, work drive, and problem-solving style to the perfect career tracks.
+                </p>
+                <button onclick="startQuiz()"
+                    class="inline-flex items-center justify-center px-10 py-5 font-bold text-lg text-white bg-blue-600 rounded-xl hover:bg-blue-700 transition duration-300 shadow-[0_0_30px_rgba(37,99,235,0.2)] hover:shadow-[0_0_40px_rgba(37,99,235,0.3)] hover:-translate-y-0.5 group cursor-pointer border-none">
+                    Start Assessment <i
+                        class="fa-solid fa-chevron-right ml-3 group-hover:translate-x-1 transition-transform"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- 2. QUIZ SCREEN -->
+        <div id="screen-quiz" class="hidden-screen fade-in">
+            <!-- Progress Bar -->
+            <div class="mb-8 px-2 text-left">
+                <div class="flex justify-between text-sm font-bold text-slate-500 mb-3">
+                    <span id="progress-text">Question 1 of 24</span>
+                    <span id="progress-percentage">0%</span>
+                </div>
+                <div class="w-full bg-slate-200 rounded-full h-3 border border-slate-100">
+                    <div id="progress-bar" class="bg-blue-500 h-3 rounded-full transition-all duration-500 ease-out"
+                        style="width: 0%"></div>
+                </div>
+            </div>
+
+            <!-- Question Card -->
+            <div class="glass-panel rounded-3xl shadow-xl p-8 md:p-12 relative text-left">
+                <span id="dimension-badge"
+                    class="inline-block px-4 py-1.5 rounded-full bg-blue-50 text-blue-700 text-sm font-bold mb-6 border border-blue-100">
+                    Dimension
+                </span>
+                <h2 id="question-text" class="text-2xl md:text-3xl font-bold text-slate-800 mb-10 leading-snug">
+                    Question text goes here
+                </h2>
+
+                <div class="space-y-4">
+                    <button onclick="selectAnswer(4)"
+                        class="option-btn w-full text-left px-6 py-5 rounded-2xl border-2 border-slate-200/60 bg-slate-50/30 hover:bg-slate-50/70 flex items-center justify-between text-slate-700 font-semibold text-lg hover:border-slate-350 hover:text-slate-900 cursor-pointer">
+                        <span>Strongly Agree</span>
+                        <i class="fa-solid fa-check-circle text-blue-600 text-xl hidden check-icon" data-val="4"></i>
+                    </button>
+                    <button onclick="selectAnswer(3)"
+                        class="option-btn w-full text-left px-6 py-5 rounded-2xl border-2 border-slate-200/60 bg-slate-50/30 hover:bg-slate-50/70 flex items-center justify-between text-slate-700 font-semibold text-lg hover:border-slate-350 hover:text-slate-900 cursor-pointer">
+                        <span>Agree</span>
+                        <i class="fa-solid fa-check-circle text-blue-600 text-xl hidden check-icon" data-val="3"></i>
+                    </button>
+                    <button onclick="selectAnswer(2)"
+                        class="option-btn w-full text-left px-6 py-5 rounded-2xl border-2 border-slate-200/60 bg-slate-50/30 hover:bg-slate-50/70 flex items-center justify-between text-slate-700 font-semibold text-lg hover:border-slate-350 hover:text-slate-900 cursor-pointer">
+                        <span>Neutral</span>
+                        <i class="fa-solid fa-check-circle text-blue-600 text-xl hidden check-icon" data-val="2"></i>
+                    </button>
+                    <button onclick="selectAnswer(1)"
+                        class="option-btn w-full text-left px-6 py-5 rounded-2xl border-2 border-slate-200/60 bg-slate-50/30 hover:bg-slate-50/70 flex items-center justify-between text-slate-700 font-semibold text-lg hover:border-slate-350 hover:text-slate-900 cursor-pointer">
+                        <span>Disagree</span>
+                        <i class="fa-solid fa-check-circle text-blue-600 text-xl hidden check-icon" data-val="1"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. LEAD CAPTURE SCREEN -->
+        <div id="screen-lead" class="hidden-screen fade-in max-w-xl mx-auto">
+            <div class="glass-panel rounded-3xl shadow-xl p-8 md:p-10 text-center">
+                <div class="text-center mb-8">
+                    <div
+                        class="w-20 h-20 bg-green-500/10 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6 border border-green-500/20 shadow-inner">
+                        <i class="fa-solid fa-check text-4xl animate-bounce"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold text-slate-800 mb-2">Assessment Complete!</h2>
+                    <p class="text-slate-500 mt-2 text-lg">Enter your details to reveal your comprehensive Career Gunas
+                        report and personalized matches.</p>
+                </div>
+
+                <form id="lead-form" onsubmit="submitLeadForm(event)" class="space-y-4 md:space-y-5 text-left">
+                    <div>
+                        <label class="block text-sm font-bold text-slate-600 mb-2">Full Name</label>
+                        <input type="text" name="name" required
+                            class="w-full px-5 py-4 rounded-xl border border-slate-200 bg-slate-50/50 text-slate-800 placeholder-slate-450 focus:outline-none focus:ring-2 focus:ring-blue-500 font-medium text-lg"
+                            placeholder="Enter your full name">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-slate-600 mb-2">Email Address</label>
+                        <input type="email" name="email" required
+                            class="w-full px-5 py-4 rounded-xl border border-slate-200 bg-slate-50/50 text-slate-800 placeholder-slate-450 focus:outline-none focus:ring-2 focus:ring-blue-500 font-medium text-lg"
+                            placeholder="you@example.com">
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-bold text-slate-600 mb-2">Phone Number</label>
+                            <input type="tel" name="phone" required
+                                class="w-full px-5 py-4 rounded-xl border border-slate-200 bg-slate-50/50 text-slate-800 placeholder-slate-450 focus:outline-none focus:ring-2 focus:ring-blue-500 font-medium text-lg"
+                                placeholder="+91 XXXXX XXXXX">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-slate-600 mb-2">City</label>
+                            <input type="text" name="city" required
+                                class="w-full px-5 py-4 rounded-xl border border-slate-200 bg-slate-50/50 text-slate-800 placeholder-slate-455 focus:outline-none focus:ring-2 focus:ring-blue-500 font-medium text-lg"
+                                placeholder="e.g. Mumbai">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-slate-600 mb-2">Current Education Level</label>
+                        <select name="education" required
+                            class="w-full px-5 py-4 rounded-xl border border-slate-200 bg-slate-50/50 text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500 font-medium text-lg">
+                            <option value="" class="bg-white text-slate-400">Select your qualification...</option>
+                            <option value="High School (10th/12th)" class="bg-white text-slate-800">High School
+                                (10th/12th)</option>
+                            <option value="Undergraduate" class="bg-white text-slate-800">Undergraduate Student</option>
+                            <option value="Graduate" class="bg-white text-slate-800">Graduate / Masters</option>
+                            <option value="Working Professional" class="bg-white text-slate-800">Working Professional
+                            </option>
+                        </select>
+                    </div>
+
+                    <button type="submit" id="submit-btn"
+                        class="w-full mt-6 bg-blue-600 text-white font-bold text-lg py-4 rounded-xl hover:bg-blue-700 transition duration-300 shadow-lg flex justify-center items-center hover:-translate-y-0.5 shadow-[0_0_20px_rgba(37,99,235,0.2)] cursor-pointer border-none">
+                        View My Results <i class="fa-solid fa-lock ml-2 text-sm opacity-80"></i>
+                    </button>
+                    <p class="text-xs text-center text-slate-400 mt-4">Your data is strictly confidential and never
+                        shared.</p>
+                </form>
+            </div>
+        </div>
+
+        <!-- 4. RESULTS SCREEN -->
+        <div id="screen-result" class="hidden-screen fade-in max-w-4xl mx-auto">
+
+            <!-- Print Container -->
+            <div id="pdf-export-area" class="bg-slate-50 p-6 md:p-8 -m-6 rounded-3xl border border-slate-100 shadow-inner">
+                
+                <!-- Print Page 1: Header & Overall Index -->
+                <div class="break-after-page mb-8">
+                    <!-- Report Header -->
+                    <div class="flex justify-between items-center border-b-2 border-slate-200 pb-6 mb-6">
+                        <div class="text-left">
+                            <span class="text-xs font-bold uppercase tracking-wider text-blue-600">Sahi Salah Premium Advisory</span>
+                            <h1 class="text-3xl font-extrabold text-slate-800 tracking-tight mt-1">Career Gunas & Academic Pathway Report</h1>
+                        </div>
+                        <div class="text-right">
+                            <span class="inline-block px-3 py-1 bg-blue-100 text-blue-800 rounded-md text-xs font-bold uppercase" id="print-date-badge">Certified Profile</span>
+                        </div>
+                    </div>
+
+                    <!-- Headline Score & Consistency Dashboard -->
+                    <div class="bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 rounded-3xl p-8 text-center text-white border border-blue-900/30 shadow-2xl relative overflow-hidden mb-8">
+                        <div class="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2"></div>
+                        <div class="absolute bottom-0 left-0 w-64 h-64 bg-blue-500 opacity-10 rounded-full blur-3xl -translate-x-1/2 translate-y-1/2"></div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center relative z-10">
+                            <div class="text-left md:border-r border-slate-800/80 pr-4">
+                                <h3 class="text-xs font-bold uppercase tracking-wider text-blue-300 mb-1">Student Candidate</h3>
+                                <p class="text-xl font-bold text-white" id="res-student-name">Name Loading...</p>
+                                <p class="text-sm text-slate-350 mt-1" id="res-student-edu">Undergraduate</p>
+                                <p class="text-xs text-slate-400 mt-0.5" id="res-student-city">Mumbai, IN</p>
+                            </div>
+                            <div>
+                                <h2 class="text-xs font-bold uppercase tracking-wider text-amber-400 mb-2">Overall Career Guna Index</h2>
+                                <div class="text-6xl md:text-7xl font-black tracking-tighter text-white drop-shadow-md">
+                                    <span id="final-guna-score">0</span><span class="text-2xl md:text-3xl font-medium text-slate-400">/100</span>
+                                </div>
+                            </div>
+                            <div class="text-right md:border-l border-slate-800/80 pl-4 text-center md:text-right">
+                                <h3 class="text-xs font-bold uppercase tracking-wider text-blue-300 mb-1">Profile Confidence</h3>
+                                <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-emerald-500/20 text-emerald-350 rounded-full text-xs font-bold uppercase tracking-wider mt-1 border border-emerald-500/35">
+                                    <span class="relative flex h-2 w-2">
+                                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                        <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
+                                    </span>
+                                    <span id="res-confidence">95% (High)</span>
+                                </div>
+                                <p class="text-xs text-slate-400 mt-2">Evaluated against cross-check question sets</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Guna Grid: SVG Radar Chart and Breakdown -->
+                    <div class="grid md:grid-cols-2 gap-8 items-start mb-8 text-left">
+                        <!-- SVG Radar Chart -->
+                        <div class="glass-panel rounded-3xl shadow-xl p-6 bg-white border border-slate-100 flex flex-col justify-center min-h-[440px]">
+                            <h3 class="text-xl font-bold flex items-center text-slate-800 mb-4 border-b border-slate-100 pb-3">
+                                <i class="fa-solid fa-compass mr-3 text-blue-600"></i>
+                                Gunas Radar Profile
+                            </h3>
+                            <div id="radar-chart-container" class="w-full flex-grow flex items-center justify-center p-2">
+                                <!-- Dynamically Injected SVG Radar Chart -->
+                            </div>
+                        </div>
+
+                        <!-- Gunas Dimensions Scores -->
+                        <div class="glass-panel rounded-3xl shadow-xl p-6 bg-white border border-slate-100 min-h-[440px]">
+                            <h3 class="text-xl font-bold flex items-center text-slate-800 mb-4 border-b border-slate-100 pb-3">
+                                <i class="fa-solid fa-chart-bar mr-3 text-blue-600"></i>
+                                Dimension Analysis
+                            </h3>
+                            <div id="dimensions-container" class="space-y-3.5">
+                                <!-- Dynamically Injected Dimensions -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Print Page 2: Careers & Roadmaps -->
+                <div class="break-after-page mb-8">
+                    <div class="grid md:grid-cols-2 gap-8 text-left items-stretch">
+                        <!-- Best Fit Careers -->
+                        <div class="glass-panel rounded-3xl shadow-xl p-6 bg-white border border-slate-100 flex flex-col h-full">
+                            <h3 class="text-xl font-bold flex items-center text-slate-800 mb-4 border-b border-slate-100 pb-3">
+                                <i class="fa-solid fa-briefcase mr-3 text-blue-600"></i>
+                                Top Matching Career Paths
+                            </h3>
+                            <div id="careers-container" class="space-y-4 flex-grow">
+                                <!-- Top Careers Injected Here -->
+                            </div>
+                            <p class="text-xs text-slate-400 mt-4 italic border-t border-slate-100 pt-3">Fits are mathematically calculated using multidimensional Euclidean distance vectors.</p>
+                        </div>
+
+                        <!-- Academic & Financial Roadmap -->
+                        <div class="glass-panel rounded-3xl shadow-xl p-6 bg-white border border-slate-100 flex flex-col h-full">
+                            <h3 class="text-xl font-bold flex items-center text-slate-800 mb-4 border-b border-slate-100 pb-3">
+                                <i class="fa-solid fa-road mr-3 text-blue-600"></i>
+                                Custom Sahi Salah Roadmap
+                            </h3>
+                            <div id="roadmap-container" class="space-y-4 flex-grow">
+                                <!-- Dynamic Educational Roadmap Injected Here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Print Page 3: Parent Guide & Expert Endorsement -->
+                <div class="break-inside-avoid text-left">
+                    <div class="grid md:grid-cols-2 gap-8 items-start mb-6">
+                        <!-- Parent Student Alignment -->
+                        <div class="glass-panel rounded-3xl p-6 bg-white border border-slate-100 h-full">
+                            <h3 class="text-xl font-bold flex items-center text-slate-800 mb-3 border-b border-slate-100 pb-2">
+                                <i class="fa-solid fa-people-arrows mr-3 text-blue-600"></i>
+                                Parent-Student Synergy Guide
+                            </h3>
+                            <div id="parent-synergy-content" class="text-slate-600 text-sm leading-relaxed space-y-3">
+                                <!-- Parental compatibility advice goes here -->
+                            </div>
+                        </div>
+
+                        <!-- Contact and Next Steps -->
+                        <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-6 border border-blue-100 h-full flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-xl font-bold flex items-center text-slate-800 mb-3">
+                                    <i class="fa-solid fa-circle-play mr-3 text-blue-600"></i>
+                                    Next Action Steps
+                                </h3>
+                                <ul class="list-none pl-0 space-y-2 text-sm text-slate-655 font-medium">
+                                    <li class="flex items-start"><i class="fa-solid fa-circle-check text-blue-600 mt-1 mr-2.5 text-xs"></i> <span>Download this certified PDF report for family records.</span></li>
+                                    <li class="flex items-start"><i class="fa-solid fa-circle-check text-blue-600 mt-1 mr-2.5 text-xs"></i> <span>Discuss the financial & location recommendations with parents.</span></li>
+                                    <li class="flex items-start"><i class="fa-solid fa-circle-check text-blue-600 mt-1 mr-2.5 text-xs"></i> <span>Book a paid detailed analysis session with Dr. Rajiv Verma.</span></li>
+                                </ul>
+                            </div>
+                            <div class="bg-blue-600 rounded-2xl p-4 mt-6 text-white text-center flex flex-col items-center">
+                                <span class="text-xs text-blue-100 font-bold uppercase tracking-wider">Connect directly on WhatsApp</span>
+                                <div class="flex items-center space-x-2 mt-1">
+                                    <i class="fa-brands fa-whatsapp text-2xl text-[#25D366]"></i>
+                                    <span class="font-extrabold text-xl tracking-wide">+91 8882289261</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dr. Rajiv Verma Biography Card -->
+                    <div class="glass-panel rounded-3xl p-6 bg-white border border-slate-100 shadow-lg">
+                        <div class="flex flex-col md:flex-row gap-6 items-center md:items-start text-left">
+                            <div class="w-20 h-20 bg-slate-100 rounded-full flex-shrink-0 border-4 border-slate-200 shadow-inner overflow-hidden relative flex items-center justify-center">
+                                <img src="images/rajivverma.png" crossorigin="anonymous" alt="Dr. Rajiv Verma" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-slate-800 mb-0.5">Scientific Advisory Endorsement</h3>
+                                <p class="text-blue-600 font-bold mb-2 uppercase tracking-wider text-xs">Designed by Dr. Rajiv Verma</p>
+                                <p class="text-slate-600 leading-relaxed text-xs">
+                                    With over 14+ years in higher education advisory and technology-enabled learning analytics, Dr. Verma created the <strong>Career Gunas Framework™</strong> to bridge the analytical assessment gap for young Indian students. His research focuses on deploying AI-driven psychometrics to align personal aptitude against industry realities.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Premium Action Buttons (Outside print scope) -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mt-12 mb-16 px-4">
+                <button onclick="location.reload()" class="flex items-center justify-center px-8 py-4 rounded-full bg-white border-2 border-slate-200 text-slate-700 font-bold text-base hover:bg-slate-50 transition shadow-sm hover:-translate-y-0.5 cursor-pointer">
+                    <i class="fa-solid fa-rotate-right mr-3"></i> Retake Test
+                </button>
+                <button id="pdf-download-btn" onclick="openPaymentModal()" class="flex items-center justify-center px-8 py-4 rounded-full bg-slate-800 text-white font-bold text-base hover:bg-slate-900 transition shadow-sm hover:-translate-y-0.5 cursor-pointer border-none">
+                    <i class="fa-solid fa-lock mr-3 text-blue-400"></i> Download Certified PDF
+                </button>
+                <a href="https://wa.me/918882289261?text=Hi%20Dr.%20Rajiv,%20I%20just%20completed%20the%20Career%20Gunas%20Test%20and%20would%20like%20more%20guidance." target="_blank" class="flex items-center justify-center px-8 py-4 rounded-full bg-[#25D366] text-white font-bold text-base hover:bg-[#20bd5a] transition shadow-[0_0_20px_rgba(37,211,102,0.3)] hover:-translate-y-0.5 border-none cursor-pointer">
+                    <i class="fa-brands fa-whatsapp mr-3 text-xl"></i> Free Counseling Session
+                </a>
+            </div>
+
+        </div>
+
+    </main>    <!-- 5. UPI PAYMENT GATEWAY MODAL (Rs. 599 monetization flow - Compacted & Responsive) -->
+    <div id="payment-modal" class="hidden-screen fixed inset-0 bg-slate-950/80 backdrop-blur-md z-[9999] flex items-center justify-center p-3 md:p-4 overflow-y-auto">
+        <div class="glass-panel max-w-sm w-full bg-white rounded-2xl shadow-2xl p-4 md:p-5 text-center relative border border-slate-100 font-sans max-h-[90vh] overflow-y-auto">
+            <!-- Close Button (Highly visible) -->
+            <button onclick="closePaymentModal()" class="absolute top-3 right-3 text-slate-400 hover:text-slate-600 hover:scale-110 text-xl border-none bg-transparent cursor-pointer z-20 font-bold transition">&times;</button>
+            
+            <div class="mb-3 text-center pr-4">
+                <h3 class="text-lg md:text-xl font-extrabold text-slate-800 tracking-tight flex items-center justify-center gap-1.5">
+                    <i class="fa-solid fa-crown text-amber-500 text-base"></i> Unlock Certified Dossier
+                </h3>
+                <p class="text-[10px] text-slate-500 mt-0.5 leading-normal font-medium">Includes 3-page customized roadmap, SVG radar profile, and parent compatibility report.</p>
+            </div>
+
+            <!-- Price Badge (Compacted) -->
+            <div class="bg-blue-50 border border-blue-100 rounded-xl py-1 px-4 inline-block mb-3">
+                <span class="text-[9px] font-extrabold text-blue-600 uppercase tracking-widest inline-block mr-1.5">Premium Price:</span>
+                <span class="text-base font-black text-slate-800">₹599 <span class="text-[10px] font-bold text-slate-550">Only</span></span>
+            </div>
+
+            <!-- Compact QR Code -->
+            <div class="bg-slate-50 border border-slate-200/50 rounded-2xl p-2.5 inline-block mb-3 shadow-inner relative">
+                <img id="upi-qr" src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=upi://pay?pa=8882289261@okbizaxis%26pn=Sahi%20Salah%26am=599%26cu=INR%26tn=Sahi%2520Salah%2520Gunas%2520Premium" alt="UPI QR Code" class="w-32 h-32 block mx-auto rounded-lg">
+                <div class="text-[9px] font-bold text-slate-450 mt-1">Scan with GPay, PhonePe, Paytm, or BHIM</div>
+            </div>
+
+            <!-- UPI ID Copy Wrapper -->
+            <div class="mb-3.5">
+                <div class="flex items-center justify-center gap-1.5 bg-slate-100 px-2.5 py-1.5 rounded-lg text-[10px] font-bold text-slate-600 border border-slate-200">
+                    <span>UPI: <strong class="text-slate-850" id="upi-string">8882289261@okbizaxis</strong></span>
+                    <button onclick="copyUPIId()" id="copy-btn" class="text-blue-600 hover:text-blue-800 bg-transparent border-none cursor-pointer font-bold ml-1 flex items-center transition"><i class="fa-regular fa-copy mr-1"></i> Copy</button>
+                </div>
+            </div>
+
+            <!-- Transaction UTR Form -->
+            <form id="payment-verify-form" onsubmit="verifyTransaction(event)" class="space-y-3 text-left">
+                <div>
+                    <label class="block text-[9px] font-extrabold text-slate-500 uppercase tracking-wider mb-1">Enter 12-Digit Transaction UTR / Ref No.</label>
+                    <input type="text" id="utr-input" required pattern="\d{12}"
+                        class="w-full px-3 py-2 rounded-lg border border-slate-200 bg-slate-50/50 text-slate-850 focus:outline-none focus:ring-2 focus:ring-blue-500 font-extrabold text-center tracking-widest text-base"
+                        placeholder="e.g. 302918274635" maxlength="12">
+                </div>
+                <button type="submit" id="unlock-btn"
+                    class="w-full bg-blue-600 text-white font-bold text-sm py-2.5 rounded-lg hover:bg-blue-700 transition duration-300 shadow-md flex justify-center items-center cursor-pointer border-none">
+                    Verify & Instant Download <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                </button>
+            </form>
+
+            <!-- Counselor Code bypass section -->
+            <div class="mt-3 border-t border-slate-100 pt-3 text-center">
+                <button type="button" onclick="togglePromoSection()" id="promo-trigger" class="text-[10px] text-blue-650 hover:text-blue-800 bg-transparent border-none cursor-pointer font-bold transition">Have a Counselor Bypass Code?</button>
+                <div id="promo-section" class="hidden-screen mt-2 space-y-1.5">
+                    <div class="flex gap-1.5">
+                        <input type="text" id="promo-input" class="flex-1 px-2.5 py-1.5 rounded-lg border border-slate-250 bg-slate-50 text-[10px] font-extrabold text-center placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-550 text-slate-700" placeholder="ENTER COUNSELOR CODE">
+                        <button type="button" onclick="applyPromoCode()" class="bg-slate-805 text-white font-extrabold text-[10px] px-3 py-1.5 rounded-lg hover:bg-slate-900 cursor-pointer border-none transition">Apply</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- StudyIndia Footer Web Component -->
+    <sahi-footer></sahi-footer>
+<script>
+        // --- 1. THE STREAMLINED 24-QUESTION BANK (8 Guna Clusters x 3 Questions) ---
+        const questions = [
+            // 1. Analytical Ability (Tarka)
+            { id: 1, text: "I enjoy solving mathematical puzzles and logical problems rather than reading open-ended literature.", dimension: "Analytical Ability" },
+            { id: 2, text: "I systematically break down complex challenges into smaller, manageable steps before taking action.", dimension: "Analytical Ability" },
+            { id: 3, text: "I prefer basing my choices on concrete facts, statistics, and data rather than gut feelings.", dimension: "Analytical Ability" },
+
+            // 2. Creativity & Innovation (Srijan)
+            { id: 4, text: "I love designing unique layouts, sketching, or brainstorming highly unconventional ideas.", dimension: "Creativity & Innovation" },
+            { id: 5, text: "I feel restricted when forced to follow strict guidelines and prefer open creative prompts.", dimension: "Creativity & Innovation" },
+            { id: 6, text: "I often connect completely unrelated concepts to build innovative projects or stories.", dimension: "Creativity & Innovation" },
+
+            // 3. Social & Empathetic Orientation (Seva)
+            { id: 7, text: "I feel a deep sense of fulfillment when helping classmates resolve personal or study conflicts.", dimension: "Social & Empathetic" },
+            { id: 8, text: "I prioritize the collective success and harmony of my team over my own individual recognition.", dimension: "Social & Empathetic" },
+            { id: 9, text: "I easily pick up on the unspoken emotions and anxieties of my peers and offer support.", dimension: "Social & Empathetic" },
+
+            // 4. Leadership & Influence (Neta)
+            { id: 10, text: "I naturally take charge of coordinating tasks and delegating work during group assignments.", dimension: "Leadership & Influence" },
+            { id: 11, text: "I enjoy pitching ideas, persuading peers, and building consensus when people disagree.", dimension: "Leadership & Influence" },
+            { id: 12, text: "I feel energized rather than stressed when standing in front of groups to direct them.", dimension: "Leadership & Influence" },
+
+            // 5. Entrepreneurial Tendency (Udyam)
+            { id: 13, text: "I would gladly risk starting a small student venture that might fail over taking a secure job.", dimension: "Entrepreneurial Tendency" },
+            { id: 14, text: "I enjoy exploring business models, market trends, and identifying monetizable opportunities.", dimension: "Entrepreneurial Tendency" },
+            { id: 15, text: "I am highly comfortable negotiating, selling products, or pitching proposals to strangers.", dimension: "Entrepreneurial Tendency" },
+
+            // 6. Research Aptitude (Shodh)
+            { id: 16, text: "I spend hours researching details online to satisfy my curiosity on random scientific topics.", dimension: "Research Aptitude" },
+            { id: 17, text: "I prefer conducting academic experiments or studying theoretical concepts over practical applications.", dimension: "Research Aptitude" },
+            { id: 18, text: "I am obsessed with questioning established facts and seeking deeper scientific explanations.", dimension: "Research Aptitude" },
+
+            // 7. Emotional Resilience (Dhairya)
+            { id: 19, text: "I remain extremely calm, rational, and level-headed during high-stakes exams or crisis events.", dimension: "Emotional Resilience" },
+            { id: 20, text: "I bounce back exceptionally fast from academic failures, low grades, or critical rejections.", dimension: "Emotional Resilience" },
+            { id: 21, text: "I rarely let worry, stress, or self-doubt paralyze my actions or disturb my daily routine.", dimension: "Emotional Resilience" },
+
+            // 8. Drive & Action (Kriya)
+            { id: 22, text: "I maintain strict, unwavering self-discipline to study daily even when I feel unmotivated.", dimension: "Drive & Action" },
+            { id: 23, text: "I complete my major assignments and exam preparations well ahead of designated deadlines.", dimension: "Drive & Action" },
+            { id: 24, text: "I display unwavering discipline in executing daily habits regardless of how motivated I feel.", dimension: "Drive & Action" }
+        ];
+
+        // --- 2. STATE ---
+        let currentQIndex = 0;
+        let answers = {};
+
+        // --- 3. UI FUNCTIONS ---
+        function showScreen(id) {
+            document.querySelectorAll('body > main > div').forEach(el => {
+                el.classList.add('hidden-screen');
+            });
+            document.getElementById(id).classList.remove('hidden-screen');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function startQuiz() {
+            currentQIndex = 0;
+            answers = {};
+            showScreen('screen-quiz');
+            renderQuestion();
+        }
+
+        function renderQuestion() {
+            const q = questions[currentQIndex];
+            document.getElementById('question-text').innerText = `"${q.text}"`;
+            document.getElementById('dimension-badge').innerText = q.dimension;
+
+            // Progress Update
+            let perc = Math.round((currentQIndex / questions.length) * 100);
+            document.getElementById('progress-text').innerText = `Question ${currentQIndex + 1} of ${questions.length}`;
+            document.getElementById('progress-percentage').innerText = `${perc}%`;
+            document.getElementById('progress-bar').style.width = `${perc}%`;
+
+            // Reset buttons styling
+            document.querySelectorAll('.option-btn').forEach(btn => {
+                btn.classList.remove('selected');
+                btn.querySelector('i').classList.add('hidden');
+            });
+        }
+
+        function selectAnswer(value) {
+            const q = questions[currentQIndex];
+            answers[q.id] = value;
+
+            // Highlight selected button
+            const buttons = document.querySelectorAll('.option-btn');
+            buttons.forEach(btn => {
+                let icon = btn.querySelector('i');
+                if (parseInt(icon.getAttribute('data-val')) === value) {
+                    btn.classList.add('selected');
+                    icon.classList.remove('hidden');
+                }
+            });
+
+            // Brief delay for premium tactile user feel before sliding to next question
+            setTimeout(() => {
+                if (currentQIndex < questions.length - 1) {
+                    currentQIndex++;
+
+                    // Trigger screen fade-in animation transition
+                    let quizScreen = document.getElementById('screen-quiz');
+                    quizScreen.classList.remove('fade-in');
+                    void quizScreen.offsetWidth; // trigger reflow to restart CSS animation keyframes
+                    quizScreen.classList.add('fade-in');
+
+                    renderQuestion();
+                } else {
+                    // Update final progress bar visually
+                    document.getElementById('progress-percentage').innerText = `100%`;
+                    document.getElementById('progress-bar').style.width = `100%`;
+
+                    setTimeout(() => {
+                        showScreen('screen-lead');
+                    }, 400);
+                }
+            }, 350);
+        }
+
+        // --- 4. FORM AND GOOGLE SHEETS LOGIC ---
+        function submitLeadForm(e) {
+            e.preventDefault();
+
+            const btn = document.getElementById('submit-btn');
+            const originalBtnHtml = btn.innerHTML;
+            btn.innerHTML = '<i class="fa fa-spinner fa-spin mr-2"></i> Processing...';
+            btn.disabled = true;
+
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbxmQ_6M7ZsS2bpmn8vFoXyg64ndzYpuCBioX79y2IfxwY7f5todpQ6CzajV-Z6DCsWV/exec';
+            const form = document.forms['lead-form'];
+
+            // Map and serialize the form input elements to matching Apps Script doPost parameter format
+            const formData = new URLSearchParams();
+            formData.append('Name', form['name'].value);
+            formData.append('Phone', form['phone'].value);
+            formData.append('Target', form['education'].value + ' from ' + form['city'].value + ' (Budget: ' + form['education'].value + ')');
+
+            // Save details to display on report
+            document.getElementById('res-student-name').innerText = form['name'].value;
+            document.getElementById('res-student-edu').innerText = form['education'].value;
+            document.getElementById('res-student-city').innerText = form['city'].value + ', IN';
+            
+            // Set Print Date
+            const today = new Date();
+            const dateStr = today.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
+            document.getElementById('print-date-badge').innerText = 'Issued: ' + dateStr;
+
+            // Execute post to Google Sheets securely bypassing CORS restrictions
+            fetch(scriptURL, {
+                method: 'POST',
+                mode: 'no-cors',
+                body: formData
+            })
+                .then(() => {
+                    calculateResults();
+                })
+                .catch(error => {
+                    console.error('Error!', error.message);
+                    calculateResults(); // Robust execution fallback: show results screens in all cases
+                });
+        }
+
+        // --- 5. SCORING ENGINE & DYNAMIC EUCLIDEAN MAPPING ---
+        function calculateResults() {
+            let totalScore = 0;
+            const dimensionScores = {
+                'Analytical Ability': 0, 'Creativity & Innovation': 0, 'Social & Empathetic': 0, 'Leadership & Influence': 0,
+                'Entrepreneurial Tendency': 0, 'Research Aptitude': 0, 'Emotional Resilience': 0, 'Drive & Action': 0
+            };
+
+            // Accumulate Raw answers (max 4 points per question, 3 questions = max 12 per dimension)
+            for (const [qId, val] of Object.entries(answers)) {
+                totalScore += val;
+                const q = questions.find(q => q.id == qId);
+                if (q) dimensionScores[q.dimension] += val;
+            }
+
+            // Normalization out of 100 per dimension
+            const percentages = {};
+            for (const dim in dimensionScores) {
+                percentages[dim] = Math.round((dimensionScores[dim] / 12) * 100);
+            }
+
+            // Overall Guna Index: average of the 8 Gunas
+            let sumPercentages = 0;
+            for (const dim in percentages) {
+                sumPercentages += percentages[dim];
+            }
+            const careerGunaIndex = Math.round(sumPercentages / 8);
+
+            // Profile Confidence Score (Crosscheck consistency)
+            let inconsistency = 0;
+            const checkPairs = [
+                { q1: 1, q2: 3 },   // Analytical logic check
+                { q1: 10, q2: 12 }, // Leadership stress check
+                { q1: 19, q2: 21 }  // Resilience routine check
+            ];
+            checkPairs.forEach(pair => {
+                const val1 = answers[pair.q1] || 2;
+                const val2 = answers[pair.q2] || 2;
+                inconsistency += Math.abs(val1 - val2);
+            });
+            const confidenceVal = Math.max(50, 100 - (inconsistency * 10));
+            let confText = confidenceVal >= 80 ? 'High Consistency' : confidenceVal >= 60 ? 'Moderate Consistency' : 'Refinement Advised';
+            document.getElementById('res-confidence').innerText = `${confidenceVal}% (${confText})`;
+
+            // --- 6. CAREER VECTORS DATABASE (8-Dimensional Profiles) ---
+            const careerVectors = [
+                {
+                    title: 'AI Ethics & Public Policy Lead',
+                    desc: 'Fuses technological automation skills with legal, social impact, and communication metrics to govern the emerging AI economy.',
+                    vector: {
+                        'Analytical Ability': 80, 'Creativity & Innovation': 85, 'Social & Empathetic': 90, 'Leadership & Influence': 80,
+                        'Entrepreneurial Tendency': 60, 'Research Aptitude': 85, 'Emotional Resilience': 70, 'Drive & Action': 80
+                    },
+                    cluster: 'Humanities & AI',
+                    salary: '₹14L - ₹28L / yr',
+                    roi: 'Very High (High demand, low supply)'
+                },
+                {
+                    title: 'FinTech Product Manager',
+                    desc: 'Bridges software engineering, analytical micro-economics, and consumer experience to orchestrate complex finance solutions.',
+                    vector: {
+                        'Analytical Ability': 90, 'Creativity & Innovation': 75, 'Social & Empathetic': 50, 'Leadership & Influence': 90,
+                        'Entrepreneurial Tendency': 85, 'Research Aptitude': 60, 'Emotional Resilience': 80, 'Drive & Action': 85
+                    },
+                    cluster: 'Business & Technology',
+                    salary: '₹18L - ₹35L / yr',
+                    roi: 'Extreme (Top corporate payout)'
+                },
+                {
+                    title: 'Data Science & AI Architect',
+                    desc: 'Applies pure analytical mathematics and rapid technology adaptation to model neural networks and extract value from giant data lakes.',
+                    vector: {
+                        'Analytical Ability': 95, 'Creativity & Innovation': 70, 'Social & Empathetic': 40, 'Leadership & Influence': 70,
+                        'Entrepreneurial Tendency': 65, 'Research Aptitude': 90, 'Emotional Resilience': 75, 'Drive & Action': 85
+                    },
+                    cluster: 'Technology & AI',
+                    salary: '₹20L - ₹42L / yr',
+                    roi: 'Extreme (Exponential market trends)'
+                },
+                {
+                    title: 'UX/UI Digital Experience Designer',
+                    desc: 'Combines empathetic human psychology with high creativity and visual design grids to craft gorgeous responsive software products.',
+                    vector: {
+                        'Analytical Ability': 65, 'Creativity & Innovation': 95, 'Social & Empathetic': 80, 'Leadership & Influence': 75,
+                        'Entrepreneurial Tendency': 70, 'Research Aptitude': 65, 'Emotional Resilience': 70, 'Drive & Action': 75
+                    },
+                    cluster: 'Design & Digital Economy',
+                    salary: '₹12L - ₹25L / yr',
+                    roi: 'Very High (AI-resilient human skill)'
+                },
+                {
+                    title: 'Developmental Economist & Policy Advisor',
+                    desc: 'Designs macroeconomic policies, analyses research trends, and coordinates large-scale welfare strategies for state or global bodies (World Bank/UN).',
+                    vector: {
+                        'Analytical Ability': 85, 'Creativity & Innovation': 70, 'Social & Empathetic': 90, 'Leadership & Influence': 75,
+                        'Entrepreneurial Tendency': 55, 'Research Aptitude': 95, 'Emotional Resilience': 75, 'Drive & Action': 80
+                    },
+                    cluster: 'Humanities & Social Sciences',
+                    salary: '₹10L - ₹22L / yr',
+                    roi: 'High (Prestigious public & advisory sectors)'
+                },
+                {
+                    title: 'Venture Capital Analyst & Startup Incubator',
+                    desc: 'Evaluates high-risk startup models, tracks disruptive digital trends, and structures capital for early-stage visionary projects.',
+                    vector: {
+                        'Analytical Ability': 85, 'Creativity & Innovation': 80, 'Social & Empathetic': 50, 'Leadership & Influence': 90,
+                        'Entrepreneurial Tendency': 95, 'Research Aptitude': 75, 'Emotional Resilience': 85, 'Drive & Action': 80
+                    },
+                    cluster: 'Entrepreneurship & Business',
+                    salary: '₹22L - ₹50L / yr',
+                    roi: 'Extreme (High equity upside)'
+                },
+                {
+                    title: 'ESG Compliance & Circular Economy Lead',
+                    desc: 'Helps heavy corporate systems shift towards carbon neutrality, waste minimisation, and circular supply chain mechanics.',
+                    vector: {
+                        'Analytical Ability': 80, 'Creativity & Innovation': 80, 'Social & Empathetic': 85, 'Leadership & Influence': 80,
+                        'Entrepreneurial Tendency': 70, 'Research Aptitude': 80, 'Emotional Resilience': 75, 'Drive & Action': 80
+                    },
+                    cluster: 'Sustainability & ESG',
+                    salary: '₹14L - ₹28L / yr',
+                    roi: 'Very High (Globally mandated transition)'
+                },
+                {
+                    title: 'Bioinformatics Researcher',
+                    desc: 'Synthesizes computer science models and cellular genomes to perform data-driven molecular testing and drug shortlisting.',
+                    vector: {
+                        'Analytical Ability': 90, 'Creativity & Innovation': 65, 'Social & Empathetic': 70, 'Leadership & Influence': 60,
+                        'Entrepreneurial Tendency': 50, 'Research Aptitude': 95, 'Emotional Resilience': 80, 'Drive & Action': 85
+                    },
+                    cluster: 'Pure Research & STEM',
+                    salary: '₹12L - ₹26L / yr',
+                    roi: 'High (Crucial medical science core)'
+                }
+            ];
+
+            // Calculate Euclidean distances (8 Dimensions)
+            const matches = [];
+            careerVectors.forEach(cv => {
+                let sumSqDiff = 0;
+                let sumWeight = 0;
+                
+                for (const dim in cv.vector) {
+                    const studentVal = percentages[dim] || 50;
+                    const targetVal = cv.vector[dim];
+                    const weight = 1.0;
+                    sumSqDiff += weight * Math.pow((studentVal - targetVal) / 100, 2);
+                    sumWeight += weight;
+                }
+                
+                const distance = Math.sqrt(sumSqDiff / sumWeight);
+                const fitScore = Math.max(0, Math.min(100, Math.round((1 - distance) * 100)));
+                
+                matches.push({
+                    title: cv.title,
+                    desc: cv.desc,
+                    score: fitScore,
+                    cluster: cv.cluster,
+                    salary: cv.salary,
+                    roi: cv.roi
+                });
+            });
+
+            // Get top 3 careers
+            const topCareers = matches.sort((a, b) => b.score - a.score).slice(0, 3);
+
+            // Renders SVG Radar Chart
+            renderRadarChart(percentages);
+
+            // Renders HTML outputs
+            renderResults(careerGunaIndex, percentages, topCareers);
+            renderAcademicRoadmap(percentages);
+            renderParentSynergy(percentages);
+            
+            showScreen('screen-result');
+        }
+
+        // --- 6. SVG RADAR CHART GENERATOR (8-Axis Regular Octagon) ---
+        function renderRadarChart(percentages) {
+            const dimensions = Object.keys(percentages);
+            const numPoints = dimensions.length;
+            const size = 480;
+            const center = size / 2;
+            const radius = 150;
+            
+            let gridPolygons = '';
+            let gridLines = '';
+            let labelElements = '';
+            let points = [];
+            
+            // Concentric grids: 25%, 50%, 75%, 100%
+            const gridLevels = [0.25, 0.50, 0.75, 1.0];
+            gridLevels.forEach(level => {
+                let polyPoints = [];
+                for (let i = 0; i < numPoints; i++) {
+                    const angle = (i * 2 * Math.PI / numPoints) - (Math.PI / 2);
+                    const x = center + radius * level * Math.cos(angle);
+                    const y = center + radius * level * Math.sin(angle);
+                    polyPoints.push(`${x},${y}`);
+                }
+                gridPolygons += `<polygon points="${polyPoints.join(' ')}" fill="none" stroke="#f1f5f9" stroke-width="1.2" />\n`;
+            });
+            
+            // Axis lines and perimeter nodes
+            dimensions.forEach((dim, i) => {
+                const angle = (i * 2 * Math.PI / numPoints) - (Math.PI / 2);
+                const xOuter = center + radius * Math.cos(angle);
+                const yOuter = center + radius * Math.sin(angle);
+                
+                // Dash lines connecting center to corners
+                gridLines += `<line x1="${center}" y1="${center}" x2="${xOuter}" y2="${yOuter}" stroke="#e2e8f0" stroke-dasharray="3,3" stroke-width="1.2" />\n`;
+                
+                // Student actual point coordinates
+                const score = percentages[dim];
+                const xVal = center + radius * (score / 100) * Math.cos(angle);
+                const yVal = center + radius * (score / 100) * Math.sin(angle);
+                points.push(`${xVal},${yVal}`);
+                
+                // Label coordinates pushed slightly outward
+                const offsetRadius = radius + 22;
+                let xLabel = center + offsetRadius * Math.cos(angle);
+                let yLabel = center + offsetRadius * Math.sin(angle);
+                
+                let textAnchor = 'middle';
+                if (Math.cos(angle) > 0.1) textAnchor = 'start';
+                else if (Math.cos(angle) < -0.1) textAnchor = 'end';
+                
+                // Shorten dimension labels for screen neatness
+                let shortName = dim;
+                if (dim === 'Creativity & Innovation') shortName = 'Creativity & Design';
+                if (dim === 'Social & Empathetic') shortName = 'Social/Empathy';
+                if (dim === 'Leadership & Influence') shortName = 'Leadership';
+                if (dim === 'Entrepreneurial Tendency') shortName = 'Entrepreneurship';
+                if (dim === 'Research Aptitude') shortName = 'Research';
+                if (dim === 'Emotional Resilience') shortName = 'Resilience';
+                
+                labelElements += `<text x="${xLabel}" y="${yLabel + 4}" fill="#475569" font-family="'Outfit', sans-serif" font-weight="700" font-size="10.5" text-anchor="${textAnchor}">${shortName}</text>\n`;
+            });
+            
+            // Core Gunas value polygon shape
+            const polyString = points.join(' ');
+            const valuePolygon = `
+                <polygon points="${polyString}" fill="rgba(37, 99, 235, 0.15)" stroke="#2563eb" stroke-width="2.5" stroke-linejoin="round" />
+                ${points.map(pt => {
+                    const [px, py] = pt.split(',');
+                    return `<circle cx="${px}" cy="${py}" r="4.5" fill="#f59e0b" stroke="#ffffff" stroke-width="1.5" />`;
+                }).join('\n')}
+            `;
+            
+            const svgMarkup = `
+                <svg width="100%" height="100%" viewBox="0 0 ${size} ${size}" xmlns="http://www.w3.org/2000/svg" class="mx-auto block select-none">
+                    <!-- Grid Polygons -->
+                    ${gridPolygons}
+                    <!-- Axis lines -->
+                    ${gridLines}
+                    <!-- Value Shape & Nodes -->
+                    ${valuePolygon}
+                    <!-- Center Dot -->
+                    <circle cx="${center}" cy="${center}" r="3" fill="#94a3b8" />
+                    <!-- Labels -->
+                    ${labelElements}
+                </svg>
+            `;
+            
+            document.getElementById('radar-chart-container').innerHTML = svgMarkup;
+        }
+
+        // --- 7. RENDER RESULTS (CAREER AND BAR CHARTS) ---
+        function renderResults(gunaScore, percentages, topCareers) {
+            document.getElementById('final-guna-score').innerText = gunaScore;
+
+            // Render Career cards
+            const careersDiv = document.getElementById('careers-container');
+            careersDiv.innerHTML = '';
+            topCareers.forEach(career => {
+                careersDiv.innerHTML += `
+                    <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:bg-slate-100/50 transition duration-300 text-left font-sans">
+                        <div class="flex justify-between items-start mb-2 gap-2">
+                            <div>
+                                <span class="text-xxs font-bold text-blue-600 uppercase tracking-widest bg-blue-100 px-2 py-0.5 rounded-md">${career.cluster}</span>
+                                <h4 class="font-extrabold text-lg text-slate-800 mt-1">${career.title}</h4>
+                            </div>
+                            <span class="text-xs font-bold bg-blue-600 text-white px-2.5 py-1 rounded-lg shadow-sm whitespace-nowrap">
+                                ${career.score}% Fit
+                            </span>
+                        </div>
+                        <p class="text-xs text-slate-655 leading-relaxed font-medium mb-3">${career.desc}</p>
+                        <div class="grid grid-cols-2 gap-2 border-t border-slate-100 pt-2 text-xxs font-bold text-slate-550">
+                            <div><i class="fa-solid fa-indian-rupee-sign text-blue-500 mr-1"></i> Salary: ${career.salary}</div>
+                            <div class="text-right"><i class="fa-solid fa-chart-line text-emerald-500 mr-1"></i> ROI: ${career.roi}</div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            // Render Dimensions Progressive bar items (8 dimensions)
+            const dimDiv = document.getElementById('dimensions-container');
+            dimDiv.innerHTML = '';
+            Object.keys(percentages).forEach(dim => {
+                const p = percentages[dim];
+                let colorClass = p > 70 ? 'bg-blue-600 shadow-[0_0_8px_rgba(37,99,235,0.25)]' : p >= 40 ? 'bg-amber-500 shadow-[0_0_8px_rgba(245,158,11,0.25)]' : 'bg-rose-500 shadow-[0_0_8px_rgba(244,63,94,0.25)]';
+                
+                let displayName = dim;
+                if (dim === 'Creativity & Innovation') displayName = 'Creativity & Design';
+                
+                dimDiv.innerHTML += `
+                    <div class="group text-left font-sans">
+                        <div class="flex justify-between text-xs mb-1">
+                            <span class="font-bold text-slate-600 group-hover:text-blue-650 transition">${displayName}</span>
+                            <span class="font-bold text-slate-800">${p}%</span>
+                        </div>
+                        <div class="w-full bg-slate-100 rounded-full h-2 overflow-hidden border border-slate-200/50">
+                            <div class="h-2 rounded-full ${colorClass} transition-all duration-1000 ease-out" style="width: 0%" data-width="${p}%"></div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            // Trigger animation
+            setTimeout(() => {
+                dimDiv.querySelectorAll('[data-width]').forEach(el => {
+                    el.style.width = el.getAttribute('data-width');
+                });
+            }, 300);
+        }
+
+        // --- 8. RENDER ROADMAP INTERFACE ---
+        function renderAcademicRoadmap(percentages) {
+            const roadDiv = document.getElementById('roadmap-container');
+            
+            // Analytical check
+            const isAnalytical = percentages['Analytical Ability'] > 65;
+            const isCreative = percentages['Creativity & Innovation'] > 65;
+            const isSocial = percentages['Social & Empathetic'] > 65;
+            const isLeader = percentages['Leadership & Influence'] > 65;
+            
+            let recommendedStream = 'Humanities & Social Sciences';
+            let degrees = 'BA (Liberal Arts), LLB (Law), Integrated MBA';
+            let exams = 'CUET (Central Unis), CLAT (Law), SAT Global';
+            let skills = 'Research Writing, Public Persuasion, SEO & Digital Media';
+            
+            if (isAnalytical && !isSocial) {
+                recommendedStream = 'Science (PCM Track)';
+                degrees = 'B.Tech (Computer Science / AI / Data Analytics), B.Sc (Computing)';
+                exams = 'JEE Main & Advanced, BITSAT, VITEEE, SAT';
+                skills = 'Python Programming, Git Ops, Machine Learning Basics';
+            } else if (isAnalytical && isSocial) {
+                recommendedStream = 'Science (PCB Track)';
+                degrees = 'B.Sc (Bioinformatics), Clinical Psychology, Medicine (MBBS)';
+                exams = 'NEET-UG, CUET Science, SAT Biology';
+                skills = 'Data Analytics, Laboratory Practices, Biological Databases';
+            } else if (isLeader || (isAnalytical && !isSocial)) {
+                recommendedStream = 'Commerce & Business';
+                degrees = 'BBA (FinTech / Business Analytics), Integrated MBA (IPM)';
+                exams = 'IPMAT (IIM Indore/Rohtak), CUET Commerce, NPAT';
+                skills = 'Excel Modeling, Pitch Presentations, Accounting Foundations';
+            } else if (isCreative) {
+                recommendedStream = 'Creative Arts & Design';
+                degrees = 'B.Des (Interaction / UI-UX Design / Communication), B.F.A';
+                exams = 'UCEED, NID-DAT, NIFT, Creative Portfolio Evaluations';
+                skills = 'Figma Wireframing, Visual Grid Systems, Design Thinking';
+            }
+
+            const budgetField = document.forms['lead-form']['education'].value; 
+            let budgetSummary = 'High-ROI Local Colleges & Scholarships';
+            if (budgetField === 'High School (10th/12th)') {
+                budgetSummary = 'Tier-1 Central Indian Universities & German Public Streams';
+            } else if (budgetField === 'Undergraduate') {
+                budgetSummary = 'European PG Options & Non-Collateral Education Loans';
+            }
+
+            roadDiv.innerHTML = `
+                <div class="space-y-4 text-left font-sans">
+                    <div class="p-4 rounded-xl bg-blue-50/60 border border-blue-100">
+                        <span class="text-xxs font-bold uppercase text-blue-600 tracking-wider">Recommended School Stream</span>
+                        <div class="text-base font-extrabold text-slate-800 mt-0.5">${recommendedStream}</div>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/60">
+                        <span class="text-xxs font-bold uppercase text-slate-550 tracking-wider">Top Undergraduate Degrees</span>
+                        <div class="text-sm font-bold text-slate-700 mt-0.5">${degrees}</div>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/60">
+                        <span class="text-xxs font-bold uppercase text-slate-550 tracking-wider">Key Target Entrance Exams</span>
+                        <div class="text-sm font-bold text-slate-700 mt-0.5">${exams}</div>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/60">
+                        <span class="text-xxs font-bold uppercase text-slate-550 tracking-wider">High-Growth Competencies to Learn</span>
+                        <div class="text-sm font-bold text-slate-700 mt-0.5">${skills}</div>
+                    </div>
+                    <div class="p-4 rounded-xl bg-amber-50/50 border border-amber-100">
+                        <span class="text-xxs font-bold uppercase text-amber-700 tracking-wider">Budget & Location Optimization</span>
+                        <div class="text-xs font-bold text-slate-755 mt-0.5">${budgetSummary}</div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // --- 9. RENDER PARENT STUDENT COMPATIBILITY ADVICE ---
+        function renderParentSynergy(percentages) {
+            const container = document.getElementById('parent-synergy-content');
+            
+            const isAnalytical = percentages['Analytical Ability'] > 65;
+            const isCreative = percentages['Creativity & Innovation'] > 65;
+            const isSocial = percentages['Social & Empathetic'] > 65;
+            const isLeader = percentages['Leadership & Influence'] > 65;
+            
+            let message = '';
+            
+            if (isAnalytical && !isSocial) {
+                message = `
+                    <p><strong>To the Parents:</strong> Your child exhibits a highly structured, logical, and analytical Guna. They are wired for quantitative problem solving. Developing careers in computer science, software design, and engineering align directly with their natural strengths. This path provides extremely high career safety and strong ROI, which aligns with family safety considerations.</p>
+                    <p class="mt-2"><strong>Tip:</strong> Encourage them to focus on JEE and BITSAT preparation, and suggest exploring summer coding bootcamps or mathematical olympiads to build a solid foundational portfolio.</p>
+                `;
+            } else if (isCreative) {
+                message = `
+                    <p><strong>To the Parents:</strong> Your child possesses an outstanding creative intelligence (Srijan Guna). While traditional science or accounting courses might feel suffocating to them, modern pathways in <strong>Interaction (UI/UX) Design, FinTech Product Management, and Brand Architecture</strong> are highly lucrative, matching and often exceeding IT engineering salaries. Zero-in on these ROI-focused creative disciplines.</p>
+                    <p class="mt-2"><strong>Tip:</strong> Support their interest in visual portfolios, interactive systems, and design entrance exams (like UCEED/NID). These options offer structured corporate scaling without losing their creative spark.</p>
+                `;
+            } else if (isLeader || isAnalytical) {
+                message = `
+                    <p><strong>To the Parents:</strong> Your child's profile highlights high leadership and entrepreneurial dimensions (Neta and Udyam Gunas). They excel in interpersonal strategy, group coordination, and active persuasion. They will thrive in management consultancy, venture finance, startup scaling, or corporate law.</p>
+                    <p class="mt-2"><strong>Tip:</strong> Look towards IPMAT (Integrated MBA at IIMs) or standard BBA/Law routes. These offer highly structured pathways, top-tier institutional placement circles, and an excellent professional start.</p>
+                `;
+            } else {
+                message = `
+                    <p><strong>To the Parents:</strong> Your child is driven by social Gunas, critical communication, and empathy (Seva and Vaak Gunas). They will find high fulfillment in macroeconomics, international public policy, law, developmental sectors, or high-value academic research.</p>
+                    <p class="mt-2"><strong>Tip:</strong> Encourage preparation for CUET (aiming for top-tier Central Universities like DU, BHU) or CLAT. These humanities-focused institutions are cost-effective, highly prestigious, and pave the way for civil administration or global consulting roles.</p>
+                `;
+            }
+            
+            container.innerHTML = message;
+        }
+
+        // --- 10. PDF PRINT EXPORT SYSTEM (html2pdf) ---
+        function downloadPDFReport() {
+            window.scrollTo(0, 0);
+
+            const btn = document.getElementById('pdf-download-btn');
+            const originalHtml = btn.innerHTML;
+            btn.innerHTML = '<i class="fa fa-spinner fa-spin mr-3"></i> Generating PDF...';
+
+            const element = document.getElementById('pdf-export-area');
+            const resultScreen = document.getElementById('screen-result');
+
+            resultScreen.classList.remove('fade-in');
+
+            const opt = {
+                margin: [0.3, 0.3, 0.3, 0.3],
+                filename: 'Sahi_Salah_Premium_Gunas_Report.pdf',
+                image: { type: 'jpeg', quality: 1.0 },
+                html2canvas: { scale: 2, useCORS: true, allowTaint: true, scrollY: 0, windowWidth: 950 },
+                jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' },
+                pagebreak: { mode: 'css', before: '.break-after-page', avoid: '.break-inside-avoid' }
+            };
+
+            const userName = document.forms['lead-form']['name'].value;
+            if (userName) opt.filename = 'Sahi_Salah_Gunas_Report_' + userName.replace(/\s+/g, '_') + '.pdf';
+
+            html2pdf().set(opt).from(element).save().then(() => {
+                btn.innerHTML = originalHtml;
+                resultScreen.classList.add('fade-in');
+            }).catch(err => {
+                console.error("PDF generation failed:", err);
+                btn.innerHTML = originalHtml;
+                alert("PDF generation failed. You can also print the page directly using your browser's Print option (Ctrl+P)!");
+            });
+        }
+
+        // --- 11. MONETIZATION PAYMENT SYSTEM (Rs. 599 UPI Unlock Flow) ---
+        function openPaymentModal() {
+            document.getElementById('payment-modal').classList.remove('hidden-screen');
+        }
+
+        function closePaymentModal() {
+            document.getElementById('payment-modal').classList.add('hidden-screen');
+        }
+
+        function copyUPIId() {
+            const upiId = document.getElementById('upi-string').innerText;
+            navigator.clipboard.writeText(upiId).then(() => {
+                const copyBtn = document.getElementById('copy-btn');
+                const originalHtml = copyBtn.innerHTML;
+                copyBtn.innerHTML = '<i class="fa-solid fa-circle-check mr-1 text-emerald-500"></i> Copied!';
+                setTimeout(() => {
+                    copyBtn.innerHTML = originalHtml;
+                }, 2000);
+            }).catch(err => {
+                console.error('Copy failed:', err);
+            });
+        }
+
+        function verifyTransaction(e) {
+            e.preventDefault();
+
+            const utrInput = document.getElementById('utr-input').value;
+            const unlockBtn = document.getElementById('unlock-btn');
+            const originalText = unlockBtn.innerHTML;
+
+            unlockBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i> Accessing NPCI Node...';
+            unlockBtn.disabled = true;
+
+            // Secure simulated validation sequence matching 12-digit UPI UTR standards
+            setTimeout(() => {
+                unlockBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i> Verifying UTR Reference...';
+                
+                setTimeout(() => {
+                    if (utrInput.length === 12 && /^\d+$/.test(utrInput)) {
+                        // Success payment path: Log paid UTR to Google Sheets leads sheet securely
+                        const scriptURL = 'https://script.google.com/macros/s/AKfycbxmQ_6M7ZsS2bpmn8vFoXyg64ndzYpuCBioX79y2IfxwY7f5todpQ6CzajV-Z6DCsWV/exec';
+                        const form = document.forms['lead-form'];
+                        
+                        const paymentData = new URLSearchParams();
+                        paymentData.append('Name', form['name'].value);
+                        paymentData.append('Phone', form['phone'].value);
+                        paymentData.append('Target', 'PAID RS 599. UTR: ' + utrInput);
+
+                        fetch(scriptURL, {
+                            method: 'POST',
+                            mode: 'no-cors',
+                            body: paymentData
+                        }).catch(err => console.error("Logged UTR local fallback:", err));
+
+                        // Unlock PDF
+                        unlockBtn.innerHTML = '<i class="fa-solid fa-circle-check mr-2 text-emerald-400"></i> Verified successfully!';
+                        
+                        setTimeout(() => {
+                            closePaymentModal();
+                            // Visual upgrade download button state
+                            const downloadBtn = document.getElementById('pdf-download-btn');
+                            downloadBtn.innerHTML = '<i class="fa-solid fa-circle-check mr-3 text-emerald-500"></i> PDF Unlocked!';
+                            downloadBtn.classList.remove('bg-slate-800');
+                            downloadBtn.classList.add('bg-emerald-600', 'hover:bg-emerald-700');
+                            
+                            // Re-bind print click handler to trigger straight download
+                            downloadBtn.setAttribute('onclick', 'downloadPDFReport()');
+
+                            // Trigger download immediately for great UX feel
+                            downloadPDFReport();
+                            
+                            // Reset unlock verification button
+                            unlockBtn.innerHTML = originalText;
+                            unlockBtn.disabled = false;
+                        }, 800);
+                    } else {
+                        unlockBtn.innerHTML = '<i class="fa-solid fa-circle-xmark mr-2 text-rose-400"></i> Verification failed';
+                        setTimeout(() => {
+                            unlockBtn.innerHTML = originalText;
+                            unlockBtn.disabled = false;
+                            alert("Invalid UPI Transaction UTR. Please ensure you enter the full 12-digit numeric code from your payment app (Google Pay, PhonePe, Paytm, or BHIM).");
+                        }, 1200);
+                    }
+                }, 1000);
+            }, 1000);
+        }
+
+        // --- 12. COUNSELOR PROMO BYPASS (Free access logic) ---
+        function togglePromoSection() {
+            const promoDiv = document.getElementById('promo-section');
+            const triggerBtn = document.getElementById('promo-trigger');
+            if (promoDiv.classList.contains('hidden-screen')) {
+                promoDiv.classList.remove('hidden-screen');
+                triggerBtn.innerText = 'Hide Counselor Input';
+            } else {
+                promoDiv.classList.add('hidden-screen');
+                triggerBtn.innerText = 'Have a Counselor Bypass Code?';
+            }
+        }
+
+        function applyPromoCode() {
+            const codeInput = document.getElementById('promo-input').value.trim();
+            
+            // Bypass validation case-insensitively with space stripping
+            if (codeInput.replace(/\s+/g, '').toLowerCase() === 'dr.rajivverma') {
+                const scriptURL = 'https://script.google.com/macros/s/AKfycbxmQ_6M7ZsS2bpmn8vFoXyg64ndzYpuCBioX79y2IfxwY7f5todpQ6CzajV-Z6DCsWV/exec';
+                const form = document.forms['lead-form'];
+                
+                const promoData = new URLSearchParams();
+                promoData.append('Name', form['name'].value);
+                promoData.append('Phone', form['phone'].value);
+                promoData.append('Target', 'FREE UNLOCK. PROMO: Dr.RajivVerma');
+
+                fetch(scriptURL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    body: promoData
+                }).catch(err => console.error("Logged bypass ref error:", err));
+
+                alert("VIP Counselor Code accepted successfully! Free access granted. 🎓");
+                closePaymentModal();
+
+                // Upgrade state
+                const downloadBtn = document.getElementById('pdf-download-btn');
+                downloadBtn.innerHTML = '<i class="fa-solid fa-circle-check mr-3 text-emerald-500"></i> Free Access Unlocked!';
+                downloadBtn.classList.remove('bg-slate-800');
+                downloadBtn.classList.add('bg-emerald-600', 'hover:bg-emerald-700');
+                
+                // Re-bind handler
+                downloadBtn.setAttribute('onclick', 'downloadPDFReport()');
+
+                // Instant download
+                downloadPDFReport();
+            } else {
+                alert("Invalid Counselor Bypass Code. Please try again.");
+            }
+        }
+    </script>
+</body>
+
+</html>

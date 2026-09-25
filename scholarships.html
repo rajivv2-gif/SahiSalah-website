@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scholarships, Financial Aid & EMI Calculator | Sahi Salah</title>
+    <meta name="description"
+        content="Stop worrying about college tuition. Find up to 100% scholarships globally, track active deadlines, and calculate your exact monthly education loan EMIs instantly.">
+    <meta name="keywords"
+        content="Education Loan, Student Loan EMI Calculator, Study Abroad Scholarships, DAAD Scholarships, Chevening, Tata Scholarship, Sahi Salah">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sahisalah.in/scholarships.html">
+    <meta property="og:title" content="Scholarship Matcher & EMI Calculator | Sahi Salah">
+    <meta property="og:description"
+        content="Track active international and domestic scholarship deadlines and calculate interest EMIs on the fly.">
+    <meta property="og:image"
+        content="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=630&q=80">
+
+    <!-- JSON-LD Structured Data Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FinancialProduct",
+      "name": "Education Loan & Scholarship Planning Suite",
+      "description": "Calculate interest rate repayments, monthly EMI schedules, and scan active merit scholarship opportunities.",
+      "url": "https://sahisalah.in/scholarships.html"
+    }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link class="prefetch-tag" rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link class="prefetch-tag" rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* ==========================================================================
+           PREMIUM HERO SECTION STYLING (Dark Mode Neon-Glassmorphism)
+           ========================================================================== */
+        .scholarships-hero {
+            position: relative;
+            background: linear-gradient(135deg, #020617 0%, #080f21 50%, #0f172a 100%);
+            padding: 100px 0 110px 0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .grid-pattern {
+            position: absolute;
+            inset: 0;
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .hero-bg-blobs {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .hero-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.22;
+            mix-blend-mode: screen;
+            animation: floatBlob 10s ease-in-out infinite alternate;
+        }
+
+        .hero-blob-1 {
+            width: 450px;
+            height: 450px;
+            background: var(--primary-light);
+            top: -120px;
+            right: -100px;
+        }
+
+        .hero-blob-2 {
+            width: 350px;
+            height: 350px;
+            background: var(--secondary);
+            bottom: -80px;
+            left: 5%;
+            animation-delay: -5s;
+        }
+
+        @keyframes floatBlob {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(30px, 30px) scale(1.12); }
+        }
+
+        .hero-split-container {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text-side {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hero-badge-premium {
+            background: rgba(37, 99, 235, 0.12) !important;
+            border: 1px solid rgba(37, 99, 235, 0.3) !important;
+            color: #93c5fd !important;
+            padding: 6px 16px !important;
+            border-radius: 50px !important;
+            font-size: 0.8rem !important;
+            font-weight: 700 !important;
+            letter-spacing: 1px;
+            display: inline-flex !important;
+            align-items: center;
+            gap: 8px;
+            width: fit-content;
+            margin-bottom: 24px !important;
+            font-family: 'Outfit', sans-serif;
+            text-transform: uppercase;
+        }
+
+        .hero-title-premium {
+            font-size: 3.8rem;
+            line-height: 1.15;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .gradient-text-orange-blue {
+            background: linear-gradient(135deg, #3b82f6 0%, #f97316 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-description-premium {
+            font-size: 1.2rem;
+            color: #cbd5e1;
+            line-height: 1.7;
+            margin-bottom: 40px;
+            font-weight: 400;
+            max-width: 620px;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn-apply-hero {
+            background: linear-gradient(135deg, var(--secondary) 0%, #f97316 100%) !important;
+            color: white !important;
+            border: none !important;
+            padding: 16px 36px !important;
+            border-radius: 14px !important;
+            font-weight: 700 !important;
+            font-size: 1.1rem !important;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex !important;
+            align-items: center;
+            gap: 12px;
+            font-family: 'Outfit', sans-serif;
+            box-shadow: 0 4px 20px rgba(234, 88, 12, 0.35);
+        }
+
+        .btn-apply-hero:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(234, 88, 12, 0.55);
+            background: linear-gradient(135deg, #f97316 0%, #ea580c 100%) !important;
+        }
+
+        .hero-widget-side {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: floatCard 6s ease-in-out infinite;
+        }
+
+        @keyframes floatCard {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .stats-glass-card {
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 28px;
+            padding: 32px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+            width: 100%;
+            max-width: 420px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            color: white;
+        }
+
+        .glass-card-header {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 24px;
+            font-family: 'Outfit', sans-serif;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding-bottom: 14px;
+        }
+
+        .live-pulse-indicator {
+            width: 8px;
+            height: 8px;
+            background: #22c55e;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #22c55e;
+            position: relative;
+            display: inline-block;
+        }
+
+        .live-pulse-indicator::after {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            border: 2px solid #22c55e;
+            animation: pulseRing 1.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+            opacity: 0;
+        }
+
+        @keyframes pulseRing {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(2.4); opacity: 0; }
+        }
+
+        .glass-stats-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            margin-bottom: 24px;
+        }
+
+        .glass-stat-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 14px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .stat-icon-wrap {
+            width: 46px;
+            height: 46px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.35rem;
+            flex-shrink: 0;
+        }
+
+        .stat-number-value {
+            font-size: 1.55rem;
+            font-weight: 800;
+            color: #ffffff;
+            display: block;
+            line-height: 1.25;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .stat-label-text {
+            font-size: 0.82rem;
+            color: #94a3b8;
+            font-weight: 500;
+        }
+
+        .glass-card-footer {
+            font-size: 0.8rem;
+            color: #64748b;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+        }
+
+        /* Tools section layout */
+        .checker-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .card {
+            background: white;
+            border-radius: 24px;
+            padding: 35px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.02);
+            border: 1px solid #cbd5e1;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            border-color: rgba(37,99,235,0.2);
+            box-shadow: 0 15px 35px rgba(37,99,235,0.04);
+        }
+
+        .form-label {
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: block;
+            color: #334155;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.95rem;
+        }
+
+        .form-select,
+        .form-input {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1px solid #cbd5e1;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            background: #f8fafc;
+            color: #1e293b;
+            transition: all 0.3s;
+        }
+
+        .form-select:focus,
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary-light);
+            background-color: #ffffff;
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+        }
+
+        /* Glowing Range Slider */
+        .range-slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 7px;
+            background: #e2e8f0;
+            border-radius: 5px;
+            outline: none;
+            margin: 15px 0 25px 0;
+            transition: background 0.3s;
+        }
+
+        .range-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: var(--primary-light);
+            cursor: pointer;
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+            transition: transform 0.1s, background 0.2s;
+        }
+
+        .range-slider::-webkit-slider-thumb:hover {
+            transform: scale(1.15);
+            background: var(--secondary);
+            box-shadow: 0 0 0 6px rgba(234, 88, 12, 0.15);
+        }
+
+        .val-display {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--primary-light);
+            float: right;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        /* Dynamic result cards */
+        .result-panel {
+            margin-top: 25px;
+            display: none;
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+
+        .scholarship-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-left: 5px solid var(--primary-light);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            transition: all 0.3s;
+        }
+
+        .scholarship-card:hover {
+            transform: translateX(4px);
+            border-color: rgba(37, 99, 235, 0.15);
+            background: #f1f5f9;
+        }
+
+        .scholarship-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 6px;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .scholarship-desc {
+            font-size: 0.9rem;
+            color: #475569;
+            line-height: 1.5;
+        }
+
+        .tag-green {
+            background: #dcfce7;
+            color: #15803d;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            display: inline-block;
+            margin-top: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* EMI Results Container */
+        .emi-result-box {
+            background: linear-gradient(135deg, var(--primary) 0%, #1e40af 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin-top: 20px;
+            text-align: center;
+            box-shadow: 0 15px 30px rgba(37, 99, 235, 0.15);
+        }
+
+        .emi-amount {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin: 10px 0;
+            font-family: 'Outfit', sans-serif;
+            letter-spacing: -0.5px;
+        }
+
+        /* active board tracker styles */
+        .deadlines-board {
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            border-radius: 24px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.01);
+            overflow: hidden;
+            margin-top: 80px;
+        }
+
+        .d-board-header {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr 0.8fr;
+            gap: 20px;
+            border-bottom: 2px solid #cbd5e1;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            align-items: center;
+        }
+
+        .d-board-row {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr 0.8fr;
+            gap: 20px;
+            padding: 20px;
+            align-items: center;
+            border-bottom: 1px solid #f1f5f9;
+            background: #ffffff;
+            border-radius: 12px;
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .d-board-row:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(2, 6, 23, 0.05);
+            border-color: rgba(37, 99, 235, 0.12);
+            background: #f8fafc;
+        }
+
+        .d-board-row:last-child {
+            margin-bottom: 0;
+            border-bottom: none;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 992px) {
+            .scholarships-hero {
+                padding: 70px 0 80px 0;
+            }
+            .hero-split-container {
+                grid-template-columns: 1fr;
+                gap: 50px;
+                text-align: center;
+            }
+            .hero-badge-premium {
+                margin: 0 auto 20px auto !important;
+            }
+            .hero-description-premium {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .hero-cta-group {
+                justify-content: center;
+            }
+            .checker-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .deadlines-board {
+                padding: 10px;
+            }
+            .d-board-row {
+                grid-template-columns: 1fr;
+                gap: 10px;
+                padding: 20px 15px;
+            }
+            .d-board-row > div {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .d-board-row > div::before {
+                content: attr(data-label);
+                font-weight: bold;
+                color: #64748b;
+                font-size: 0.85rem;
+            }
+            .d-board-row > div:first-child::before {
+                display: none;
+            }
+            .d-board-header {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title-premium {
+                font-size: 2.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+
+    <sahi-header></sahi-header>
+
+    <!-- Scholarships Hero Section -->
+    <header class="scholarships-hero" id="scholarships-hero">
+        <div class="grid-pattern"></div>
+        <div class="hero-bg-blobs">
+            <div class="hero-blob hero-blob-1"></div>
+            <div class="hero-blob hero-blob-2"></div>
+        </div>
+        <div class="container hero-split-container" style="position: relative; z-index: 2;">
+            <div class="hero-text-side">
+                <span class="badge hero-badge-premium"><i class="fa-solid fa-award text-green animate-pulse"></i> GUARANTEED GRANTS & LOANS</span>
+                <h1 class="hero-title-premium">
+                    Academic Scholarships <br>&amp; <span class="gradient-text-orange-blue">EMI Evaluator</span>
+                </h1>
+                <p class="hero-description-premium">
+                    Stop worrying about tuition costs. Scan up to 100% fully-funded global scholarships, cross-examine active deadline boards, and calculate your education loan interest repayments instantly.
+                </p>
+                <div class="hero-cta-group">
+                    <button onclick="scrollToMatcher()" class="btn-apply-hero btn-large glow-btn" id="btn-hero-match">
+                        Match Scholarships <i class="fa-solid fa-calculator" style="color:#60a5fa;"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Premium Glassmorphic Stats Widget (Right Column) -->
+            <div class="hero-widget-side">
+                <div class="stats-glass-card shadow-premium-glass" data-tilt>
+                    <div class="glass-card-header">
+                        <span class="live-pulse-indicator"></span> Verified Funding Pools 2026
+                    </div>
+                    <div class="glass-stats-grid">
+                        <div class="glass-stat-item">
+                            <span class="stat-icon-wrap" style="color:var(--secondary);"><i class="fa-solid fa-indian-rupee-sign"></i></span>
+                            <div>
+                                <span class="stat-number-value">₹15 Cr+</span>
+                                <span class="stat-label-text">Scholarship Pool Available</span>
+                            </div>
+                        </div>
+                        <div class="glass-stat-item">
+                            <span class="stat-icon-wrap" style="color:var(--primary-light);"><i class="fa-solid fa-university"></i></span>
+                            <div>
+                                <span class="stat-number-value">420+</span>
+                                <span class="stat-label-text">Partner Campus Integrations</span>
+                            </div>
+                        </div>
+                        <div class="glass-stat-item">
+                            <span class="stat-icon-wrap" style="color:var(--accent);"><i class="fa-solid fa-circle-check"></i></span>
+                            <div>
+                                <span class="stat-number-value">100%</span>
+                                <span class="stat-label-text">Assured Low-Interest Loans</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="glass-card-footer">
+                        <i class="fa-solid fa-shield-halved text-green"></i> Certified financial aid advisors
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Tools Layout -->
+    <section class="container" id="matcher-section" style="padding: 90px 20px 60px 20px;">
+        <div class="checker-grid">
+
+            <!-- SCHOLARSHIP CHECKER -->
+            <div class="card">
+                <h3 style="font-size:1.6rem; margin-bottom: 15px; font-family:'Outfit'; font-weight:700;"><i class="fa-solid fa-award text-primary-light" style="margin-right:8px;"></i> Scholarship Matcher</h3>
+                <p class="text-muted" style="margin-bottom: 25px; font-size:0.92rem;">Enter your profile specifications to see which international and domestic scholarship pools you can qualify for immediately.</p>
+
+                <label class="form-label">Destination Country</label>
+                <select id="sDestination" class="form-select">
+                    <option value="Global">Global (Anywhere)</option>
+                    <option value="India">India Only</option>
+                    <option value="Germany">Germany (Zero Tuition)</option>
+                    <option value="UK">United Kingdom</option>
+                </select>
+
+                <label class="form-label">Academics Score (12th / Grad %)</label>
+                <select id="sScore" class="form-select">
+                    <option value="Low">50% - 65%</option>
+                    <option value="Mid">65% - 85%</option>
+                    <option value="High">Above 85%</option>
+                </select>
+
+                <label class="form-label">Annual Household Income</label>
+                <select id="sIncome" class="form-select">
+                    <option value="Need">Under ₹8 Lakhs (Need Based / EWS)</option>
+                    <option value="Mid">₹8 Lakhs - ₹15 Lakhs</option>
+                    <option value="High">Above ₹15 Lakhs</option>
+                </select>
+
+                <button class="btn-primary w-100" onclick="checkScholarships()" style="padding:15px; font-size:1.05rem; border-radius:12px; font-weight:700; margin-top:10px;">Find My Scholarships <i class="fa-solid fa-search"></i></button>
+
+                <!-- Results -->
+                <div id="scholarshipResults" class="result-panel">
+                    <h4 style="margin-bottom: 15px; color:#334155; font-family:'Outfit'; font-weight:700;">Matching Opportunities Found:</h4>
+                    <div id="scholarshipsContainer">
+                        <!-- Dynamic Content Injected here -->
+                    </div>
+                    <button class="btn-primary w-100" onclick="openLeadForm()" style="padding:12px; border-radius:10px; font-weight:bold; margin-top:20px;">Apply For These Now <i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+            </div>
+
+            <!-- EMI CALCULATOR -->
+            <div class="card">
+                <h3 style="font-size:1.6rem; margin-bottom: 15px; font-family:'Outfit'; font-weight:700;"><i class="fa-solid fa-calculator text-primary-light" style="margin-right:8px;"></i> Education Loan EMI</h3>
+                <p class="text-muted" style="margin-bottom: 25px; font-size:0.92rem;">Plan your future monthly budgets. Adjust the sliders below to calculate your estimated repayment installments.</p>
+
+                <label class="form-label">Principal Amount <span id="rLoan" class="val-display">₹20L</span></label>
+                <input type="range" id="eLoan" class="range-slider" min="5" max="50" step="1" value="20" oninput="calculateEMI()">
+
+                <label class="form-label">Annual Interest Rate <span id="rRate" class="val-display">10%</span></label>
+                <input type="range" id="eRate" class="range-slider" min="8" max="15" step="0.5" value="10.5" oninput="calculateEMI()">
+
+                <label class="form-label">Tenure Duration <span id="rTenure" class="val-display">10 Years</span></label>
+                <input type="range" id="eTenure" class="range-slider" min="3" max="15" step="1" value="10" oninput="calculateEMI()">
+
+                <div class="emi-result-box">
+                    <p style="text-transform: uppercase; font-size:0.8rem; letter-spacing:1px; opacity:0.9; font-weight:700;">Estimated Monthly EMI</p>
+                    <div class="emi-amount" id="emiValue">₹26,980</div>
+                    <div style="display:flex; justify-content:space-between; margin-top:20px; font-size:0.9rem; opacity:0.85; border-top:1px solid rgba(255,255,255,0.15); padding-top:15px;">
+                        <span>Principal: <strong id="lblPrincipal">₹20.00 L</strong></span>
+                        <span>Total Interest: <strong id="lblInterest">₹12.38 L</strong></span>
+                    </div>
+                </div>
+
+                <div style="text-align:center; margin-top:20px;">
+                    <p class="text-muted" style="font-size:0.82rem;"><i class="fa-solid fa-circle-check text-green"></i> Non-collateral loan routes available for Tier-1 institutes.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Active Global Scholarships Deadline Board -->
+        <div class="deadlines-board" id="scholarships-board">
+            <h3 style="font-family:'Outfit'; font-size:1.6rem; margin-bottom:10px; font-weight:700; color:var(--primary);"><i class="fa-solid fa-calendar-days text-primary-light" style="margin-right:8px;"></i> Active Scholarship Registry</h3>
+            <p class="text-muted" style="font-size:0.9rem; margin-bottom:30px;">Direct seat tracking for verified global and national scholarship portals. Apply before deadlines to freeze eligibility.</p>
+            
+            <div class="d-board-header">
+                <h4 style="font-family:'Outfit'; font-size:1.1rem; color:#64748b; font-weight:700;">Scholarship Scheme</h4>
+                <h4 style="font-family:'Outfit'; font-size:1.1rem; color:#64748b; font-weight:700;">Target Destination</h4>
+                <h4 style="font-family:'Outfit'; font-size:1.1rem; color:#64748b; font-weight:700;">Coverage Benefit</h4>
+                <h4 style="font-family:'Outfit'; font-size:1.1rem; color:#64748b; text-align:center; font-weight:700;">Application Status</h4>
+                <h4 style="font-family:'Outfit'; font-size:1.1rem; color:#64748b; text-align:center; font-weight:700;">Action</h4>
+            </div>
+
+            <div id="scholarships-rows-container">
+                <!-- Injected dynamically from registry-data.js -->
+            </div>
+        </div>
+    </section>
+
+    <sahi-footer></sahi-footer>
+
+    <sahi-lead-modal></sahi-lead-modal>
+
+    <!-- Include Scripts -->
+    <script src="registry-data.js"></script>
+    <script src="components.js"></script>
+    <script src="common.js"></script>
+
+    <script>
+        // 0. Render Scholarships Table dynamically
+        function renderScholarshipsTable() {
+            const container = document.getElementById('scholarships-rows-container');
+            if (!container) return;
+            container.innerHTML = '';
+            
+            scholarshipsRegistryData.forEach(row => {
+                const rowEl = document.createElement('div');
+                rowEl.className = 'd-board-row';
+                
+                rowEl.innerHTML = `
+                    <div style="font-weight:700; color:var(--primary); font-family:'Outfit'; font-size:1.05rem;">${row.name}</div>
+                    <div data-label="Destination" style="color:#475569; font-weight:500;">${row.dest}</div>
+                    <div data-label="Benefit" style="font-weight:600; color:var(--accent);">${row.benefit}</div>
+                    <div data-label="Status" style="text-align:center;">
+                        <span class="status-pill ${row.statusClass}" style="padding:4px 10px; font-size:0.75rem;">
+                            <span class="live-pulse"></span> ${row.status}
+                        </span>
+                    </div>
+                    <div data-label="Action" style="text-align:center;">
+                        <button onclick="openLeadForm()" class="btn-primary" style="padding:6px 12px; font-size:0.8rem; margin:0; border-radius:8px;">
+                            ${row.actionText}
+                        </button>
+                    </div>
+                `;
+                container.appendChild(rowEl);
+            });
+        }
+        renderScholarshipsTable();
+
+        // Smooth Scroll to Matcher
+        function scrollToMatcher() {
+            document.getElementById('matcher-section').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // 1. EMI Calculator Logic
+        function calculateEMI() {
+            let P = document.getElementById('eLoan').value * 100000; // Lacs to INR
+            let nominalRate = document.getElementById('eRate').value;
+            let years = document.getElementById('eTenure').value;
+
+            // Update UI Labels
+            document.getElementById('rLoan').innerText = '₹' + (P / 100000) + 'L';
+            document.getElementById('rRate').innerText = nominalRate + '%';
+            document.getElementById('rTenure').innerText = years + ' Years';
+
+            // Calculate EMI formula: E = P * r * (1+r)^n / ((1+r)^n - 1)
+            let r = (nominalRate / 12) / 100;
+            let n = years * 12;
+
+            let emi = P * r * Math.pow((1 + r), n) / (Math.pow((1 + r), n) - 1);
+            let totalAmount = emi * n;
+            let totalInterest = totalAmount - P;
+
+            // Display
+            document.getElementById('emiValue').innerText = '₹' + Math.round(emi).toLocaleString();
+            document.getElementById('lblPrincipal').innerText = '₹' + (P / 100000).toFixed(2) + ' L';
+            document.getElementById('lblInterest').innerText = '₹' + (totalInterest / 100000).toFixed(2) + ' L';
+        }
+
+        // Initialize EMI
+        calculateEMI();
+
+        // 2. Scholarship Matcher Logic
+        function checkScholarships() {
+            const dest = document.getElementById('sDestination').value;
+            const score = document.getElementById('sScore').value;
+            const income = document.getElementById('sIncome').value;
+
+            const resultsDiv = document.getElementById('scholarshipsContainer');
+            const panel = document.getElementById('scholarshipResults');
+
+            panel.style.display = 'block';
+            resultsDiv.innerHTML = ''; // reset
+
+            let matches = [];
+
+            // Match logic matrix
+            if (dest === 'Germany' || dest === 'Global') {
+                if (score === 'High') {
+                    matches.push({
+                        title: "DAAD EPOS Fellowship (Germany)",
+                        desc: "Full tuition waiver + €934 monthly stipend for high-achieving STEM profiles.",
+                        tag: "100% Fully Funded"
+                    });
+                } else {
+                    matches.push({
+                        title: "German Public University Fee Waiver",
+                        desc: "Zero tuition fees applied by default across public universities in Germany.",
+                        tag: "Zero Tuition Fee"
+                    });
+                }
+            }
+
+            if (dest === 'UK' || dest === 'Global') {
+                if (score === 'High') {
+                    matches.push({
+                        title: "Chevening / Commonwealth Scholarships",
+                        desc: "Fully-funded grants covering travel, living costs, and fees for leaders.",
+                        tag: "100% Funded Ride"
+                    });
+                }
+                matches.push({
+                    title: "Partner University VC's Bursary",
+                    desc: "Up to £5,000 automatic tuition deduction for high-scoring Indian students.",
+                    tag: "Partial Waiver"
+                });
+            }
+
+            if (dest === 'India' || dest === 'Global') {
+                if (income === 'Need') {
+                    matches.push({
+                        title: "AICTE Pragati / EWS Scholarship Scheme",
+                        desc: "Government funding support up to ₹50,000/year for EWS candidates.",
+                        tag: "Govt Funded"
+                    });
+                }
+                if (score === 'High') {
+                    matches.push({
+                        title: "Tier-1 Private University Merit Grant",
+                        desc: "Up to 50% waiver on academic fees based on Board or entrance scores.",
+                        tag: "Merit Based Grant"
+                    });
+                }
+            }
+
+            // Universal Assured Option
+            if (matches.length === 0) {
+                matches.push({
+                    title: "Institutional Partner Bursary",
+                    desc: "Automatic fee deductions of 15% assured through our partner network links.",
+                    tag: "Assured Benefit"
+                });
+            }
+
+            // Render Results
+            matches.forEach(m => {
+                resultsDiv.innerHTML += `
+                    <div class="scholarship-card">
+                        <div class="scholarship-title">${m.title}</div>
+                        <div class="scholarship-desc">${m.desc}</div>
+                        <span class="tag-green">${m.tag}</span>
+                    </div>
+                `;
+            });
+
+            // Auto Scroll to Results
+            setTimeout(() => {
+                resultsDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }, 100);
+        }
+    </script>
+</body>
+
+</html>

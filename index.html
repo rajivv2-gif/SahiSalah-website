@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sahi Salah | India's #1 Transparent Education Mentors</title>
+    <meta name="description"
+        content="Stop guessing with your career. Get a dynamic AI-driven profile evaluation, find 100% placement colleges, and check your scholarship eligibility instantly. No hidden agent fees.">
+    <meta name="keywords"
+        content="Study Abroad, Top Colleges in India, admissions, scholarships, btech, mbbs, mba, abroad consultants, higher education, career mentors">
+
+    <!-- Open Graph / WhatsApp / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sahisalah.in/">
+    <meta property="og:title" content="Sahi Salah | Data-Driven College Admissions">
+    <meta property="og:description"
+        content="Discover your exact college matches, expected ROI, and scholarship eligibility in 60 seconds.">
+    <meta property="og:image"
+        content="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=630&q=80">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sahisalah.in/">
+    <meta property="twitter:title" content="Sahi Salah | Data-Driven College Admissions">
+    <meta property="twitter:description"
+        content="Discover your exact college matches, expected ROI, and scholarship eligibility in 60 seconds.">
+    <meta property="twitter:image"
+        content="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=630&q=80">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <sahi-header></sahi-header>
+
+    <!-- Search Hub Hero Section -->
+    <section class="hero search-hero" id="roadmap-generator" style="position: relative;">
+        <!-- Share Link Widget -->
+        <div style="position: absolute; top: 20px; right: 20px; z-index: 10;">
+            <button onclick="copyRoadmapLink()"
+                style="padding: 10px 20px; border-radius: 30px; background: white; color: #1e293b; font-weight: 600; font-family: 'Outfit', sans-serif; border: 1px solid rgba(0,0,0,0.1); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); cursor: pointer; transition: all 0.3s ease;"
+                onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 15px 20px -3px rgba(0,0,0,0.1)';"
+                onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 15px -3px rgba(0,0,0,0.1)';">
+                <i class="fa-solid fa-share-nodes text-primary" style="margin-right: 5px;"></i> Share Tool
+            </button>
+        </div>
+        <div class="hero-bg-elements">
+            <div id="particles-js"></div>
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+        </div>
+
+        <div class="hero-content hero-split"
+            style="max-width: 1200px; margin: -80px auto 40px auto; width: 100%; display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 40px; padding-top: 0;">
+            <div class="hero-text text-left" style="flex: 1 1 500px;">
+                <div class="badge">🔥 Over 10,000+ Indian Students Guided</div>
+                <h1>Confused Between
+                    <br><span id="typewriter" class="gradient-text typewriter-text">India & Abroad?</span><br> Let Data
+                    Decide Your Future.
+                </h1>
+                <p class="hero-subtext">Stop trusting biased agents.
+                    Find your true ROI-focused roadmap for higher education based on your family's real budget.</p>
+
+                <!-- Prominent Apply Now CTA -->
+                <div style="margin-bottom: 30px; display: flex; justify-content: flex-start; gap: 15px;"
+                    class="hero-cta-wrapper">
+                    <button onclick="window.location.href='apply.html'" class="btn-apply-hero">
+                        <i class="fa-solid fa-paper-plane" style="color: #60a5fa;"></i> Apply Now
+                    </button>
+                </div>
+            </div>
+
+            <!-- Hero Image Column -->
+            <div class="hero-image" style="flex: 1 1 400px; text-align: center; position: relative;" data-tilt
+                data-tilt-max="4" data-tilt-speed="400" data-tilt-perspective="1000">
+                <div class="floating-stat"
+                    style="position: absolute; top: -10px; right: 20px; background: white; padding: 10px 15px; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); z-index: 3; display: flex; align-items: center; gap: 10px; animation: float 4s ease-in-out infinite;">
+                    <i class="fa-solid fa-star" style="color: #fbbf24;"></i> <span
+                        style="font-weight: bold; font-size: 0.9rem;">AI Based College Roadmap Generator</span>
+                </div>
+                <img src="hero_student_image.png" alt="Student Mentor"
+                    style="width: 100%; max-width: 450px; height: auto; border-radius: 30px; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.15)); -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%); mask-image: linear-gradient(to bottom, black 85%, transparent 100%); object-fit: cover;">
+            </div>
+        </div>
+
+        <!-- The Search Widget -->
+        <div style="position: relative; width: 100%; max-width: 1000px; margin: 0 auto;">
+            <!-- Premium Floating Prompt -->
+            <div class="floating-pointer prompt-pointer">
+                <!-- Gradient Speech Bubble -->
+                <div
+                    style="position: relative; background: linear-gradient(135deg, #f43f5e, #f97316); padding: 8px 22px; border-radius: 30px; color: white; font-weight: 800; font-family: 'Outfit', sans-serif; font-size: 1.05rem; box-shadow: 0 10px 25px rgba(244, 63, 94, 0.4); border: 2px solid white; transform: rotate(6deg); margin-bottom: 5px; letter-spacing: 0.5px;">
+                    100% Free Tool! ✨
+                    <!-- Triangle pointer for bubble -->
+                    <div
+                        style="position: absolute; bottom: -8px; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 8px solid transparent; border-right: 8px solid transparent; border-top: 8px solid #f97316;">
+                    </div>
+                </div>
+                <!-- 3D Hand Image -->
+                <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Backhand%20Index%20Pointing%20Down%20Light%20Skin%20Tone.png"
+                    alt="Point Down"
+                    style="width: 75px; margin-top: 8px; filter: drop-shadow(0 15px 15px rgba(0,0,0,0.25)); transform: rotate(-5deg);">
+            </div>
+
+            <div class="hero-search-widget extended-search"
+                style="padding: 15px 25px; border-radius: 25px; max-width: 1000px;">
+                <div class="search-inputs">
+                    <!-- Row 1 -->
+                    <div class="input-group" style="padding: 0;">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <select id="hero-stream">
+                            <option value="">What to study?</option>
+                            <option value="BTech">Engineering / B.Tech</option>
+                            <option value="MBA">MBA / Management</option>
+                            <option value="Medical">Medical / MBBS</option>
+                        </select>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="input-group" style="padding: 0;">
+                        <i class="fa-solid fa-ranking-star"></i>
+                        <select id="hero-score">
+                            <option value="">Current Score</option>
+                            <option value="90+">Above 90%</option>
+                            <option value="75-90">75% - 90%</option>
+                            <option value="60-75">60% - 75%</option>
+                            <option value="below-60">Below 60%</option>
+                        </select>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="input-group" style="padding: 0;">
+                        <i class="fa-solid fa-wallet"></i>
+                        <select id="hero-budget">
+                            <option value="">Family Budget</option>
+                            <option value="10L">Under ₹10 Lacs</option>
+                            <option value="20L">₹10L - ₹20 Lacs</option>
+                            <option value="40L">₹20L - ₹40 Lacs</option>
+                            <option value="40L+">₹40 Lacs+</option>
+                        </select>
+                    </div>
+
+                    <!-- Row 2 -->
+                    <div class="input-group" style="padding: 0;">
+                        <i class="fa-solid fa-rocket"></i>
+                        <select id="hero-goal">
+                            <option value="">Ultimate Goal?</option>
+                            <option value="job">Top MNC Placement</option>
+                            <option value="pr">Global PR / Settle Abroad</option>
+                            <option value="research">Research & PhD</option>
+                            <option value="business">Startup / Business</option>
+                        </select>
+                    </div>
+                    <div class="divider" style="opacity: 0;"></div>
+                    <div class="input-group" style="padding: 0;">
+                        <i class="fa-solid fa-earth-americas"></i>
+                        <select id="hero-location">
+                            <option value="">Target Location</option>
+                            <option value="india">India Only</option>
+                            <option value="abroad">Abroad Only</option>
+                            <option value="any">Open to Both</option>
+                        </select>
+                    </div>
+                    <div class="divider" style="opacity: 0;"></div>
+                    <div class="search-action" style="grid-column: span 1;">
+                        <button class="btn-search w-100"
+                            style="margin: 0; padding: 12px 20px; border-radius: 12px; font-size: 1rem;"
+                            onclick="openRoadmapForm()"><i class="fa-solid fa-bolt"></i> Generate Roadmap</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trust Stack -->
+            <div class="trust-stack justify-center mt-5" style="display: inline-flex; margin-top: 2rem;">
+                <div class="avatars">
+                    <img src="https://i.pravatar.cc/100?img=1" alt="Student">
+                    <img src="https://i.pravatar.cc/100?img=2" alt="Student">
+                    <img src="https://i.pravatar.cc/100?img=3" alt="Student">
+                    <img src="https://i.pravatar.cc/100?img=4" alt="Student">
+                    <div class="avatar-more">+4k</div>
+                </div>
+                <div class="trust-text text-left">
+                    <div class="stars">
+                        <i class="fa-solid fa-star text-yellow" style="color: #fbbf24;"></i>
+                        <i class="fa-solid fa-star text-yellow" style="color: #fbbf24;"></i>
+                        <i class="fa-solid fa-star text-yellow" style="color: #fbbf24;"></i>
+                        <i class="fa-solid fa-star text-yellow" style="color: #fbbf24;"></i>
+                        <i class="fa-solid fa-star text-yellow" style="color: #fbbf24;"></i>
+                    </div>
+                    <span>4.9/5 from Parents & Students</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cost Transparency & ROI Calculator Section -->
+    <section id="calculator" class="calculator-section reveal">
+        <div class="container">
+            <div class="section-header">
+                <h2>The True-Cost <span class="gradient-text">ROI Calculator</span></h2>
+                <p>Enter your details below to instantly see which countries fit your budget, how much loan you need,
+                    and when you'll earn your investment back.</p>
+            </div>
+
+            <div class="calc-grid">
+                <!-- Calculator Inputs (Glassmorphism card) -->
+                <div class="calc-card input-card shadow-glass" data-tilt data-tilt-max="5" data-tilt-speed="400"
+                    data-tilt-glare="true" data-tilt-max-glare="0.2">
+                    <h3>Your Profile</h3>
+
+                    <div class="form-group">
+                        <label>Target Degree</label>
+                        <select id="calc-degree">
+                            <option value="masters" selected>Masters / PG</option>
+                            <option value="bachelors">Bachelors / UG</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Field of Study</label>
+                        <select id="calc-field">
+                            <option value="stem" selected>STEM (IT, Engineering, Science)</option>
+                            <option value="business">Business & Management</option>
+                            <option value="arts">Arts & Humanities</option>
+                            <option value="healthcare">Healthcare & Nursing</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Max Family Out-of-Pocket Budget (₹ Lacs)</label>
+                        <div class="range-container">
+                            <input type="range" id="calc-budget" min="5" max="100" value="20" class="slider">
+                            <span id="budget-val" class="range-val">₹ 20 Lacs</span>
+                        </div>
+                    </div>
+
+                    <button class="btn-primary w-100" onclick="calculateROI()">Generate My Free Strategy Report</button>
+                    <p class="secure-note"><i class="fa-solid fa-lock"></i> 100% Free & No spam calls.</p>
+                </div>
+
+                <!-- Calculator Output -->
+                <div class="calc-card output-card shadow-glass" id="calc-results" style="display: none;" data-tilt
+                    data-tilt-max="5" data-tilt-speed="400">
+                    <h3>Your Personalized Strategy</h3>
+
+                    <div class="result-box destination-box">
+                        <h4>Top Pick for Your Budget:</h4>
+                        <div id="result-country" class="highlight-value">🇩🇪 Germany (Public Uni)</div>
+                        <p id="result-country-desc" class="small-text">Zero tuition fees. You only pay for living
+                            expenses.</p>
+                    </div>
+
+                    <div class="result-grid">
+                        <div class="result-box box-blue">
+                            <h5>Total Expected Cost</h5>
+                            <div class="val" id="result-cost">₹ 12 Lacs</div>
+                        </div>
+                        <div class="result-box box-orange">
+                            <h5>Education Loan Needed</h5>
+                            <div class="val" id="result-loan">₹ 0 Lacs</div>
+                            <a href="#" class="link-small">Check Eligibility</a>
+                        </div>
+                    </div>
+
+                    <div class="result-box roi-box">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <div>
+                            <h5>ROI / Earn-Back Time</h5>
+                            <p id="result-roi-text">At an expected starting salary of <strong>₹45L/yr</strong>, it will
+                                take you approx <strong>1.5 years</strong> to recover your investment.</p>
+                        </div>
+                    </div>
+
+                    <a href="https://wa.me/918882289261" target="_blank" class="btn-primary w-100 whatsapp-btn">
+                        <i class="fa-brands fa-whatsapp"></i> Discuss This Plan with a Mentor
+                    </a>
+                </div>
+
+                <div class="calc-card output-card shadow-glass waiting-state" id="calc-waiting">
+                    <div class="waiting-icon"><i class="fa-solid fa-calculator"></i></div>
+                    <h3>Enter details to see your magic roadmap!</h3>
+                    <p>We analyze 500+ universities across 12 countries to find your exact match.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specialized Suitability Suite Section -->
+    <section id="specialized-assessments" class="comparison-section reveal" style="background: #f8fafc; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0;">
+        <div class="container">
+            <div class="section-header">
+                <h2>Specialized Academic & <span class="gradient-text">Career Suitability</span> Suite</h2>
+                <p>Select any of our 12 psychometric diagnostics to mathematically map your stream compatibility, cognitive resilience, or digital economy readiness.</p>
+            </div>
+
+            <!-- Bento grid for 12 tests -->
+            <style>
+                .specialized-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+                    gap: 30px;
+                    margin-bottom: 40px;
+                }
+                .specialized-card {
+                    background: white;
+                    border: 1px solid #e2e8f0;
+                    border-radius: 24px;
+                    padding: 30px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    transition: all 0.3s ease;
+                    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.02);
+                }
+                .specialized-card:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 15px 35px rgba(37, 99, 235, 0.08);
+                    border-color: rgba(96, 165, 250, 0.5);
+                }
+                .card-header {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 20px;
+                }
+                .icon-box {
+                    width: 48px;
+                    height: 48px;
+                    border-radius: 14px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 1.25rem;
+                }
+                .category-badge {
+                    font-size: 0.75rem;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    padding: 4px 10px;
+                    border-radius: 6px;
+                }
+                .card-body h4 {
+                    font-size: 1.25rem;
+                    font-weight: 700;
+                    color: #0f172a;
+                    margin-bottom: 10px;
+                }
+                .card-body p {
+                    font-size: 0.9rem;
+                    color: #475569;
+                    line-height: 1.5;
+                    margin-bottom: 25px;
+                }
+                .btn-take-test {
+                    width: 100%;
+                    background: #f1f5f9;
+                    color: #2563eb;
+                    font-weight: 700;
+                    padding: 12px;
+                    border-radius: 10px;
+                    border: none;
+                    text-align: center;
+                    font-size: 0.85rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 8px;
+                    cursor: pointer;
+                    transition: all 0.2s ease;
+                }
+                .specialized-card:hover .btn-take-test {
+                    background: #2563eb;
+                    color: white;
+                }
+            </style>
+
+            <div class="specialized-grid">
+                <!-- Card 1 -->
+                <div class="specialized-card">
+                    <div class="card-body">
+                        <div class="card-header">
+                            <div class="icon-box" style="background: #ecfdf5; color: #10b981;"><i class="fa-solid fa-book-open"></i></div>
+                            <span class="category-badge" style="background: #ecfdf5; color: #10b981;">Academic</span>
+                        </div>
+                        <h4>Humanities Orientation</h4>
+                        <p>Maps analytical inquiry in sociocultural developments, global histories, and human behaviors.</p>
+                    </div>
+                    <a href="assessments.html?test=humanities" class="btn-take-test">Take Assessment <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="specialized-card">
+                    <div class="card-body">
+                        <div class="card-header">
+                            <div class="icon-box" style="background: #eff6ff; color: #2563eb;"><i class="fa-solid fa-cpu"></i></div>
+                            <span class="category-badge" style="background: #eff6ff; color: #2563eb;">Academic</span>
+                        </div>
+                        <h4>STEM Orientation Test</h4>
+                        <p>Evaluates quantitative analysis speed, logic formulation, computing interest, and experimental rigor.</p>
+                    </div>
+                    <a href="assessments.html?test=stem" class="btn-take-test">Take Assessment <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="specialized-card">
+                    <div class="card-body">
+                        <div class="card-header">
+                            <div class="icon-box" style="background: #fffbeb; color: #f59e0b;"><i class="fa-solid fa-rocket"></i></div>
+                            <span class="category-badge" style="background: #fffbeb; color: #f59e0b;">Professional</span>
+                        </div>
+                        <h4>Entrepreneurship Aptitude</h4>
+                        <p>Measures market vision, risk thresholds, operational grit, and scaling resilience.</p>
+                    </div>
+                    <a href="assessments.html?test=entrepreneurship" class="btn-take-test">Take Assessment <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="specialized-card">
+                    <div class="card-body">
+                        <div class="card-header">
+                            <div class="icon-box" style="background: #eef2ff; color: #6366f1;"><i class="fa-solid fa-search"></i></div>
+                            <span class="category-badge" style="background: #eef2ff; color: #6366f1;">Cognitive</span>
+                        </div>
+                        <h4>Research Potential Index</h4>
+                        <p>Assesses academic stamina, bibliographic methodology, thesis formulating speed, and inquiry depth.</p>
+                    </div>
+                    <a href="assessments.html?test=research" class="btn-take-test">Take Assessment <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="specialized-card">
+                    <div class="card-body">
+                        <div class="card-header">
+                            <div class="icon-box" style="background: #fff7ed; color: #ea580c;"><i class="fa-solid fa-users"></i></div>
+                            <span class="category-badge" style="background: #fff7ed; color: #ea580c;">Applied Skill</span>
+                        </div>
+                        <h4>Communication & Leadership</h4>
+                        <p>Quantifies public speaking presence, structural negotiation, dispute arbitration, and directive charisma.</p>
+                    </div>
+                    <a href="assessments.html?test=leadership" class="btn-take-test">Take Assessment <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="specialized-card">
+                    <div class="card-body">
+                        <div class="card-header">
+                            <div class="icon-box" style="background: #fdf2f8; color: #ec4899;"><i class="fa-solid fa-palette"></i></div>
+                            <span class="category-badge" style="background: #fdf2f8; color: #ec4899;">Cognitive</span>
+                        </div>
+                        <h4>Creative vs Analytical Profile</h4>
+                        <p>Isolates whether your dominant cognitive style leans to creative divergence or analytical convergence.</p>
+                    </div>
+                    <a href="assessments.html?test=creative_analytical" class="btn-take-test">Take Assessment <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Card 7 -->
+                <div class="specialized-card">
+                    <div class="card-body">
+                        <div class="card-header">
+                            <div class="icon-box" style="background: #ecfeff; color: #0891b2;"><i class="fa-solid fa-compass"></i></div>
+                            <span class="category-badge" style="background: #ecfeff; color: #0891b2;">Applied Skill</span>
+                        </div>
+                        <h4>Learning Style Mapping</h4>
+                        <p>Maps your optimized sensory data pathways across Visual, Auditory, Kinesthetic, and Logical channels.</p>
+                    </div>
+                    <a href="assessments.html?test=learning_style" class="btn-take-test">Take Assessment <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Card 8 -->
+                <div class="specialized-card">
+                    <div class="card-body">
+                        <div class="card-header">
+                            <div class="icon-box" style="background: #fef2f2; color: #ef4444;"><i class="fa-solid fa-shield-halved"></i></div>
+                            <span class="category-badge" style="background: #fef2f2; color: #ef4444;">Psychological</span>
+                        </div>
+                        <h4>Academic Resilience Scale</h4>
+                        <p>Measures cognitive self-regulation, mental grit in exams, procrastination rates, and academic recovery.</p>
+                    </div>
+                    <a href="assessments.html?test=resilience" class="btn-take-test">Take Assessment <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Card 9 -->
+                <div class="specialized-card">
+                    <div class="card-body">
+                        <div class="card-header">
+                            <div class="icon-box" style="background: #f7fee7; color: #84cc16;"><i class="fa-solid fa-globe"></i></div>
+                            <span class="category-badge" style="background: #f7fee7; color: #84cc16;">Psychological</span>
+                        </div>
+                        <h4>Social Impact Orientation</h4>
+                        <p>Gauges civic dedication, ethical commitments, ESG awareness, and green-economy pathways.</p>
+                    </div>
+                    <a href="assessments.html?test=social_impact" class="btn-take-test">Take Assessment <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Card 10 -->
+                <div class="specialized-card">
+                    <div class="card-body">
+                        <div class="card-header">
+                            <div class="icon-box" style="background: #fefdf0; color: #ca8a04;"><i class="fa-solid fa-landmark"></i></div>
+                            <span class="category-badge" style="background: #fefdf0; color: #ca8a04;">Professional</span>
+                        </div>
+                        <h4>Civil Services Compatibility</h4>
+                        <p>Evaluates administrative aptitude, governance policy interest, bureaucratic stamina, and impartial ethics.</p>
+                    </div>
+                    <a href="assessments.html?test=civil_services" class="btn-take-test">Take Assessment <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Card 11 -->
+                <div class="specialized-card">
+                    <div class="card-body">
+                        <div class="card-header">
+                            <div class="icon-box" style="background: #fff1f2; color: #f43f5e;"><i class="fa-solid fa-feather"></i></div>
+                            <span class="category-badge" style="background: #fff1f2; color: #f43f5e;">Academic</span>
+                        </div>
+                        <h4>Liberal Arts Readiness</h4>
+                        <p>Maps interdisciplinary critical thinking, critical writing curiosity, and holistic adaptability.</p>
+                    </div>
+                    <a href="assessments.html?test=liberal_arts" class="btn-take-test">Take Assessment <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Card 12 -->
+                <div class="specialized-card">
+                    <div class="card-body">
+                        <div class="card-header">
+                            <div class="icon-box" style="background: #f5f3ff; color: #8b5cf6;"><i class="fa-solid fa-bolt"></i></div>
+                            <span class="category-badge" style="background: #f5f3ff; color: #8b5cf6;">Professional</span>
+                        </div>
+                        <h4>Digital Economy Career Mapping</h4>
+                        <p>Analyzes early adoption of AI, remote-work decentralization agility, e-commerce, and SaaS literacy.</p>
+                    </div>
+                    <a href="assessments.html?test=digital_economy" class="btn-take-test">Take Assessment <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="assessments.html" target="_blank" class="btn-primary" style="padding: 15px 35px; font-size: 1.05rem;">
+                    <i class="fa-solid fa-clipboard-question"></i> View Full Assessment Hub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- India vs Abroad Comparison Engine -->
+    <section id="comparison" class="comparison-section reveal">
+        <div class="container">
+            <div class="section-header">
+                <h2>India vs <span class="gradient-text">Abroad</span> Snapshot</h2>
+                <p>Is staying back the safer choice? Let's look at the data.</p>
+            </div>
+
+            <div class="comparison-table-wrapper">
+                <table class="modern-table">
+                    <thead>
+                        <tr>
+                            <th>Parameter</th>
+                            <th class="india-col">🇮🇳 Private Tier-1 MBA (India)</th>
+                            <th class="abroad-col">🇬🇧 UK/Aus (Avg Masters)</th>
+                            <th class="abroad-col">🇩🇪 Germany (Public Masters)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Total Cost (Tuition + Living)</strong></td>
+                            <td>₹ 15L - 25L</td>
+                            <td>₹ 30L - 45L</td>
+                            <td><span class="highlight-green">₹ 8L - 12L (Living only)</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Avg Starting Salary</strong></td>
+                            <td>₹ 8L - 12L / yr</td>
+                            <td>₹ 35L - 50L / yr</td>
+                            <td>₹ 40L - 55L / yr</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Payback Period (ROI)</strong></td>
+                            <td>3 - 5 Years</td>
+                            <td>2 - 3 Years</td>
+                            <td><span class="highlight-green">1 - 1.5 Years</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Global Exposure & PR</strong></td>
+                            <td>None</td>
+                            <td>High (2-3 yr Stay Back)</td>
+                            <td>High (18 mo Stay Back -> PR)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Risk Factor</strong></td>
+                            <td>Low (Familiar environment)</td>
+                            <td>Medium (High upfront cost)</td>
+                            <td>Medium (Requires German basics)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <sahi-lead-magnets></sahi-lead-magnets>
+
+    <!-- Animated Roadmap Section -->
+    <section id="roadmap" class="roadmap-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Your Journey to <span class="gradient-text">Success</span></h2>
+                <p>100% Transparent. Zero Agent Fees. See exactly how we get you there.</p>
+            </div>
+
+            <div class="timeline-container">
+                <!-- Center glowing line -->
+                <div class="timeline-line"></div>
+                <div class="timeline-progress" id="timelineProgress"></div>
+
+                <!-- Step 1 -->
+                <div class="timeline-row row-left reveal">
+                    <div class="timeline-content box-blue">
+                        <div class="timeline-step">Step 1</div>
+                        <h3>AI Matchmaking <i class="fa-solid fa-robot"></i></h3>
+                        <p>We analyze 15,000+ top institutions against your academic score and budget to find your 100%
+                            personalized matches.</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="timeline-row row-right reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content box-orange">
+                        <div class="timeline-step">Step 2</div>
+                        <h3>Mentorship & SOPs <i class="fa-solid fa-file-signature"></i></h3>
+                        <p>Instead of generic agents, real alumni from top global universities help craft your SOPs and
+                            LORs to perfection.</p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="timeline-row row-left reveal">
+                    <div class="timeline-content" style="border-top: 4px solid #10b981;">
+                        <div class="timeline-step">Step 3</div>
+                        <h3>Admissions & Loans <i class="fa-solid fa-building-columns"></i></h3>
+                        <p>We handle all chaotic university paperwork and secure non-collateral education loans with our
+                            banking partners.</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="timeline-row row-right reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content" style="border-top: 4px solid #8b5cf6;">
+                        <div class="timeline-step">Step 4</div>
+                        <h3>Visa & Arrival <i class="fa-solid fa-plane-departure"></i></h3>
+                        <p>Our visa success rate is 99%. We mock-interview you, book flights, and connect you with
+                            Indians already on campus!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Trust Architecture Section (Desi Success Stories) -->
+    <section id="trust" class="trust-section reveal">
+        <div class="container">
+            <div class="section-header">
+                <h2>The <span class="gradient-text">Parent Guarantee</span></h2>
+                <p>We don't take hidden commissions. Hear from parents who trusted us with their life's savings.</p>
+            </div>
+
+            <!-- Video Success Story Highlight -->
+            <div class="video-preview-card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1')"
+                data-tilt data-tilt-scale="1.02">
+                <img src="success_story_1.png" alt="Sneha studying in Germany" class="video-thumbnail">
+                <div class="play-button-overlay">
+                    <div class="pulse-ring"></div>
+                    <i class="fa-solid fa-play"></i>
+                </div>
+                <div class="video-label">
+                    <h4>Sneha's Journey (Tier-2 City to TU Munich)</h4>
+                    <p>How she secured a ₹0 Tuition strategy →</p>
+                </div>
+            </div>
+
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                    <p>"Local agents asked for ₹50,000 just to start the application. "Sahi Salah" Mentor showed us a
+                        transparent ROI sheet and got my son into a German public uni with zero tuition fee. I saved a
+                        huge loan."</p>
+                    <div class="author">
+                        <img src="https://i.pravatar.cc/100?img=11" alt="Parent">
+                        <div>
+                            <strong>Ramesh Sharma (Father)</strong>
+                            <span>Son studying in TU Munich 🇩🇪</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                    <p>"I was terrified about my daughter's safety in Canada and the housing crisis. Our mentor
+                        connected us to seniors already there and helped secure on-campus accommodation. Absolute peace
+                        of mind."</p>
+                    <div class="author">
+                        <img src="https://i.pravatar.cc/100?img=12" alt="Parent">
+                        <div>
+                            <strong>Sunita Iyer (Mother)</strong>
+                            <span>Daughter studying in Univ of Toronto 🇨🇦</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alumni Success Map Section -->
+    <section id="alumni-map" class="map-section reveal">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our <span class="gradient-text">Global Footprint</span> 🌍</h2>
+                <p>Don't just take our word for it. Explore the live map to see where our students are actually thriving
+                    today.</p>
+            </div>
+
+            <div class="map-container">
+                <div class="map-visual">
+                    <!-- Germany Pin -->
+                    <div class="map-pin pin-germany">
+                        <div class="pin-pulse"></div>
+                        <i class="fa-solid fa-location-dot"></i>
+                        <div class="map-tooltip">
+                            <h4>🇩🇪 Germany</h4>
+                            <p><strong>142 Students</strong> placed in TU Munich, Berlin & Aachen with zero tuition
+                                fees.</p>
+                        </div>
+                    </div>
+
+                    <!-- UK Pin -->
+                    <div class="map-pin pin-uk">
+                        <div class="pin-pulse"></div>
+                        <i class="fa-solid fa-location-dot"></i>
+                        <div class="map-tooltip">
+                            <h4>🇬🇧 UK & Ireland</h4>
+                            <p><strong>89 Students</strong> secured 2-year post-study work visas last intake.</p>
+                        </div>
+                    </div>
+
+                    <!-- Canada Pin -->
+                    <div class="map-pin pin-canada">
+                        <div class="pin-pulse"></div>
+                        <i class="fa-solid fa-location-dot"></i>
+                        <div class="map-tooltip">
+                            <h4>🇨🇦 Canada</h4>
+                            <p><strong>215 Students</strong> fast-tracked their PR through STEM and Healthcare degrees.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- India Pin (Bangalore) -->
+                    <div class="map-pin pin-india">
+                        <div class="pin-pulse"></div>
+                        <i class="fa-solid fa-location-dot"></i>
+                        <div class="map-tooltip">
+                            <h4>🇮🇳 India (Tech Hubs)</h4>
+                            <p><strong>340 Students</strong> placed in top Indian institutions (IITs, NITs, BITS) saving
+                                ₹30L+.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="map-stats-footer">
+                    <div class="map-stat">
+                        <span class="ms-num">1,200+</span>
+                        <span class="ms-label">Total Placements</span>
+                    </div>
+                    <div class="map-stat">
+                        <span class="ms-num">12</span>
+                        <span class="ms-label">Countries Active</span>
+                    </div>
+                    <div class="map-stat">
+                        <span class="ms-num">₹45Cr+</span>
+                        <span class="ms-label">Scholarships Won</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Career Gunas Assessment Floating Widget -->
+    <a href="career-assessment.html" class="floating-guna">
+        <i class="fa-solid fa-brain"></i>
+        <span class="tooltip">Take Career Gunas Test! 🧠</span>
+    </a>
+
+    <!-- Specialized Assessments Floating Widget -->
+    <a href="assessments.html" class="floating-specialized">
+        <i class="fa-solid fa-square-poll-horizontal"></i>
+        <span class="tooltip">Take Specialized Tests! 📝</span>
+    </a>
+
+    <!-- WhatsApp Floating Widget -->
+    <a href="https://wa.me/918882289261?text=Hi%20Dr.%20Rajiv,%20I%20want%20to%20check%20my%20eligibility%20for%20Higher%20Education."
+        class="floating-whatsapp" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span class="tooltip">Speak to a Mentor!</span>
+    </a>
+
+    <sahi-footer></sahi-footer>
+
+    <!-- Video Modal -->
+    <div id="videoModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <div class="video-container">
+                <iframe id="yt-iframe" width="100%" height="100%" src="" frameborder="0"
+                    allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <roadmap-lead-modal></roadmap-lead-modal>
+    <sahi-lead-modal></sahi-lead-modal>
+
+    <!-- Libraries: Particles & Vanilla Tilt -->
+    <script src="antigravity.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="components.js"></script>
+    <script src="script.js"></script>
+    <script src="common.js"></script>
+</body>
+
+</html>

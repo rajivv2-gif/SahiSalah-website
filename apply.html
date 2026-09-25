@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free AI College Profile Evaluation | Sahi Salah</title>
+    <meta name="description"
+        content="Stop guessing with your career. Take 60 seconds to find your perfect matches for BTech, MBA, Medical in India & Abroad accurately based on your scores and budget.">
+    <meta name="keywords"
+        content="Profile Evaluation, AI Mentor, College Calculator, Study Abroad, Scholarship Predictor, Sahi Salah">
+
+    <!-- Open Graph / WhatsApp / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sahisalah.in/apply.html">
+    <meta property="og:title" content="Unlock Your Exact College Matches | Sahi Salah">
+    <meta property="og:description"
+        content="Used by 14,000+ students. Discover where you stand and what scholarships you qualify for in 60 seconds. Free evaluation.">
+    <meta property="og:image"
+        content="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=630&q=80">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sahisalah.in/apply.html">
+    <meta property="twitter:title" content="Unlock Your Exact College Matches | Sahi Salah">
+    <meta property="twitter:description"
+        content="Used by 14,000+ students. Discover where you stand and what scholarships you qualify for in 60 seconds. Free evaluation.">
+    <meta property="twitter:image"
+        content="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=630&q=80">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link class="prefetch-tag" rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link class="prefetch-tag" rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            /* Elegant Deep Dark Space Background */
+            background: linear-gradient(135deg, #020617, #0f172a, #020617);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            position: relative;
+            overflow-x: hidden;
+            font-family: 'Inter', sans-serif;
+            color: #f8fafc;
+        }
+
+        .back-home-btn {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(15, 23, 42, 0.6);
+            padding: 12px 24px;
+            border-radius: 50px;
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            z-index: 50;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .back-home-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            transform: translateX(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Abstract Glows */
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            z-index: 0;
+            animation: floatShape 10s ease-in-out infinite alternate;
+            opacity: 0.5;
+        }
+
+        .shape-1 {
+            width: 500px;
+            height: 500px;
+            background: rgba(59, 130, 246, 0.15);
+            top: -100px;
+            left: -100px;
+        }
+
+        .shape-2 {
+            width: 600px;
+            height: 600px;
+            background: rgba(139, 92, 246, 0.15);
+            bottom: -200px;
+            right: -100px;
+            animation-delay: -5s;
+        }
+
+        @keyframes floatShape {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            100% {
+                transform: translate(60px, 60px) scale(1.2);
+            }
+        }
+
+        /* Premium Dark Glassmorphism Card */
+        .standalone-card {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 32px;
+            padding: 60px 50px 50px;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+            max-width: 540px;
+            width: 100%;
+            position: relative;
+            z-index: 10;
+            animation: slideUpFade 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes slideUpFade {
+            0% {
+                transform: translateY(60px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Mascot Head Peeking Out */
+        .mascot-peek {
+            position: absolute;
+            top: -50px;
+            /* Lowered position */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            border: 4px solid #1e293b;
+            background: white;
+            /* Blends perfectly with the white background of the mascot image */
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.3), 0 15px 25px rgba(0, 0, 0, 0.4);
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: mascotFloat 4s ease-in-out infinite;
+        }
+
+        .mascot-peek img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @keyframes mascotFloat {
+
+            0%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+
+            50% {
+                transform: translateX(-50%) translateY(-10px);
+                box-shadow: 0 15px 35px rgba(59, 130, 246, 0.5), 0 15px 25px rgba(0, 0, 0, 0.4);
+            }
+        }
+
+        .brand-header {
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 40px;
+        }
+
+        .brand-header .brand-logo {
+            font-size: 2.2rem;
+            text-decoration: none;
+            color: white;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .brand-header .brand-logo span {
+            color: #60a5fa;
+            /* Light Blue */
+        }
+
+        .brand-header p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            margin-top: 12px;
+            font-weight: 600;
+            background: rgba(255, 255, 255, 0.05);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 20px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Trust Badges - Floating */
+        .floating-badge {
+            position: absolute;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #e2e8f0;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 15;
+            animation: floatBadge 4s ease-in-out infinite alternate;
+        }
+
+        .badge-left {
+            top: 20%;
+            left: -80px;
+            transform: rotate(-5deg);
+        }
+
+        .badge-right {
+            top: 45%;
+            right: -70px;
+            transform: rotate(5deg);
+            animation-delay: -2s;
+        }
+
+        @keyframes floatBadge {
+            0% {
+                transform: translateY(0) rotate(var(--rot, 0deg));
+            }
+
+            100% {
+                transform: translateY(-15px) rotate(var(--rot, 0deg));
+            }
+        }
+
+        @media(max-width: 768px) {
+            .floating-badge {
+                display: none;
+            }
+
+            .standalone-card {
+                padding: 50px 30px 40px;
+                border-radius: 24px;
+            }
+
+            .mascot-peek {
+                width: 110px;
+                height: 110px;
+                top: -45px;
+            }
+
+            /* Lowered for mobile too */
+        }
+
+        /* Steps UI */
+        h3 {
+            font-size: 1.6rem;
+            margin-bottom: 12px;
+            color: white;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+        }
+
+        .quiz-step p {
+            color: #94a3b8;
+            margin-bottom: 30px;
+            font-size: 1.05rem;
+            line-height: 1.5;
+        }
+
+        /* Premium Selectable Cards */
+        .quiz-btn {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: #e2e8f0;
+            font-size: 1.1rem;
+            padding: 18px 24px;
+            border-radius: 16px;
+            font-weight: 600;
+            width: 100%;
+            margin-bottom: 15px;
+            transition: all 0.3s cubic-bezier(0.2, 1, 0.2, 1);
+            cursor: pointer;
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .quiz-btn::after {
+            content: '\f054';
+            /* FontAwesome Chevron Right */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: #475569;
+            transition: all 0.3s ease;
+        }
+
+        .quiz-btn:hover {
+            background: rgba(59, 130, 246, 0.1);
+            border-color: rgba(59, 130, 246, 0.4);
+            color: white;
+            transform: translateX(6px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .quiz-btn:hover::after {
+            color: #60a5fa;
+            transform: translateX(4px);
+        }
+
+        /* Form Inputs */
+        .form-group input,
+        .form-group select {
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 18px 20px;
+            border-radius: 14px;
+            width: 100%;
+            margin-bottom: 20px;
+            font-family: inherit;
+            font-size: 1.05rem;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input::placeholder {
+            color: #64748b;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #60a5fa;
+            background: rgba(0, 0, 0, 0.4);
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+        }
+
+        .form-group select option {
+            background: #0f172a;
+            color: white;
+        }
+
+        /* Submit Button */
+        .btn-submit {
+            background: linear-gradient(135deg, #2563eb, #6366f1);
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 20px;
+            font-size: 1.2rem;
+            border-radius: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 15px 30px rgba(37, 99, 235, 0.3);
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(37, 99, 235, 0.4);
+            filter: brightness(1.1);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Back to Home -->
+    <a href="index.html" class="back-home-btn">
+        <i class="fa-solid fa-arrow-left"></i> Home
+    </a>
+
+    <!-- Ambient Background Shapes -->
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+
+    <!-- Floating Particles -->
+    <div id="particles-js" style="position: absolute; top:0; left:0; width:100%; height:100%; z-index:1;"></div>
+
+    <div class="standalone-card form-wrapper" data-tilt data-tilt-max="2" data-tilt-speed="400" data-tilt-glare="true"
+        data-tilt-max-glare="0.1">
+
+        <!-- Hovering Badges -->
+        <div class="floating-badge badge-left" style="--rot:-5deg;"><i class="fa-solid fa-fire text-orange"></i> 14k+
+            Evaluated</div>
+        <div class="floating-badge badge-right" style="--rot:5deg;"><i class="fa-solid fa-shield-halved text-green"></i>
+            AI Verified</div>
+
+        <!-- Mascot Avatar -->
+        <div class="mascot-peek">
+            <img src="mascot.png" alt="AI Mentor">
+        </div>
+
+        <div class="brand-header">
+            <a href="index.html" class="brand-logo">
+                <i class="fa-solid fa-graduation-cap"></i> Sahi<span>Salah</span>
+            </a>
+            <p><i class="fa-solid fa-bolt text-secondary"></i> Free AI Profile Evaluation</p>
+        </div>
+
+        <div id="quiz-wrapper">
+            <!-- Step 1: Academics -->
+            <div class="quiz-step" id="quiz-step-1">
+                <h3>Step 1: <span class="gradient-text">Academic Profile</span></h3>
+                <p>What is your 12th or Graduation Percentage?</p>
+                <div class="quiz-options">
+                    <button class="quiz-btn" onclick="nextQuizStep(1, 'Below 60%')">Below 60%</button>
+                    <button class="quiz-btn" onclick="nextQuizStep(1, '60% - 75%')">60% - 75%</button>
+                    <button class="quiz-btn" onclick="nextQuizStep(1, '75% - 90%')">75% - 90%</button>
+                    <button class="quiz-btn" onclick="nextQuizStep(1, 'Above 90%')">Above 90%</button>
+                </div>
+            </div>
+
+            <!-- Step 2: Budget -->
+            <div class="quiz-step" id="quiz-step-2" style="display:none;">
+                <h3>Step 2: <span class="gradient-text">Budget Constraints</span></h3>
+                <p>What is your family's overall maximum budget?</p>
+                <div class="quiz-options">
+                    <button class="quiz-btn" onclick="nextQuizStep(2, 'Under ₹10 Lacs')">Under ₹10 Lacs
+                        (Scholarships)</button>
+                    <button class="quiz-btn" onclick="nextQuizStep(2, '₹10L - ₹20L')">₹10 Lacs - ₹20 Lacs</button>
+                    <button class="quiz-btn" onclick="nextQuizStep(2, '₹20L - ₹40L')">₹20 Lacs - ₹40 Lacs</button>
+                    <button class="quiz-btn" onclick="nextQuizStep(2, '₹40L+')">₹40 Lacs+ (Premium Hubs)</button>
+                </div>
+                <div class="text-center mt-4">
+                    <a href="javascript:void(0)" onclick="resetstandalone()"
+                        style="color:#64748b; font-size:0.85rem; font-weight:600;"><i
+                            class="fa-solid fa-rotate-left"></i> Start Over</a>
+                </div>
+            </div>
+
+            <!-- Step 3: Calculating -->
+            <div class="quiz-step" id="quiz-step-3" style="display:none; text-align: center;">
+                <h3 style="margin-top: 20px;"><i class="fa-solid fa-robot text-secondary"
+                        style="margin-right: 10px;"></i><span class="gradient-text"
+                        style="background: linear-gradient(to right, #60a5fa, #c084fc); -webkit-background-clip: text; color: transparent;">AI
+                        is Analyzing...</span></h3>
+                <p>Scanning 15,000+ top global institutions.</p>
+                <div class="loader-bar-container mt-4"
+                    style="height:12px; background: rgba(255, 255, 255, 0.1); border-radius:20px; overflow:hidden;">
+                    <div class="loader-bar" id="quiz-loader"
+                        style="height:100%; width:0%; background:linear-gradient(90deg, #3b82f6, #8b5cf6); transition: width 0.1s linear;">
+                    </div>
+                </div>
+                <p class="mt-4" id="loader-text" style="font-weight:600; color: #60a5fa;">Matching eligibility
+                    criteria...
+                </p>
+            </div>
+
+            <!-- Step 4: Final Capture -->
+            <div class="quiz-step" id="quiz-step-4" style="display:none;">
+                <h3 style="margin-top:10px;"><span style="color: #34d399;"><i class="fa-solid fa-circle-check"></i>
+                        Match Found!</span> 🎉</h3>
+                <p style="margin-bottom:25px;">We found <strong>14 Top Colleges</strong> matching your exact profile.
+                    Enter your details to reveal matches via WhatsApp!</p>
+
+                <form id="google-sheet-form" onsubmit="submitForm(event)">
+                    <!-- Hidden quiz fields -->
+                    <input type="hidden" id="quizScore" name="score" value="">
+                    <input type="hidden" id="quizBudget" name="budget" value="">
+
+                    <div class="form-group">
+                        <input type="text" id="leadName" name="leadName" placeholder="Student First Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="leadPhone" name="leadPhone" placeholder="Enter WhatsApp Number" required>
+                    </div>
+                    <div class="form-group">
+                        <select id="leadTarget" name="stream" required>
+                            <option value="">Preferred Study Option</option>
+                            <option value="BTech">Engineering / Tech</option>
+                            <option value="MBA">MBA / Management</option>
+                            <option value="Medical">Medical / MBBS</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" id="submitBtn" class="btn-submit">
+                        <i class="fa-solid fa-unlock"></i> Unlock My Matches
+                    </button>
+
+                    <p id="form-message"
+                        style="display:none; color: #10b981; font-weight:700; background:#dcfce7; padding:15px; border-radius:10px; margin-top:20px; text-align:center;">
+                        Success! We have received your profile. You will get a WhatsApp message securely in 2 minutes.
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- WhatsApp Floating Widget -->
+    <a href="https://wa.me/918882289261?text=Hi%20Dr.%20Rajiv,%20I%20want%20to%20check%20my%20eligibility%20for%20Higher%20Education."
+        class="floating-whatsapp" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span class="tooltip">Speak to a Mentor!</span>
+    </a>
+
+    <!-- Call Now Floating Widget -->
+    <a href="tel:+918882289261" class="floating-call">
+        <i class="fa-solid fa-phone"></i>
+        <span class="tooltip">Call Us Now!</span>
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+    <script src="antigravity.js"></script>
+
+    <!-- We load common.js to handle all logic -->
+    <script src="common.js"></script>
+    <script>
+        function resetstandalone() {
+            document.getElementById('quiz-step-1').style.display = 'block';
+            document.getElementById('quiz-step-2').style.display = 'none';
+        }
+
+        // Initialize Floating Particles
+        if (typeof particlesJS !== 'undefined') {
+            particlesJS("particles-js", {
+                "particles": {
+                    "number": { "value": 70, "density": { "enable": true, "value_area": 800 } },
+                    "color": { "value": "#ffffff" },
+                    "shape": { "type": "circle" },
+                    "opacity": { "value": 0.4, "random": true },
+                    "size": { "value": 4, "random": true },
+                    "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.2, "width": 1 },
+                    "move": { "enable": true, "speed": 1.5, "direction": "none", "random": true, "straight": false, "out_mode": "out", "bounce": false }
+                },
+                "interactivity": {
+                    "detect_on": "window",
+                    "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true },
+                    "modes": { "grab": { "distance": 180, "line_linked": { "opacity": 0.6 } }, "push": { "particles_nb": 3 } }
+                },
+                "retina_detect": true
+            });
+        }
+    </script>
+</body>
+
+</html>

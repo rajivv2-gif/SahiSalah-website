@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admissions Open 2026 - Active Seats & Scholarship Tracker | Sahi Salah</title>
+    <meta name="description"
+        content="Track active admission deadlines for B.Tech, MBA, MBBS, and Study Abroad programs. Get direct seat vacancies and secure merit scholarships.">
+    <meta name="keywords"
+        content="Admissions Open 2026, college registration, engineering admission deadline, MBA application dates, study abroad intakes, Sahi Salah">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sahisalah.in/admissions-open.html">
+    <meta property="og:title" content="Admissions Open 2026 Ticker & Seat Registry | Sahi Salah">
+    <meta property="og:description"
+        content="See active college intakes, scholarship seats remaining, and upcoming registration deadlines instantly.">
+    <meta property="og:image"
+        content="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=630&q=80">
+
+    <!-- JSON-LD Structured Data Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Active College Admissions & Vacancies 2026",
+      "description": "Live status updates of active college admission intakes, registration deadlines, and merit scholarship seat counts.",
+      "url": "https://sahisalah.in/admissions-open.html",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "B.Tech Admissions (India Private Tier-1)",
+          "url": "https://sahisalah.in/admissions-open.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Germany Public MS (Winter Intake)",
+          "url": "https://sahisalah.in/admissions-open.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "MBA Admissions (India Private)",
+          "url": "https://sahisalah.in/admissions-open.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Online MBA (UGC Approved)",
+          "url": "https://sahisalah.in/admissions-open.html"
+        }
+      ]
+    }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link class="prefetch-tag" rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link class="prefetch-tag" rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* ==========================================================================
+           PREMIUM HERO SECTION STYLING (Dark Mode Neon-Glassmorphism)
+           ========================================================================== */
+        .admissions-hero {
+            position: relative;
+            background: linear-gradient(135deg, #020617 0%, #080e1e 50%, #0f172a 100%);
+            padding: 100px 0 110px 0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .grid-pattern {
+            position: absolute;
+            inset: 0;
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .hero-bg-blobs {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .hero-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.22;
+            mix-blend-mode: screen;
+            animation: floatBlob 10s ease-in-out infinite alternate;
+        }
+
+        .hero-blob-1 {
+            width: 450px;
+            height: 450px;
+            background: var(--primary-light);
+            top: -120px;
+            right: -100px;
+        }
+
+        .hero-blob-2 {
+            width: 350px;
+            height: 350px;
+            background: var(--secondary);
+            bottom: -80px;
+            left: 5%;
+            animation-delay: -5s;
+        }
+
+        @keyframes floatBlob {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+            100% {
+                transform: translate(30px, 30px) scale(1.12);
+            }
+        }
+
+        .hero-split-container {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text-side {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hero-badge-premium {
+            background: rgba(37, 99, 235, 0.12) !important;
+            border: 1px solid rgba(37, 99, 235, 0.3) !important;
+            color: #93c5fd !important;
+            padding: 6px 16px !important;
+            border-radius: 50px !important;
+            font-size: 0.8rem !important;
+            font-weight: 700 !important;
+            letter-spacing: 1px;
+            display: inline-flex !important;
+            align-items: center;
+            gap: 8px;
+            width: fit-content;
+            margin-bottom: 24px !important;
+            font-family: 'Outfit', sans-serif;
+            text-transform: uppercase;
+        }
+
+        .hero-badge-premium i {
+            font-size: 0.75rem;
+        }
+
+        .text-green {
+            color: #4ade80;
+        }
+
+        .animate-pulse {
+            animation: pulse-badge 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        @keyframes pulse-badge {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: .4;
+            }
+        }
+
+        .hero-title-premium {
+            font-size: 3.8rem;
+            line-height: 1.15;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .gradient-text-orange-blue {
+            background: linear-gradient(135deg, #3b82f6 0%, #f97316 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-description-premium {
+            font-size: 1.2rem;
+            color: #cbd5e1;
+            line-height: 1.7;
+            margin-bottom: 40px;
+            font-weight: 400;
+            max-width: 620px;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn-apply-hero {
+            background: linear-gradient(135deg, var(--secondary) 0%, #f97316 100%) !important;
+            color: white !important;
+            border: none !important;
+            padding: 16px 36px !important;
+            border-radius: 14px !important;
+            font-weight: 700 !important;
+            font-size: 1.1rem !important;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex !important;
+            align-items: center;
+            gap: 12px;
+            font-family: 'Outfit', sans-serif;
+            box-shadow: 0 4px 20px rgba(234, 88, 12, 0.35);
+        }
+
+        .btn-apply-hero:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(234, 88, 12, 0.55);
+            background: linear-gradient(135deg, #f97316 0%, #ea580c 100%) !important;
+        }
+
+        .btn-apply-hero:active {
+            transform: translateY(-1px);
+        }
+
+        .hero-widget-side {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: floatCard 6s ease-in-out infinite;
+        }
+
+        @keyframes floatCard {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        .stats-glass-card {
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 28px;
+            padding: 32px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+            width: 100%;
+            max-width: 420px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .stats-glass-card:hover {
+            border-color: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 25px 60px rgba(37, 99, 235, 0.18);
+        }
+
+        .glass-card-header {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 24px;
+            font-family: 'Outfit', sans-serif;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding-bottom: 14px;
+        }
+
+        .live-pulse-indicator {
+            width: 8px;
+            height: 8px;
+            background: #22c55e;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #22c55e;
+            position: relative;
+            display: inline-block;
+        }
+
+        .live-pulse-indicator::after {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            border: 2px solid #22c55e;
+            animation: pulseRing 1.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+            opacity: 0;
+        }
+
+        @keyframes pulseRing {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(2.4);
+                opacity: 0;
+            }
+        }
+
+        .glass-stats-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            margin-bottom: 24px;
+        }
+
+        .glass-stat-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 14px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .glass-stat-item:hover {
+            background: rgba(255, 255, 255, 0.07);
+            border-color: rgba(255, 255, 255, 0.1);
+            transform: translateX(5px);
+        }
+
+        .stat-icon-wrap {
+            width: 46px;
+            height: 46px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.35rem;
+            flex-shrink: 0;
+        }
+
+        .stat-number-value {
+            font-size: 1.55rem;
+            font-weight: 800;
+            color: #ffffff;
+            display: block;
+            line-height: 1.25;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .stat-label-text {
+            font-size: 0.82rem;
+            color: #94a3b8;
+            font-weight: 500;
+        }
+
+        .glass-card-footer {
+            font-size: 0.8rem;
+            color: #64748b;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+        }
+
+        @media (max-width: 992px) {
+            .admissions-hero {
+                padding: 70px 0 80px 0;
+            }
+            .hero-split-container {
+                grid-template-columns: 1fr;
+                gap: 50px;
+                text-align: center;
+            }
+            .hero-badge-premium {
+                margin: 0 auto 20px auto !important;
+            }
+            .hero-description-premium {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .hero-cta-group {
+                justify-content: center;
+            }
+            .hero-widget-side {
+                animation: floatCardMobile 6s ease-in-out infinite;
+            }
+            @keyframes floatCardMobile {
+                0%, 100% {
+                    transform: translateY(0);
+                }
+                50% {
+                    transform: translateY(-8px);
+                }
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title-premium {
+                font-size: 2.8rem;
+            }
+            .hero-description-premium {
+                font-size: 1.05rem;
+            }
+            .btn-apply-hero {
+                padding: 14px 28px !important;
+                font-size: 1rem !important;
+            }
+        }
+
+        /* ==========================================================================
+           REGISTRY TABLE BOARD STYLING
+           ========================================================================== */
+        .ticker-board {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+            overflow: hidden;
+        }
+
+        .board-header {
+            display: grid;
+            grid-template-columns: 1.6fr 1fr 1fr 1fr 0.8fr;
+            gap: 20px;
+            border-bottom: 2px solid #cbd5e1;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            align-items: center;
+        }
+
+        .board-row {
+            display: grid;
+            grid-template-columns: 1.6fr 1fr 1fr 1fr 0.8fr;
+            gap: 20px;
+            padding: 20px;
+            align-items: center;
+            border-bottom: 1px solid #f1f5f9;
+            background: #ffffff;
+            border-radius: 12px;
+            margin-bottom: 10px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid transparent;
+        }
+
+        .board-row:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(2, 6, 23, 0.05);
+            border-color: rgba(37, 99, 235, 0.12);
+            background: #f8fafc;
+        }
+
+        .board-row:last-child {
+            margin-bottom: 0;
+            border-bottom: none;
+        }
+
+        /* Border Left Highlight per row status */
+        .row-open {
+            border-left: 4px solid var(--accent);
+        }
+
+        .row-closing {
+            border-left: 4px solid var(--secondary);
+        }
+
+        .status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin: 0 auto;
+        }
+
+        .status-open-pill {
+            background: #dcfce7;
+            color: #15803d;
+        }
+
+        .status-closing-pill {
+            background: #fef3c7;
+            color: #b45309;
+        }
+
+        .live-pulse {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: currentColor;
+            box-shadow: 0 0 8px currentColor;
+            animation: pulseLight 1.5s infinite;
+        }
+
+        @keyframes pulseLight {
+            0% { transform: scale(0.9); opacity: 0.7; }
+            50% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(0.9); opacity: 0.7; }
+        }
+
+        .seat-badge {
+            background: #eff6ff;
+            color: var(--primary-light);
+            font-weight: 800;
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            display: inline-block;
+        }
+
+        /* Filter Tab controls */
+        .filter-controls {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 35px;
+            flex-wrap: wrap;
+        }
+
+        .filter-tab {
+            padding: 10px 24px;
+            border: 1px solid #cbd5e1;
+            border-radius: 30px;
+            background: #f1f5f9;
+            color: #475569;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .filter-tab:hover {
+            background: #e2e8f0;
+            color: var(--primary);
+        }
+
+        .filter-tab.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Countdown Banner styling */
+        .countdown-banner-container {
+            background: #fff7ed;
+            border-bottom: 1px solid #ffedd5;
+            padding: 15px 0;
+        }
+        .countdown-banner-box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .countdown-text {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.05rem;
+            color: #7c2d12;
+        }
+        .live-dot-green {
+            width: 10px;
+            height: 10px;
+            background: #22c55e;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #22c55e;
+            animation: pulseAlert 1.5s infinite;
+        }
+        @keyframes pulseAlert {
+            0% { transform: scale(0.9); opacity: 0.7; }
+            50% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(0.9); opacity: 0.7; }
+        }
+        .countdown-timer {
+            display: flex;
+            gap: 12px;
+        }
+        .timer-segment {
+            background: var(--primary);
+            color: white;
+            border-radius: 8px;
+            padding: 8px 12px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            font-family: 'Outfit', sans-serif;
+            display: flex;
+            align-items: baseline;
+            gap: 3px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .timer-segment small {
+            font-size: 0.65rem;
+            font-weight: 600;
+            color: #94a3b8;
+            text-transform: uppercase;
+        }
+
+        /* Checklist & Subscribe Card Grid */
+        .checklist-card, .subscribe-card {
+            background: white;
+            border: 1px solid #cbd5e1;
+            border-radius: 24px;
+            padding: 35px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.01);
+            transition: all 0.3s;
+        }
+        .checklist-card:hover, .subscribe-card:hover {
+            border-color: rgba(37,99,235,0.2);
+            box-shadow: 0 15px 35px rgba(37,99,235,0.04);
+        }
+        .checklist-item-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+            padding: 6px 0;
+        }
+        .checklist-item-row input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            border-radius: 4px;
+            border: 1px solid #cbd5e1;
+            cursor: pointer;
+            accent-color: var(--accent);
+        }
+        .checklist-item-row label {
+            font-size: 0.95rem;
+            color: #475569;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .form-input-text, .form-select {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1px solid #cbd5e1;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            color: #1e293b;
+            background-color: #f8fafc;
+            transition: all 0.3s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .form-input-text:focus, .form-select:focus {
+            outline: none;
+            border-color: var(--primary-light);
+            background-color: #ffffff;
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .grid-2-col {
+                grid-template-columns: 1fr !important;
+                gap: 30px !important;
+            }
+        }
+
+        /* Live Activity Toast */
+        .live-toast-container {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 15px 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            z-index: 10001;
+            max-width: 320px;
+            backdrop-filter: blur(10px);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .live-toast-container.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .live-toast-content {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        .live-toast-avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        .live-toast-text {
+            display: flex;
+            flex-direction: column;
+            font-size: 0.85rem;
+            line-height: 1.4;
+            color: #334155;
+        }
+        .live-toast-name {
+            font-weight: 700;
+            color: var(--primary);
+        }
+        .live-toast-time {
+            font-size: 0.75rem;
+            color: #64748b;
+            margin-top: 4px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        @media (max-width: 900px) {
+            .ticker-board {
+                padding: 10px;
+            }
+            .board-row {
+                grid-template-columns: 1fr;
+                gap: 10px;
+                padding: 20px 15px;
+            }
+            .board-row > div {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .board-row > div::before {
+                content: attr(data-label);
+                font-weight: bold;
+                color: #64748b;
+                font-size: 0.85rem;
+            }
+            .board-row > div:first-child::before {
+                display: none;
+            }
+            .board-header {
+                display: none;
+            }
+            .countdown-banner-box {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <sahi-header></sahi-header>
+
+    <!-- Countdown Banner -->
+    <div class="countdown-banner-container" id="countdown-banner">
+        <div class="countdown-banner-box">
+            <div class="countdown-text">
+                <span class="live-dot-green"></span> <strong>Live Priority Intakes Alert:</strong> Round 1 Scholarship Seat Allocations Close In:
+            </div>
+            <div class="countdown-timer" id="timer-digits">
+                <div class="timer-segment"><span id="days">00</span><small>D</small></div>
+                <div class="timer-segment"><span id="hours">00</span><small>H</small></div>
+                <div class="timer-segment"><span id="minutes">00</span><small>M</small></div>
+                <div class="timer-segment"><span id="seconds">00</span><small>S</small></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero -->
+    <header class="admissions-hero" id="admissions-hero">
+        <div class="grid-pattern"></div>
+        <div class="hero-bg-blobs">
+            <div class="hero-blob hero-blob-1"></div>
+            <div class="hero-blob hero-blob-2"></div>
+        </div>
+        <div class="container hero-split-container" style="position: relative; z-index: 2;">
+            <div class="hero-text-side">
+                <span class="badge hero-badge-premium"><i class="fa-solid fa-circle-check text-green animate-pulse"></i> LIVE VACANCY REGISTRY</span>
+                <h1 class="hero-title-premium">
+                    Active College Admissions <br><span class="gradient-text-orange-blue">2026 Registry</span>
+                </h1>
+                <p class="hero-description-premium">
+                    Track real-time intakes, scholarship seat availability, and upcoming registration deadlines across verified domestic and global partner institutions.
+                </p>
+                <div class="hero-cta-group">
+                    <button onclick="openLeadForm()" class="btn-apply-hero btn-large glow-btn" id="btn-hero-admissions">
+                        Verify My Eligibility <i class="fa-solid fa-user-check" style="color:#60a5fa;"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Premium Glassmorphic Stats Widget (Right Column) -->
+            <div class="hero-widget-side">
+                <div class="stats-glass-card shadow-premium-glass" data-tilt>
+                    <div class="glass-card-header">
+                        <span class="live-pulse-indicator"></span> Live Seat Allocation Data
+                    </div>
+                    <div class="glass-stats-grid">
+                        <div class="glass-stat-item">
+                            <span class="stat-icon-wrap" style="color:var(--primary-light);"><i class="fa-solid fa-graduation-cap"></i></span>
+                            <div>
+                                <span class="stat-number-value">94%</span>
+                                <span class="stat-label-text">Allocated Seats</span>
+                            </div>
+                        </div>
+                        <div class="glass-stat-item">
+                            <span class="stat-icon-wrap" style="color:var(--accent);"><i class="fa-solid fa-wallet"></i></span>
+                            <div>
+                                <span class="stat-number-value">₹45L</span>
+                                <span class="stat-label-text">Merit Pool Claimed</span>
+                            </div>
+                        </div>
+                        <div class="glass-stat-item">
+                            <span class="stat-icon-wrap" style="color:var(--secondary);"><i class="fa-solid fa-plane-departure"></i></span>
+                            <div>
+                                <span class="stat-number-value">99%</span>
+                                <span class="stat-label-text">Visa Success Rate</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="glass-card-footer">
+                        <i class="fa-solid fa-shield-halved text-green"></i> Verified partner institution vacancy reports
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Vacancy Board -->
+    <section class="container" style="padding: 80px 20px;" id="admissions-board">
+        <div class="section-header">
+            <h2>Seat vacancy & <span class="gradient-text">Intake Registry</span></h2>
+            <p>Data updated every 24 hours. Filter programs by category to map your selection path.</p>
+        </div>
+
+        <!-- Filter tabs -->
+        <div class="filter-controls">
+            <button class="filter-tab active" onclick="filterBoardRows(this, 'all')">Show All Intakes</button>
+            <button class="filter-tab" onclick="filterBoardRows(this, 'india')">🇮🇳 India Private</button>
+            <button class="filter-tab" onclick="filterBoardRows(this, 'abroad')">🌎 Study Abroad</button>
+            <button class="filter-tab" onclick="filterBoardRows(this, 'online')">💻 Online Degrees</button>
+        </div>
+
+        <div class="ticker-board">
+            <div class="board-header">
+                <h3 style="font-family:'Outfit'; font-size:1.15rem; color:#64748b; font-weight:700;">Program Category</h3>
+                <h3 style="font-family:'Outfit'; font-size:1.15rem; color:#64748b; text-align:center; font-weight:700;">Admission Status</h3>
+                <h3 style="font-family:'Outfit'; font-size:1.15rem; color:#64748b; text-align:center; font-weight:700;">Upcoming Intake</h3>
+                <h3 style="font-family:'Outfit'; font-size:1.15rem; color:#64748b; text-align:center; font-weight:700;">Scholarships Remaining</h3>
+                <h3 style="font-family:'Outfit'; font-size:1.15rem; color:#64748b; text-align:center; font-weight:700;">Action</h3>
+            </div>            <div id="admissions-rows-container">
+                <!-- Injected dynamically from registry-data.js -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Tools: Checklist & Subscription -->
+    <section class="container" style="padding: 20px 20px 80px 20px;" id="admissions-tools">
+        <div style="display:grid; grid-template-columns:1.2fr 1fr; gap:40px;" class="grid-2-col">
+            <!-- Document Readiness Checklist -->
+            <div class="checklist-card">
+                <h3 style="font-family:'Outfit'; font-size:1.35rem; margin-bottom:15px; color:var(--primary); font-weight:700;"><i class="fa-solid fa-file-shield text-primary" style="margin-right:10px;"></i> Document Eligibility Checker</h3>
+                <p class="text-muted" style="font-size:0.9rem; margin-bottom:20px;">Check off the items you currently have ready to see if you can apply for immediate scholarship registrations.</p>
+                <div class="checklist-item-row"><input type="checkbox" id="doc1" onclick="updateChecklistProgress()"><label for="doc1">Class 10th & 12th Marksheets (Original Copy)</label></div>
+                <div class="checklist-item-row"><input type="checkbox" id="doc2" onclick="updateChecklistProgress()"><label for="doc2">Undergrad Sem Transcripts (For PG/MBA applicants)</label></div>
+                <div class="checklist-item-row"><input type="checkbox" id="doc3" onclick="updateChecklistProgress()"><label for="doc3">SOP Draft (Statement of Purpose / Goals essay)</label></div>
+                <div class="checklist-item-row"><input type="checkbox" id="doc4" onclick="updateChecklistProgress()"><label for="doc4">Valid Indian Passport (Bio info pages)</label></div>
+                <div class="checklist-item-row"><input type="checkbox" id="doc5" onclick="updateChecklistProgress()"><label for="doc5">Exam scorecards (CAT, GMAT, or IELTS if taken)</label></div>
+                
+                <div class="checklist-progress-bar-wrap" style="margin-top:25px;">
+                    <div style="display:flex; justify-content:space-between; font-size:0.85rem; font-weight:bold; margin-bottom:6px; color:#475569;">
+                        <span>Your Readiness Progress</span>
+                        <span id="checklist-progress-pct">0% Ready</span>
+                    </div>
+                    <div style="width:100%; height:8px; background:#e2e8f0; border-radius:5px; overflow:hidden;">
+                        <div id="checklist-progress-bar" style="width:0%; height:100%; background:var(--accent); transition:width 0.3s;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- WhatsApp Subscription Card -->
+            <div class="subscribe-card">
+                <h3 style="font-family:'Outfit'; font-size:1.35rem; margin-bottom:15px; color:var(--primary); font-weight:700;"><i class="fa-solid fa-bell-concierge text-primary" style="margin-right:10px;"></i> Get Direct Intake Alerts</h3>
+                <p class="text-muted" style="font-size:0.9rem; margin-bottom:20px;">Receive instant alerts on your WhatsApp the second admission seats open or fees change for your preferred courses.</p>
+                <form id="whatsapp-alert-form" onsubmit="submitSubscription(event)">
+                    <div class="form-group">
+                        <input type="text" id="subName" name="leadName" class="form-input-text" style="margin-bottom:15px;" placeholder="Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="subPhone" name="leadPhone" class="form-input-text" style="margin-bottom:15px;" placeholder="WhatsApp Number" required>
+                    </div>
+                    <div class="form-group">
+                        <select id="subStream" name="stream" class="form-select" style="margin-bottom:20px;" required>
+                            <option value="">Preferred Intake Stream</option>
+                            <option value="BTech">B.Tech / Engineering</option>
+                            <option value="MBA">MBA / Management</option>
+                            <option value="Medical">MBBS / Medical</option>
+                            <option value="Abroad">Germany/UK Admissions</option>
+                        </select>
+                    </div>
+                    <button type="submit" id="subBtn" class="btn-primary w-100" style="padding:14px; border-radius:10px; margin-top:0;">Subscribe to Alerts <i class="fa-brands fa-whatsapp"></i></button>
+                    <p id="subFormMessage" class="secure-note" style="display:none; color: green; font-weight:bold; margin-top:15px;">Subscribed successfully! Updates will be sent on WhatsApp.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Notices section -->
+    <section style="background: #f8fafc; padding: 80px 20px; border-top: 1px solid #cbd5e1; border-bottom: 1px solid #cbd5e1;" id="admissions-notices">
+        <div class="container">
+            <div style="max-width: 850px; margin: 0 auto; display: flex; gap: 25px; align-items: flex-start; background: white; border: 1px solid #cbd5e1; border-radius: 20px; padding: 35px; box-shadow: 0 10px 30px rgba(0,0,0,0.01);">
+                <i class="fa-solid fa-triangle-exclamation" style="font-size: 2.4rem; color: var(--secondary); margin-top:5px; flex-shrink:0;"></i>
+                <div>
+                    <h3 style="font-family:'Outfit'; margin-bottom:8px; font-size:1.3rem; color:var(--primary); font-weight:700;">Notice on Fee Deadlines & Slot Bookings</h3>
+                    <p class="text-muted" style="font-size:0.98rem; line-height:1.6;">Reservations for merit scholarships depend heavily on 12th Board marks or semester percentages. Once university seat capacities are reached, tuition discounts decrease or expire. Submit your documents online to freeze your current fee benefits instantly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Activity Toast Container -->
+    <div id="live-activity-toast" class="live-toast-container">
+        <div class="live-toast-content">
+            <div class="live-toast-avatar"><i class="fa-solid fa-graduation-cap"></i></div>
+            <div class="live-toast-text">
+                <span class="live-toast-name" id="toast-name">Sneha (Pune)</span>
+                <span class="live-toast-action" id="toast-action">just evaluated matching German MBA colleges.</span>
+                <small class="live-toast-time"><i class="fa-solid fa-clock"></i> <span id="toast-time">2 mins ago</span></small>
+            </div>
+        </div>
+    </div>
+
+    <sahi-footer></sahi-footer>
+
+    <sahi-lead-modal></sahi-lead-modal>
+
+    <!-- Include Mascot & Lead Form Scripts -->
+    <script src="registry-data.js"></script>
+    <script src="components.js"></script>
+    <script src="common.js"></script>
+
+    <script>
+        // 0. Render Admissions Table dynamically
+        function renderAdmissionsTable() {
+            const container = document.getElementById('admissions-rows-container');
+            if (!container) return;
+            container.innerHTML = '';
+            
+            admissionsRegistryData.forEach(row => {
+                const rowEl = document.createElement('div');
+                rowEl.className = `board-row ${row.statusClass === 'status-open-pill' ? 'row-open' : 'row-closing'}`;
+                rowEl.setAttribute('data-category', row.category);
+                
+                rowEl.innerHTML = `
+                    <div style="font-weight: 700; color: var(--primary); font-family:'Outfit'; font-size:1.1rem;">${row.name}</div>
+                    <div data-label="Status" style="text-align: center;">
+                        <span class="status-pill ${row.statusClass}">
+                            <span class="live-pulse"></span> ${row.status}
+                        </span>
+                    </div>
+                    <div data-label="Intake" style="text-align: center; color: #475569; font-weight:500;">${row.intake}</div>
+                    <div data-label="Scholarships" style="text-align: center;">
+                        <span class="seat-badge" ${row.statusClass === 'status-closing-pill' ? 'style="background:#fff7ed; color:var(--secondary);"' : ''}>
+                            ${row.scholarship}
+                        </span>
+                    </div>
+                    <div data-label="Action" style="text-align: center;">
+                        <button onclick="openLeadForm()" class="btn-primary" style="padding: 8px 16px; font-size:0.85rem; margin-top:0; border-radius:8px;">
+                            ${row.actionText}
+                        </button>
+                    </div>
+                `;
+                container.appendChild(rowEl);
+            });
+        }
+        renderAdmissionsTable();
+
+        // 1. Category Filter Logic
+        function filterBoardRows(tab, category) {
+            document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+
+            document.querySelectorAll('.board-row').forEach(row => {
+                if (category === 'all' || row.getAttribute('data-category') === category) {
+                    row.style.display = 'grid';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+
+        // 2. Countdown Timer Logic
+        function updateCountdown() {
+            // Target date is set to 14 days from current date for demo loop stability, or hardcoded
+            const target = new Date("June 25, 2026 23:59:59").getTime();
+            const now = new Date().getTime();
+            const diff = target - now;
+
+            if (diff <= 0) {
+                document.getElementById('countdown-banner').style.display = 'none';
+                return;
+            }
+
+            const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('days').innerText = String(d).padStart(2, '0');
+            document.getElementById('hours').innerText = String(h).padStart(2, '0');
+            document.getElementById('minutes').innerText = String(m).padStart(2, '0');
+            document.getElementById('seconds').innerText = String(s).padStart(2, '0');
+        }
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // 3. Document Checklist Progress Calculator
+        function updateChecklistProgress() {
+            const checkboxes = document.querySelectorAll('.checklist-item-row input[type="checkbox"]');
+            let checkedCount = 0;
+            checkboxes.forEach(cb => {
+                if (cb.checked) checkedCount++;
+            });
+            const pct = Math.round((checkedCount / checkboxes.length) * 100);
+            document.getElementById('checklist-progress-pct').innerText = pct + '% Ready';
+            document.getElementById('checklist-progress-bar').style.width = pct + '%';
+        }
+
+        // 4. Live Enrollment Activity Ticker Toast
+        const toastNames = ["Amit", "Sneha", "Rohit", "Priyanka", "Vikram", "Neha", "Rahul", "Aisha", "Karan", "Pooja"];
+        const toastCities = ["Meerut", "Pune", "Delhi", "Mumbai", "Bangalore", "Hyderabad", "Noida", "Jaipur", "Lucknow", "Chennai"];
+        const toastActions = [
+            "just evaluated matching German B.Tech colleges.",
+            "just checked their scholarship criteria for UK MBA.",
+            "just subscribed to admissions open alerts.",
+            "just calculated their loan EMI eligibility.",
+            "just scheduled a profile evaluation with a mentor.",
+            "just checked stay-back PR details for Germany."
+        ];
+
+        function showToast() {
+            const name = toastNames[Math.floor(Math.random() * toastNames.length)];
+            const city = toastCities[Math.floor(Math.random() * toastCities.length)];
+            const action = toastActions[Math.floor(Math.random() * toastActions.length)];
+            const min = Math.floor(Math.random() * 5) + 1;
+
+            document.getElementById('toast-name').innerText = name + " (" + city + ")";
+            document.getElementById('toast-action').innerText = " " + action;
+            document.getElementById('toast-time').innerText = min + " mins ago";
+
+            const toast = document.getElementById('live-activity-toast');
+            toast.classList.add('show');
+
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 5000); // Display for 5 seconds
+        }
+
+        // Initialize activity intervals
+        setTimeout(() => {
+            showToast();
+            setInterval(showToast, 22000); // trigger every 22 seconds
+        }, 8000);
+
+        // 5. WhatsApp Alerts Subscription Submission
+        function submitSubscription(event) {
+            event.preventDefault();
+            const btn = document.getElementById('subBtn');
+            const msg = document.getElementById('subFormMessage');
+            const form = document.getElementById('whatsapp-alert-form');
+
+            const phoneInput = document.getElementById('subPhone').value.trim();
+            const phoneRegex = /^\d{10}$/;
+            if (!phoneRegex.test(phoneInput)) {
+                alert("Please enter a valid 10-digit WhatsApp number.");
+                return;
+            }
+
+            const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxmQ_6M7ZsS2bpmn8vFoXyg64ndzYpuCBioX79y2IfxwY7f5todpQ6CzajV-Z6DCsWV/exec";
+            const originalText = btn.innerHTML;
+            btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Subscribing...`;
+            btn.disabled = true;
+
+            const formData = new URLSearchParams(new FormData(form));
+
+            fetch(GOOGLE_SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                body: formData
+            })
+                .then(() => {
+                    btn.style.display = 'none';
+                    msg.style.display = 'block';
+
+                    setTimeout(() => {
+                        btn.style.display = 'block';
+                        btn.innerHTML = originalText;
+                        btn.disabled = false;
+                        msg.style.display = 'none';
+                        form.reset();
+                    }, 4000);
+                })
+                .catch(error => {
+                    console.error('Error!', error.message);
+                    btn.innerHTML = `Error. Try Again!`;
+                    setTimeout(() => {
+                        btn.innerHTML = originalText;
+                        btn.disabled = false;
+                    }, 3000);
+                });
+        }
+    </script>
+</body>
+
+</html>

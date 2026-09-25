@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Tech Hubs in India | Sahi Salah</title>
+    <meta name="description" content="Explore the top colleges in India's major tech hubs: Bangalore, Pune, and Hyderabad.">
+    <meta name="keywords" content="Tech Hubs, Top Indian Colleges, Btech India, Bangalore, Pune, Hyderabad">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link class="prefetch-tag" rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link class="prefetch-tag" rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-gray-50">
+
+    <sahi-header></sahi-header>
+
+    <section class="mega-hero" style="padding-bottom: 40px; padding-top: 80px;">
+        <div class="hero-bg-elements">
+            <div class="blob blob-1" style="width: 500px; height: 500px; opacity: 0.1; background: #6366f1;"></div>
+            <div class="blob blob-2" style="width: 400px; height: 400px; opacity: 0.15; background: #a855f7;"></div>
+        </div>
+
+        <div class="container relative z-10 text-center">
+            <div class="badge" style="background: rgba(99, 102, 241, 0.1); color: #4f46e5;">Collection #2</div>
+            <h1 class="display-title">Top <span class="gradient-text" style="background: linear-gradient(135deg, #6366f1, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Tech Hubs</span></h1>
+            <p class="hero-subtext mx-auto" style="max-width: 800px;">
+                Your gateway to the IT capitals of India. We have curated the top-rated colleges in Bangalore, Pune, and Hyderabad. 
+                Studying in these cities provides unparalleled access to internships, networking, and direct placements in multinational tech giants.
+            </p>
+        </div>
+    </section>
+
+    <section class="directory-section section-padding bg-white">
+        <div class="container">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+                <h2 style="font-family: 'Outfit'; font-size: 2rem;">Ranked by Tech Ecosystem</h2>
+                <div>
+                    <span class="badge" style="margin-bottom: 0;">Updated: May 2026</span>
+                </div>
+            </div>
+
+            <div class="college-grid" id="techCollegeGrid">
+            </div>
+        </div>
+    </section>
+
+    <sahi-lead-modal></sahi-lead-modal>
+    <sahi-footer></sahi-footer>
+
+    <script src="components.js"></script>
+    <script src="colleges-data.js"></script>
+    <script src="common.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const grid = document.getElementById('techCollegeGrid');
+
+            // Filter for tech hubs
+            const techHubs = ['Bangalore', 'Pune', 'Hyderabad', 'Mumbai', 'Delhi'];
+            let techData = collegesData.filter(c => techHubs.some(hub => c.location.includes(hub)));
+
+            // Sort by rating to act as "Tech Ecosystem Score"
+            techData.sort((a, b) => b.rating - a.rating);
+            techData = techData.slice(0, 10); // Top 10
+
+            function renderColleges(data) {
+                grid.innerHTML = '';
+                data.forEach((college, index) => {
+                    const rank = index + 1;
+                    const cardHTML = `
+                        <div class="college-card reveal active" style="position: relative;">
+                            <div style="position: absolute; top: 15px; left: 15px; width: 45px; height: 45px; background: linear-gradient(135deg, #4f46e5, #8b5cf6); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Outfit'; font-size: 1.2rem; font-weight: 800; z-index: 10; box-shadow: 0 4px 10px rgba(79, 70, 229, 0.4); border: 3px solid white;">
+                                #${rank}
+                            </div>
+                            
+                            <div class="college-cover">
+                                <img src="${college.cover}" alt="${college.name}">
+                                <div class="ranking-badge" style="background: rgba(0,0,0,0.7); backdrop-filter: blur(5px);"><i class="fa-solid fa-microchip" style="color: #c084fc;"></i> IT Capital</div>
+                                <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+                                <button class="play-btn" onclick="openVideoModal('${college.name}')" title="Watch College Story"><i class="fa-solid fa-play" style="margin-left:4px;"></i></button>
+                            </div>
+                            <div class="college-info">
+                                <div class="college-logo" style="background:${college.logoColor};">
+                                    <span>${college.acronym}</span>
+                                </div>
+                                <h3>${college.name}</h3>
+                                <p class="location"><i class="fa-solid fa-location-dot"></i> ${college.location}</p>
+                                
+                                <div class="college-metrics" style="background: #f5f3ff; border: 1px solid #ddd6fe;">
+                                    <div class="metric">
+                                        <span class="label">1st Year Fees</span>
+                                        <span class="value">${college.fees}</span>
+                                    </div>
+                                    <div class="metric">
+                                        <span class="label">Avg Package</span>
+                                        <span class="value" style="color: #7c3aed; font-weight: 700;">${college.package}</span>
+                                    </div>
+                                    <div class="metric rating">
+                                        <span class="label">Tech Score</span>
+                                        <span class="value"><i class="fa-solid fa-star"></i> ${college.rating}/5</span>
+                                    </div>
+                                </div>
+
+                                <div class="college-actions">
+                                    <button class="btn-primary w-100" onclick="openLeadForm()" style="background: #16a34a; box-shadow: 0 4px 15px rgba(22, 163, 74, 0.3); margin-top: 5px;">Apply Now <i class="fa-solid fa-arrow-right"></i></button>
+                                    <div style="display: flex; gap: 10px; width: 100%;">
+                                        <button class="btn-outline w-100" style="margin-top: 10px; padding: 10px;" onclick="openLeadForm()">Brochure</button>
+                                        <button class="btn-primary w-100" style="margin-top: 10px; padding: 10px;" onclick="openLeadForm()"><i class="fa-solid fa-bolt"></i> Mentor</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    grid.innerHTML += cardHTML;
+                });
+            }
+            renderColleges(techData);
+        });
+    </script>
+</body>
+</html>
