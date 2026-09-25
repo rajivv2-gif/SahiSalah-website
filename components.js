@@ -127,28 +127,68 @@ class SahiFooter extends HTMLElement {
                 color: var(--secondary);
                 padding-left: 5px;
             }
+            .whatsapp-helpline-pill {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                background: rgba(37, 211, 102, 0.15);
+                color: #25d366 !important;
+                border: 1px solid rgba(37, 211, 102, 0.35);
+                padding: 8px 16px;
+                border-radius: 999px;
+                font-weight: 700;
+                font-size: 0.9rem;
+                text-decoration: none;
+                margin-top: 10px;
+                transition: all 0.3s ease;
+            }
+            .whatsapp-helpline-pill:hover {
+                background: #25d366;
+                color: #ffffff !important;
+                box-shadow: 0 8px 20px rgba(37, 211, 102, 0.35);
+                transform: translateY(-2px);
+            }
+            .live-pulse-dot {
+                width: 8px;
+                height: 8px;
+                background: #25d366;
+                border-radius: 50%;
+                display: inline-block;
+                animation: pulseLive 1.5s infinite;
+            }
+            @keyframes pulseLive {
+                0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+                70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(37, 211, 102, 0); }
+                100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+            }
         </style>
         <footer>
             <div class="footer-container">
                 <div class="footer-brand" style="flex: 1 1 300px; min-width: 250px;">
                     <h3>Sahi <span>Salah</span></h3>
-                    <p style="margin-bottom: 15px;">Decoding global possibilities for the Indian middle class.</p>
-                    <p style="font-size: 0.9rem; line-height: 1.5;"><i class="fa-solid fa-location-dot" style="color: var(--secondary);"></i> SS Complex, Under Modipuram by-pass bridge, Near TVs Showroom Modipuram Bypass, Meerut 250001</p>
-                    <div class="social-links" style="margin-top: 20px; display: flex; gap: 15px;">
-                        <a href="#" target="_blank" style="color: #94a3b8; font-size: 1.5rem; transition: all 0.3s; display: inline-block;"><i class="fa-brands fa-facebook"></i></a>
-                        <a href="#" target="_blank" style="color: #94a3b8; font-size: 1.5rem; transition: all 0.3s; display: inline-block;"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="#" target="_blank" style="color: #94a3b8; font-size: 1.5rem; transition: all 0.3s; display: inline-block;"><i class="fa-brands fa-linkedin"></i></a>
-                        <a href="#" target="_blank" style="color: #94a3b8; font-size: 1.5rem; transition: all 0.3s; display: inline-block;"><i class="fa-brands fa-youtube"></i></a>
+                    <p style="margin-bottom: 12px; color: #cbd5e1; font-size: 0.95rem;">Decoding career &amp; admission possibilities with 100% data transparency.</p>
+                    <p style="font-size: 0.88rem; line-height: 1.5; color: #94a3b8;"><i class="fa-solid fa-location-dot" style="color: var(--secondary);"></i> SS Complex, Near TVs Showroom Modipuram Bypass, Meerut 250001</p>
+                    
+                    <a href="https://wa.me/918882289261?text=Hi%20Sahi%20Salah,%20I%20need%20admission%20guidance" target="_blank" class="whatsapp-helpline-pill">
+                        <span class="live-pulse-dot"></span>
+                        <i class="fa-brands fa-whatsapp"></i> WhatsApp Helpline: +91 88822 89261
+                    </a>
+
+                    <div class="social-links" style="margin-top: 18px; display: flex; gap: 14px;">
+                        <a href="https://facebook.com" target="_blank" title="Facebook" style="color: #94a3b8; font-size: 1.4rem; transition: all 0.3s; display: inline-block;"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://instagram.com" target="_blank" title="Instagram" style="color: #94a3b8; font-size: 1.4rem; transition: all 0.3s; display: inline-block;"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://linkedin.com" target="_blank" title="LinkedIn" style="color: #94a3b8; font-size: 1.4rem; transition: all 0.3s; display: inline-block;"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://youtube.com" target="_blank" title="YouTube" style="color: #94a3b8; font-size: 1.4rem; transition: all 0.3s; display: inline-block;"><i class="fa-brands fa-youtube"></i></a>
                     </div>
                 </div>
                 <div class="footer-col" style="flex: 1 1 200px; min-width: 180px;">
                     <h4>Programs</h4>
                     <ul>
                         <li><a href="india-colleges.html">Study in India</a></li>
-                        <li><a href="mba-admission.html">MBA Admissions</a></li>
+                        <li><a href="mba-admission.html">MBA Admissions 2026</a></li>
                         <li><a href="pgdm-admission.html">PGDM Admissions</a></li>
-                        <li><a href="online-mba.html">Online MBA</a></li>
-                        <li><a href="scholarships.html">Scholarships & EMI</a></li>
+                        <li><a href="online-mba.html">Online MBA Degrees</a></li>
+                        <li><a href="scholarships.html">Scholarships &amp; EMI</a></li>
                         <li><a href="working-professionals.html">For Working Professionals</a></li>
                     </ul>
                 </div>
@@ -160,23 +200,23 @@ class SahiFooter extends HTMLElement {
                         <li><a href="free-career-counseling.html">Free Career Counseling</a></li>
                         <li><a href="career-guidance.html">Career Guidance</a></li>
                         <li><a href="student-support.html">Student Support</a></li>
-                        <li><a href="admissions-open.html">Admissions Open</a></li>
-                        <li><a href="assessments.html">Specialized Tests</a></li>
+                        <li><a href="admissions-open.html">Admissions Open 2026</a></li>
+                        <li><a href="assessments.html">Career &amp; Aptitude Tests</a></li>
                     </ul>
                 </div>
                 <div class="footer-col" style="flex: 1 1 200px; min-width: 180px;">
                     <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="reviews.html">Student Reviews</a></li>
-                        <li><a href="blog.html">Blogs & Resources</a></li>
+                        <li><a href="reviews.html">Student Success Stories</a></li>
+                        <li><a href="blog.html">Blogs &amp; Career Articles</a></li>
                         <li><a href="contact.html">Contact Us</a></li>
-                        <li><a href="https://wa.me/918882289261" target="_blank" style="color: #25d366; font-weight: bold;"><i class="fa-brands fa-whatsapp"></i> Chat with Mentor</a></li>
+                        <li><a href="apply.html" style="color: #60a5fa; font-weight: 600;"><i class="fa-solid fa-paper-plane"></i> Apply for Mentorship</a></li>
                     </ul>
                 </div>
             </div>
-            <div style="max-width: 1200px; margin: 40px auto 0 auto; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 15px; color: #64748b; font-size: 0.85rem;">
-                <p>&copy; 2026 Sahi Salah. All rights reserved.</p>
-                <p>100% Transparent Counseling &bull; No hidden commission traps.</p>
+            <div style="max-width: 1200px; margin: 35px auto 0 auto; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 15px; color: #64748b; font-size: 0.85rem; align-items: center;">
+                <p>&copy; 2026 <strong>Sahi Salah</strong> (StudyIndia). All rights reserved.</p>
+                <p><i class="fa-solid fa-shield-halved" style="color: var(--secondary);"></i> 100% Transparent Counseling &bull; Zero Hidden Agent Fees.</p>
             </div>
         </footer>
         `;
